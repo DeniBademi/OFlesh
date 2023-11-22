@@ -1,0 +1,20 @@
+#background {
+    background-color: black;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    position: sticky;
+    top:0;
+    z-index: 999;
+}
+
+#content {
+    color: red;
+    font-size: 1rem;
+    margin: 0;
+    padding: 2;
+    text-align: middle;
+}

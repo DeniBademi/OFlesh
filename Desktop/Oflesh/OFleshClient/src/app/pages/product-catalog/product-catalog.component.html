@@ -1,0 +1,18 @@
+    <!-- <section id="page-header">
+        <h2>Products</h2>
+    </section> -->
+
+    <!-- <div class="d-flex row">
+        <div class="col-sm-2">
+            <app-product-filters></app-product-filters>
+        </div>
+        <div class="col-sm-10"><app-product-list></app-product-list></div>
+    </div> -->
+    <div class="justify-content-center productlistel">
+        <div class="row">
+            <div class="col-lg-2 filters"><app-product-filters (ChangeFilters)="onChangeFilters($event)"></app-product-filters></div>
+            <div class="col-lg-9"><app-product-list [changeFilters]="changeFilters.asObservable()"></app-product-list></div>
+        </div>
+    </div>
+    <br>    <br>    <br>    <br>    <br>    <br>    <br>    <br>
+

@@ -1,0 +1,66 @@
+<app-home-banner></app-home-banner>
+
+<!-- 
+<section id="homeparagraph" class="section-p1">
+  <h2 style="font-size: 40px;" i18n="Paragraph header|Title for the honeycomb rollers product@homeheader">Foundation making for everyone.</h2>    
+  <div class="float-child">
+    <div class="green" i18n="Paragraph content|Text about the 3d printing technology and how great it is@homecontent">Our specialty is 3D printed honeycomb rollers, designed to revolutionize the way you extract honey. With 3D printing, we have made this technology more affordable and accessible for beekeepers of all levels. Our 3D printed honeycomb rollers are not only cost-effective, but they also come with the added benefit of easy repair, as spare parts are readily available. Join us in embracing the future of beekeeping technology and make your honey extraction process easier, more efficient, and more sustainable with our 3D printed honeycomb rollers.</div>
+  </div>
+</section>
+
+
+<section id="banner" class="section-m1">
+  <h2 i18n="Email reminder|Short text to remind customers to check their email for discount codes@discountbanner">Check your <span>E-mail</span> for Promocodes and Sales</h2>
+  <button class="normal" type="button" (click)="this.router.navigate(['/catalog'])" i18n="View products|A button to redirect users to the catalog page@gotocatalog">Explore More</button>
+</section> -->
+
+<section id="homeparagraph" class="section-p1">
+  <h2 style="font-size: 40px;">{{'home.heading' | translate}}</h2>    
+  <div class="float-child">
+    <div class="green">{{'home.text' | translate}}</div>
+  </div>
+
+  <div class="appearing_labels">
+    <div class="item appear left" data-aos="fade-up" data-aos-duration="2000">
+      {{'home.easy_to_make' | translate}}
+    </div>
+    
+    <div class="item appear" data-aos="fade-up" data-aos-duration="2000">
+      {{'home.heavier_and_stronger' | translate}}
+    </div>
+    
+    <div class="item appear right" data-aos="fade-up" data-aos-duration="2000">
+      {{'home.non_toxic_certified' | translate}}
+    </div>
+  </div>
+
+  <div class="featured">
+    <app-featured-card [product]="this.preSheet"></app-featured-card>
+    <app-featured-card [product]="this.roller"></app-featured-card>
+  </div>
+
+</section>
+<!-- 
+<div style="width: 400px; margin: auto; font-size: 30px; color: white; text-align: center;">How it works</div> -->
+
+<ul class="what_i_get">
+  <div class="what_i_get_header">{{'home.what_i_get_header' | translate}}</div>
+  <li class="bullet">{{'home.what_i_get_1' | translate}}</li>
+  <li class="bullet">{{'home.what_i_get_2' | translate}}</li>
+  <li class="bullet">{{'home.what_i_get_3' | translate}}</li>
+  <li class="bullet">{{'home.what_i_get_4' | translate}}</li>
+  <li class="bullet">{{'home.what_i_get_5' | translate}}</li>
+  <li class="bullet">{{'home.what_i_get_6' | translate}}</li>
+  <li class="bullet">{{'home.what_i_get_7' | translate}}</li>
+  <li class="bullet">{{'home.what_i_get_8' | translate}}</li>
+  <li class="bullet">{{'home.what_i_get_9' | translate}}</li>
+</ul>
+
+
+<section id="banner" class="section-m1">
+  <div class="newsletter_header">{{'home.checkyour' | translate}} <span>{{'email' | translate}}</span> {{'home.for_promocodes_and_sales' | translate}}</div>
+<button class="normal" type="button" (click)="this.router.navigate(['/'+this.translate.currentLang+'/catalog'])">{{'home.go_to_catalog' | translate}}</button>
+</section>
+
+
+<app-newsletter-form></app-newsletter-form>

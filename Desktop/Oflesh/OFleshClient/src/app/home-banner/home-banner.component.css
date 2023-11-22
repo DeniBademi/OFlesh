@@ -1,0 +1,52 @@
+#container {
+    position: relative;
+    background-color: yellow;
+    width: 100%;
+    min-height: 500px;
+    height: auto;
+    background-color: yellow;
+    position: relative;
+}
+#tsparticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    z-index: 0;
+}
+#content {
+    margin: 0;
+    margin-left: 5%;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
+.label {
+    font-size: 105px;
+    color: black !important;
+}
+
+.line1 {
+    margin-bottom: 60px;
+}
+
+@media (max-width:700px) {
+    .label {
+        font-size: 45px;
+    }
+    .line1 {
+        margin-bottom: 30px;
+    }
+
+    #container {
+        max-height: 300px;
+        min-height: 50vh;
+    }
+}
+

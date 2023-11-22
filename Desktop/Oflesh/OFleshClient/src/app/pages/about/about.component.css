@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.container {
+    width: 100%;
+    padding-top: 10vh;
+    font-family:"Spartan",serif;
+}
+
+.label {
+    color: yellow;
+    font-size: 60px;
+    margin: 0;
+    line-height: 3vh;
+    margin:0in;
+    font-size:20px;
+    color:white;
+    border:none;
+}
+
+.title {
+
+}
+
+.bubble {
+    background-color: black;
+    border: 2px solid yellow;
+    border-radius: 20px;
+    padding: 1.6vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    margin-bottom: 10vh;
+    
+}
+
+.left {
+    margin-right: 40%;
+}
+
+.right {
+    margin-left: 40%;
+}
+
+
+@media (max-width:700px) {
+    .label {
+        font-size: 15px;
+    }
+    .left, .right {
+        margin: 5vw
+    }
+}

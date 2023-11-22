@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="6480199174115245050" datatype="html">
+        <source>Foundation making for everyone.</source>
+        <target>Восъчни основи за всеки.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">Title for the honeycomb rollers product@homeheader</note>
+        <note priority="1" from="meaning">Paragraph header</note>
+      </trans-unit>
+      <trans-unit id="1624403787772995839" datatype="html">
+        <source>Our specialty is 3D printed honeycomb rollers, designed to revolutionize the way you extract honey. With 3D printing, we have made this technology more affordable and accessible for beekeepers of all levels. Our 3D printed honeycomb rollers are not only cost-effective, but they also come with the added benefit of easy repair, as spare parts are readily available. Join us in embracing the future of beekeeping technology and make your honey extraction process easier, more efficient, and more sustainable with our 3D printed honeycomb rollers.</source>
+        <target>Ние се специализираме в производството на 3D принтирани ролки за восъчни пити, разработени за да революционизират начина, по който извличате мед. Чрез силата на 3D принтирането правим тази технология по-бюджетна и достъпна за пчелари от всички нива. Нашите 3D отпечатани ролки са не само рентабилни, но и се предлагат с допълнителното предимство на лесен ремонт, тъй като предлагаме и резервни части за нашите машини. Присъедини се към нас и открий бъдещето на пчеларската технология. Направете процеса на извличане на мед по-лесен, по-ефективен и по-устойчив с нашите продукти.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">Text about the 3d printing technology and how great it is@homecontent</note>
+        <note priority="1" from="meaning">Paragraph content</note>
+      </trans-unit>
+      <trans-unit id="1882051282612736050" datatype="html">
+        <source>Check your <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>E-mail<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> for Promocodes and Sales</source>
+        <target>Проверявай твоя <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Имейл<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/> за промо кодове и отстъпки</target>
+
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Short text to remind customers to check their email for discount codes@discountbanner</note>
+        <note priority="1" from="meaning">Email reminder</note>
+      </trans-unit>
+      <trans-unit id="8522512728545269338" datatype="html">
+        <source>Explore More</source>
+        <source>Към каталога</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/home/home.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">A button to redirect users to the catalog page@gotocatalog</note>
+        <note priority="1" from="meaning">View products</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

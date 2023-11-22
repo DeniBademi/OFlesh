@@ -1,0 +1,26 @@
+<p class="card-pre-header">{{product.name}} {{product.price | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</p>
+
+<a class="container" [routerLink]="['/'+this.translate.currentLang+'/product', product.id]">
+  <div class="image">
+    <img class="card-img-top" [attr.src]="GlobalsService.productPhotosMediaURLs + product.photosJSON.thumbnail">
+
+  </div>
+</a>
+
+<!-- <div class="container">
+  <img class="image" [attr.src]="GlobalsService.productPhotosMediaURLs + product.photosJSON.thumbnail" alt="Image" />
+  <div class="text">
+    <p>{{product.description}}</p>
+  </div>
+</div> -->
+
+
+<a class="card flex-row" [routerLink]="['/'+this.translate.currentLang+'/product', product.id]">
+  <img class="card-img-md-left example-card-img-responsive" [attr.src]="GlobalsService.productPhotosMediaURLs + product.photosJSON.thumbnail"/>
+  <div class="card-body">
+    <p class="card-text">{{product.description}}</p>
+  </div>
+</a>
+
+<div class="box" (click)="CartService.addItem(product)">Add to Cart</div>
+

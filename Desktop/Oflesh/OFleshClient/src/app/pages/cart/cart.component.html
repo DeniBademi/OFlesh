@@ -1,0 +1,148 @@
+ <div class="container mt-5 p-3 rounded cart" *ngIf="this.cartItemsLength>0">
+    <h1 style="font-weight: 500; font-size: 30px;">{{'cart.cart_title' | translate}}</h1>
+    <div class="row no-gutters">
+        <div class="col-md-8 productlist">
+            <div class="product-details mr-2">
+                <div class="d-flex flex-row align-items-center go-back-btn" [routerLink]="['/'+this.translate.currentLang+'/catalog']" routerLinkActive="active">
+                    <i class="fa fa-long-arrow-left"></i><span class="ml-2">{{'cart.continue_shopping' | translate}}</span>
+                </div>
+                <hr>
+                <!-- <h6 class="mb-0">Shopping cart</h6> -->
+                <div class="d-flex justify-content-between"><span>{{'cart.item_counter' | translate: {cartItemsLength: cartItemsLength} }}</span>
+                    <!-- <div class="d-flex flex-row align-items-center"><span class="text-black-50">Sort by:</span>
+                        <div class="price ml-2"><span class="mr-1">price</span><i class="fa fa-angle-down"></i></div>
+                    </div> -->
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded overflow-auto" *ngFor="let item of cartItems">
+                    <div class="d-flex flex-row"><img class="rounded" [attr.src]="this.GlobalsService.productPhotosMediaURLs + item.product.photosJSON.thumbnail" width="40">
+                        <div class="ml-2"><span class="font-weight-bold d-block">{{item.product.name}}</span>
+                            <span class="spec"><b>{{item.product.productType.name}} | {{item.product.productModel.name}}</b></span>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center">
+                        <!-- <span class="d-block">{{item.quantity}}</span> -->
+                        <div class="quantity buttons_added">
+                            <input type="button" value="-" class="minus" (click)="removeItem(item.product)">
+                            <input type="number" step="1" min="1" max="" name="quantity" [(ngModel)]="item.quantity" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
+                            <input type="button" value="+" class="plus" (click)="addItem(item.product)">
+                        </div>
+
+                        <!-- <div class="round-button">
+                            <div class="round-button-circle">
+
+                            </div>
+                        </div> -->
+                        <i class="fa-solid far fa-trash fa-lg ml-4" style="cursor: pointer;" (click)="this.CartService.deleteItem(item.product)"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="payment-info discountcontainer">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>{{'cart.discount' | translate}}</span>
+                </div>
+                <label class="discount-code-label">{{'cart.enter_discount_code' | translate}}</label>
+                <div class="discountform">
+
+                    <input type="text" class="form-control credit-inputs discountinput" [(ngModel)]="discountCode" placeholder="XXXXXX">
+                    <button class="applydiscountbtn" (click)="validateDiscountCode()" >Apply</button>
+                    <!-- <div class="form">
+                        <input type="text" placeholder="Your email address" [(ngModel)]="email">
+                        <button class="normal" (click)="addSubscription()">Sign Up</button>
+                    </div> -->
+                </div>
+
+            </div>
+            <div class="payment-info">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>{{'cart.personal_details' | translate}}</span>
+                </div>
+                <span class="type d-block mt-3 mb-1"></span>
+
+
+                <form [formGroup]="PersonalDetailsForm" (ngSubmit)="checkout()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="credit-card-label">{{'cart.first_name' | translate}} *</label>
+                            <input required type="text" class="form-control credit-inputs" placeholder="John" formControlName="firstName">
+                            <div *ngIf="PersonalDetailsForm.controls['firstName'].invalid && (PersonalDetailsForm.controls['firstName'].dirty || PersonalDetailsForm.controls['firstName'].touched)">
+                                <div *ngIf="PersonalDetailsForm.controls['firstName'].errors!['required']" class="error">
+                                    {{'messages.required_field' | translate}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="credit-card-label">{{'cart.last_name' | translate}} *</label>
+                            <input required type="text" class="form-control credit-inputs" placeholder="Smith" formControlName="lastName">
+                            <div *ngIf="PersonalDetailsForm.controls['lastName'].invalid && (PersonalDetailsForm.controls['lastName'].dirty || PersonalDetailsForm.controls['lastName'].touched)">
+
+                                <div *ngIf="PersonalDetailsForm.controls['lastName'].errors!['required']" class="error">
+                                    {{'messages.required_field' | translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="credit-card-label">{{'cart.email' | translate}} *</label>
+                        <input required type="email" class="form-control credit-inputs" placeholder="john.smith@example.com" formControlName="email">
+                        <div *ngIf="PersonalDetailsForm.controls['email'].invalid && (PersonalDetailsForm.controls['email'].dirty || PersonalDetailsForm.controls['email'].touched)">
+                            <div *ngIf="PersonalDetailsForm.controls['email'].errors!['required']" class="error">
+                                {{'messages.required_field' | translate}}
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <label class="credit-card-label">{{'cart.phone_number' | translate}} *</label>
+                        <div class="phoneContainer">
+
+                            <input required class="form-control credit-inputs" formControlName="phoneNumber" type="tel" placeholder="+359 999 999 999">
+                            <div *ngIf="PersonalDetailsForm.controls['phoneNumber'].invalid && (PersonalDetailsForm.controls['phoneNumber'].dirty || PersonalDetailsForm.controls['phoneNumber'].touched)">
+                                <div *ngIf="PersonalDetailsForm.controls['phoneNumber'].errors['required']" class="error">
+                                    {{'messages.required_field' | translate}}
+                                </div>
+                                <div *ngIf="PersonalDetailsForm.controls['phoneNumber'].errors['pattern']" class="error">
+                                    {{'messages.invalid_field' | translate}}
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <input type="checkbox" id="privacy_policy" name="privacy_policy" formControlName="agreed_privacy_policy">
+                    <label for="privacy_policy" id="privacy_policy_label">{{'cart.agree' | translate}} <a [routerLink]="['/'+this.translate.currentLang+'/privacy-policy']">{{'cart.privacy_policy' | translate}}</a></label><br>
+                    <input type="checkbox" id="terms_cons" name="terms_cons" formControlName="agreed_terms">
+                    <label for="terms_cons" id="terms_cons_label">{{'cart.agree' | translate}} <a [routerLink]="['/'+this.translate.currentLang+'/terms-and-conditions']">{{'cart.terms' | translate}}</a></label><br>
+
+                    <hr class="line">
+                    <!-- <div class="d-flex justify-content-between information"><span>Subtotal</span><span>{{total}} BGN</span></div> -->
+                    <div class="d-flex justify-content-between information"><span>{{'cart.taxes_shipping' | translate}}</span></div>
+                    <button class="btn btn-checkout btn-block d-flex justify-content-between mt-3"
+                    type="submit" [disabled]="!(PersonalDetailsForm.valid)">
+                        <span *ngIf="this.discountType.length==0">{{sum | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</span>
+                        <span *ngIf="this.discountType.length>0"><s style="color:red; font-weight: 500;white-space: pre;">{{sum | convert: {round:false} | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</s> {{total | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</span>
+                        <span>{{'cart.checkout' | translate}}<i class="fa fa-long-arrow-right ml-1"></i></span>
+                    </button>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-5 p-3 rounded cart" *ngIf="this.cartItemsLength==0">
+    <div class="row no-gutters">
+        <div class="empty-cart-container">
+            <div class="empty-cart-content">
+                <h1 class="cart-empty-label">{{'cart.empty_cart' | translate}}</h1>
+                <button class="go-shopping-btn" [routerLink]="['/'+this.translate.currentLang+'/catalog']" routerLinkActive="active" >{{'cart.go_shopping' | translate}}</button>
+            </div>
+
+        </div>
+    </div>
+</div>
