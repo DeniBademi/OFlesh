@@ -1,0 +1,190 @@
+{
+	"email": "email",
+	"Email": "Email",
+	"phone": "Phone",
+	"Contact": "Contact",
+	"hours": "Hours",
+	"follow_us": "Follow us",
+	"optional": "Optional",
+	"free": "Free",
+	"home": {
+		"checkyour": "Check your ",
+		"for_promocodes_and_sales": " for promocodes and sales",
+		"go_to_catalog": "Explore more",
+		"heading": "Foundation making for everyone.",
+		"text": "Our specialty is 3D printed honeycomb rollers, designed to revolutionize the way you extract honey. With 3D printing, we have made this technology more affordable and accessible for beekeepers of all levels. Our 3D printed honeycomb rollers are not only cost-effective, but they also come with the added benefit of easy repair, as spare parts are readily available. Join us in embracing the future of beekeeping technology and make your honey extraction process easier, more efficient, and more sustainable with our 3D printed honeycomb rollers.",
+		"what_i_get_header": "What I get:",
+		"what_i_get_1": "Easy to make wax foundations at home",
+		"what_i_get_2": "100% wax foundations",
+		"what_i_get_3": "Thicker and heavier foundations - bees build their combs faster",
+		"what_i_get_4": "5 years warranty",
+		"what_i_get_5": "30 days money back guarantee",
+		"what_i_get_6": "Machine made of certified material - does not smell, does not rust and does not release toxins",
+		"what_i_get_7": "Bearings made of stainless steel",
+		"what_i_get_8": "Access to spare parts",
+		"what_i_get_9": "User manual",
+		"easy_to_make": "Easy to make",
+		"heavier_and_stronger": "Heavier and stronger",
+		"non_toxic_certified": "Non-toxic, certified"
+	},
+	"nav": {
+		"home":"Home",
+		"catalog":"Shop",
+		"about": "About us",
+		"contact":"Contact",
+		"find_us": "Find us",
+		"language":"Language"
+	},
+	"catalog": {
+		"product_types_header": "Product Types",
+		"product_models_header": "Models",
+		"apply_filters_btn": "Apply Filters",
+		"product_type":"Type",
+		"product_model":"Model",
+		"buy_now": "Buy now",
+		"warranty-5": "5 Year Warranty",
+		"money-30": "30 Day Money Back Guarantee"
+
+	},
+	"product_details": {
+		"add_to_cart": "Add to cart",
+		"added_to_cart": "Added to cart"
+	},
+	"about": {
+		"who_are_we_header": "Who are we and what is our story?",
+		"who_are_we_content": "We are a manufacturing facility based in Bulgaria that specialises in producing 3D printed products. We make our rollers affordable without compromising their durability because what we value most is the quality of the product and the satisfaction of the user.",
+		"our_team_header": "Our team",
+		"our_team_content": "We are a group of engineering students and together with professionals in the beekeeping area we worked hard and extensively to create a honeycomb roller that will be of use for small and large beekeepers.",
+		"our_mission_and_values_header": "Our mission and our values",
+		"our_mission_and_values_content": "The goal we had set for ourself to achieve was to give an alternative to beekeepers, that is both effective and affordable. We also made sure that the materials used in production are 100% harmless to the bees (officially certified). What we value most is quality and that’s why our rollers are made with the best possible polymers found on the market."
+	},
+	"contact": {
+		"get_in_touch": "GET IN TOUCH",
+		"visit_distributors": "Visit one of our distributor locations or contact us today",
+		"sofia_bulgaria":"Sofia, Bulgaria",
+		"sofia_bulgaria-2": "Tilia Beekeeping Supplies - Sofia, Bulgaria",
+		"working_hours_1": "Monday to Friday: 10:00am to 7:00pm",
+		"working_hours_2": "Saturday: 10:00am to 2:00pm",
+		"working_hours_1-2": "Monday to Friday: 10:00am to 6.00pm",
+		"working_hours_2-2": "Saturday: 10:00am to 1:30pm",
+		"address": "325-1, ж.к Младост 3 3251, 1712 София",
+		"address-2": "ул. „Княз Борис I“ 172, 1202 София център, София",
+		"phone_number_dist": "+359 88 650 8084",
+		"send_message_header": "Send us a message",
+		"send_message_sub": "Have a question? Leave us a message, we love to hear from you!",
+		"send_now": "Send now",
+		"enter_name": "Name",
+		"enter_email": "Email",
+		"enter_message": "Message"
+	},
+	"cart": {
+		"cart_title": "Cart",
+		"continue_shopping": "Continue Shopping",
+		"item_counter": "You have {{cartItemsLength}} item(s) in your cart",
+		"discount": "DISCOUNT",
+		"enter_discount_code": "Enter your discount code here",
+		"apply_discount_code": "Apply",
+		"personal_details": "Personal details",
+		"first_name": "First name",
+		"last_name": "Last name",
+		"email": "Email",
+		"phone_number": "Phone number",
+		"taxes_shipping": "Taxes included. Shipping calculated at checkout.",
+		"checkout": "Checkout",
+		"empty_cart": "Your cart is empty",
+		"go_shopping": "Go Shopping",
+		"agree":"   I agree to the",
+		"privacy_policy": "Privacy Policy",
+		"terms": "Terms and Conditions"
+
+	},
+
+	"checkout": {
+		"information_link":"Information",
+		"personal_details_link":"Personal Details",
+		"shipping_address_link": "Shipping Address",
+		"shipping_method_link": "Shipping method",
+		"shipping_info":"Shipping information",
+		"payment_link": "Payment",
+		"continue":"Continue",
+		"shipping_address": {
+			"line1":"Address Line 1",
+			"line2":"Address Line 2",
+			"country":"Country",
+			"city":"City",
+			"state":"State",
+			"postal_code":"Postal Code"
+
+
+		},
+		"shipping_method": {
+			"warning_international": "Please note that international delivery time is around 20 business days.",
+			"processing_time": "Manufacturing time can take up to 10 business days.",
+			"standard_delivery_header_bg": "Standard Delivery - Bulgaria - Free",
+			"standard_delivery_content_bg": "Standard processing time. Your order is added to our queue and is processed in the order it was received. Payment on delivery possible. Shipped to you via EKONT.",
+			"priority_delivery_header_bg": "Prioritized Delivery - Bulgaria -",
+			"priority_delivery_content_bg": "Your order receives prioritized status and is processed first. Payment on delivery possible. Shipped to you via EKONT.",
+			"standard_delivery_header_int": "Standard Delivery - {{country}} -",
+			"standard_delivery_content_int": "Standard processing time. Your order is added to our queue and is processed in the order it was received.",
+			"priority_delivery_header_int": "Prioritized Delivery - {{country}} -",
+			"priority_delivery_content_int": "Your order receives prioritized status and is processed first."
+		},
+		"payment": {
+			"payment_method": "Payment method",
+			"order_and_pay":"Order & Pay",
+			"card": "Credit/Debit card",
+			"upon_delivery": "Pay upon delivery"
+		},
+		"overview": {
+			"order_overview": "Order overview",
+			"shipping": "Shipping",
+			"total": "Total",
+			"subtotal":"Subtotal",
+			"discount": "DISCOUNT"
+		}
+	},
+	"footer": {
+		"terms_conditions": "Terms and Conditions",
+		"privacy_policy": "Privacy Policy",
+		"return_policy": "Return Policy",
+		"contact": "Contact",
+		"about": "About",
+		"contact_us": "Contact us",
+		"payment": "Payment",
+		"secured_payment_gateways": "All payments are processed by Stripe",
+		"account":"Account",
+		"view_cart": "View cart",
+		"help": "Help",
+		"copyright": "Ⓒ All rights reserved."
+	},
+	"newsletter": {
+		"newsletter": "Sign Up For Our Newsletter",
+		"newsletter_sub_1": "Get 5% OFF Coupon and receive our latest news and",
+		"newsletter_sub_2": "special offers.",
+		"subscribe": "Subscribe",
+		"enter_email": "Enter your email address",
+		"subscribe_success": "You have successfully subscribed to our newsletter",
+		"subscribe_error": "You have already subscribed to our newsletter"
+	},
+	"messages": {
+		"required_field": "This field is required!",
+		"invalid_field": "Invalid input!"
+	},
+	"modals": {
+		"continue_shopping": "Continue Shopping",
+		"view_cart": "View Cart",
+		"new_item_added": "New item added to cart",
+		"have_any_questions": "Have any questions?",
+		"close": "Close",
+		"call_us": "Call us for a free consultation at",
+		"or_email": " or send us an email at ",
+		"find_us": "Find us",
+		"find_us_text": "Want to see first? Visit our distributor stores in Sofia, Bulgaria",
+		"here": "here",
+		"special_offer": "Special offer",
+		"win_message_1": "You have won a limited-time discount of",
+		"win_message_2": "before the timer runs out!",
+		"shop_now": "Shop now"
+	}
+
+}

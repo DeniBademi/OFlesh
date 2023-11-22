@@ -1,0 +1,68 @@
+<div class="navbar">
+
+  <!-- Navbar logo -->
+  <div class="nav-header">
+    <div class="borderhex"></div>
+    <div class="hexagon">
+      <a [routerLink]="['/',this.translateService.currentLang, 'home']" routerLinkActive="router-link-active" (click)="closeMenu()">
+        <img class="logo" src="../../assets/img/Small Logo v2.png">
+      </a>
+    </div>
+  </div>
+
+  <!-- responsive navbar toggle button -->
+  <input type="checkbox" id="nav-check" [(ngModel)]="isMenuOpened">
+  <div class="nav-btn">
+    <label for="nav-check">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </div>
+
+  <!-- Navbar items -->
+  <!-- <div class="nav-links">
+    <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a [routerLink]="['/catalog']" routerLinkActive="active">Catalog</a>
+    <a [routerLink]="['/about']" routerLinkActive="active">About</a>
+    <a [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
+  </div> -->
+
+
+  <div class="flag-container">
+      <a class="dropdown show">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img class="flag-button" [src]='"../../assets/flags/"+this.translateService.currentLang+".svg"'>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" (click)="setLanguage('en')">English</a>
+          <a class="dropdown-item" (click)="setLanguage('bg')">Bulgarian</a>
+          <a class="dropdown-item" (click)="setLanguage('el')">Greek</a>
+        </div>
+    </a>
+  </div>
+
+  <nav class="nav nav-links">
+    <ul id="navbar">
+      <li><a [routerLink]="['/'+this.translateService.currentLang+'/home']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">{{'nav.home' | translate}}</a></li>
+      <li><a [routerLink]="['/'+this.translateService.currentLang+'/catalog']" routerLinkActive="active" (click)="closeMenu()">{{'nav.catalog' | translate}}</a></li>
+      <li><a [routerLink]="['/'+this.translateService.currentLang+'/find-us']" routerLinkActive="active" (click)="closeMenu()">{{'nav.find_us' | translate}}</a></li>
+      <li><a [routerLink]="['/'+this.translateService.currentLang+'/about']" routerLinkActive="active" (click)="closeMenu()">{{'nav.about' | translate}}</a></li>
+      <li><a [routerLink]="['/'+this.translateService.currentLang+'/contact']" routerLinkActive="active" (click)="closeMenu()" >{{'nav.contact' | translate}}</a></li>
+      <!-- <li style="cursor:pointer"><a (click)="setLanguage()" >{{'nav.language' | translate}}: {{ this.translateService.currentLang }}</a></li> -->
+      <li class="desktop-only">
+        <a class="dropdown show desktop-only">
+          <button class="dropdown-toggle desktop-only" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{'nav.language' | translate}}: {{ this.translateService.currentLang }}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" (click)="setLanguage('en')">English</a>
+            <a class="dropdown-item" (click)="setLanguage('bg')">Bulgarian</a>
+            <a class="dropdown-item" (click)="setLanguage('el')">Greek</a>
+          </div>
+      </a>
+      </li>
+      <li id="lg-bag"><a [routerLink]="['/'+this.translateService.currentLang+'/cart']" (click)="closeMenu()"><i class="far fa-shopping-bag fa-3x"></i><span class='badge badge-warning' id='lblCartCount'> {{cartItemsLength}} </span></a></li>
+    </ul>
+  </nav>
+</div>

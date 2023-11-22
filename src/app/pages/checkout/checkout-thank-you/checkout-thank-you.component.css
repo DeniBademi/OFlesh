@@ -1,0 +1,41 @@
+.container {
+    width: 100vw;
+    margin-bottom: 10%;
+}
+
+.label {
+    color: yellow;
+    font-size: 60px;
+    width: 100%;
+    margin: auto;
+    margin-top: 20%;
+    text-align: center;
+    
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 20px;
+    margin: auto;
+    margin-top: 30px;
+    width: 70%;
+    
+    max-width: 600px;
+    
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .container{
+     display: block;
+     height: auto;
+     padding: 20px;
+    }
+
+    .label {
+        font-size: 40px;
+        margin-top: 30%;
+        line-height: 40px;
+    }
+     
+ }

@@ -1,0 +1,46 @@
+<div id="header">
+
+  <div class="borderhex"></div>
+  <div class="hexagon">
+    <a [routerLink]="['/']" routerLinkActive="router-link-active">
+      <img class="logo" src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1678297669/logo2_pcxnn1.svg">
+    </a>
+  </div>
+
+  <input class="side-menu" type="checkbox" id="side-menu"/>
+  <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+
+  <nav class="nav">
+      <ul id="navbar">
+          <li><a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+          <li><a [routerLink]="['/catalog']" routerLinkActive="active" >Catalog</a></li>
+          <!-- <li><a href="blog.html">Blog</a></li> -->
+          <li><a [routerLink]="['/about']" routerLinkActive="active" >About</a></li>
+          <li><a [routerLink]="['/contact']" routerLinkActive="active" >Contact</a></li>
+          <li><div class="dropdown">
+              <button onclick="myFunction()" class="dropbtn">Language</button>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="main-bg.html" class="bg">Bulgarian</a>
+                <!-- <a href="#" class="gr">Greek</a>
+                <a href="#" class="sp">Spanish</a>
+                <a href="#" class="fr">French</a>
+                <a href="#" class="de">German</a>
+                <a href="#" class="ru">Russian</a>                                         -->
+              </div>
+            </div></li>                 
+          <!-- Shopping cart icon -->
+          <li id="lg-bag"><a [routerLink]="['/cart']"><i class="far fa-shopping-bag fa-3x"></i><span class='badge badge-warning' id='lblCartCount'> {{cartItemsLength}} </span></a></li>
+          
+          <a href="#" id="close"><i class="far fa-times"></i></a>
+      </ul>
+
+  </nav>
+  
+  <div id="mobile">
+      <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+      <i id="bar" class="fas fa-outdent"></i>
+      <fa-icon [icon]="cartIcon"></fa-icon>
+  </div>
+
+
+</div>

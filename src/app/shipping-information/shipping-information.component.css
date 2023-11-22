@@ -1,0 +1,11 @@
+.info-container {
+    background: #333;
+    padding: 10px;
+    border-radius: 6px;
+    border: 2px solid yellow;
+    color: #fff;
+    font-weight: bold;
+    margin-left: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+  }

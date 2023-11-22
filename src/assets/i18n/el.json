@@ -1,0 +1,182 @@
+{
+    "email":"email",
+    "Email":"Email",
+    "phone":"Τηλέφωνο",
+    "Contact":"επικοινωνία",
+    "hours":"ώρες",
+    "follow_us":"Ακολουθήστε μας",
+    "optional":"Προαιρετικά",
+    "free":"Δωρεάν",
+    "home":{
+       "checkyour":"Ελέγξτε το",
+       "for_promocodes_and_sales":"Για εκπτωτικούς κωδικούς και προσφορές",
+       "go_to_catalog":"Εξερευνήστε περισσότερα",
+       "heading":"Φοντένια από κερί για όλους.",
+       "text":"Με την 3D εκτύπωση, κάναμε αυτή την τεχνολογία πιο προσιτή και προσβάσιμη για μελισσοκόμους όλων των επιπέδων. Οι τρισδιάστατοι εκτυπωμένοι κύλινδροι μας δεν είναι μόνο οικονομικά προσιτοί , αλλά συνοδεύονται επίσης από το πρόσθετο πλεονέκτημα της εύκολης επισκευής, καθώς τα ανταλλακτικά είναι άμεσα διαθέσιμα. Ελάτε μαζί μας να αγκαλιάσουμε το μέλλον της τεχνολογίας της μελισσοκομίας και να κάνετε τη διαδικασία εξαγωγής μελιού σας ευκολότερη, πιο αποτελεσματική και πιο βιώσιμη με τους τρισδιάστατους 3D κυλίνδρους κηρήθρας.",
+       "what_i_get_header": "What I get:",
+       "what_i_get_1": "Easy to make wax foundations at home",
+       "what_i_get_2": "100% wax foundations",
+       "what_i_get_3": "Thicker and heavier foundations - bees build their combs faster",
+       "what_i_get_4": "5 years warranty",
+       "what_i_get_5": "30 days money back guarantee",
+       "what_i_get_6": "Machine made of certified material - does not smell, does not rust and does not release toxins",
+       "what_i_get_7": "Bearings made of stainless steel",
+       "what_i_get_8": "Access to spare parts",
+       "what_i_get_9": "User manual",
+       "easy_to_make": "Easy to make",
+       "heavier_and_stronger": "Heavier and stronger",
+       "non_toxic_certified": "Non-toxic, certified"
+    },
+    "nav":{
+       "home":"Σπίτι",
+       "catalog":"Κατάλογος",
+       "about":"Σχετικά με",
+       "contact":"Επικοινωνία",
+       "find_us":"Βρείτε μας",
+       "language":"Γλώσσα"
+    },
+    "catalog":{
+       "product_types_header":"Τύποι προϊόντων",
+       "product_models_header":"Μοντέλα",
+       "apply_filters_btn":"Εφαρμόστε φίλτρα",
+       "product_type":"Τύπος",
+       "product_model":"Μοντέλο",
+       "buy_now":"Αγορά τώρα",
+       "warranty-5": "5 χρόνια εγγύηση"
+
+    },
+    "product_details":{
+       "add_to_cart":"Προσθήκη στο καλάθι",
+       "added_to_cart":"Προστέθηκε στο καλάθι"
+    },
+    "about":{
+       "who_are_we_header":"Ποιοι είμαστε και ποια είναι η ιστορία μας",
+       "who_are_we_content":" Είμαστε μια ομάδα παραγωγής με έδρα τη Βουλγαρία η οποία ειδικεύεται στην εκτύπωση τρισδιάστατων προϊόντων. Φτιάχνουμε τους κυλίνδρους μας προσιτούς χωρίς να διακυβεύεται η αντοχή τους γιατί αυτό που εκτιμούμε περισσότερο είναι η ποιότητα του προϊόντος και η ικανοποίηση του χρήστη.",
+       "our_team_header":" Η ομάδα μας",
+       "our_team_content":" Είμαστε μια ομάδα φοιτητών μηχανικών που μαζί με επαγγελματίες του χώρου της μελισσοκομίας εργαστήκαμε σκληρά για να δημιουργήσουμε έναν κυψελωτό κύλινδρο που θα είναι χρήσιμος για μικρούς και μεγάλους μελισσοκόμους.",
+       "our_mission_and_values_header":" Η αποστολή μας και οι αξίες μας",
+       "our_mission_and_values_content":" Ο στόχος που είχαμε δώσει στον εαυτό μας για να επιτευχθεί ήταν να δοθεί μια εναλλακτική λύση στους μελισσοκόμους η  οποία να είναι αποτελεσματική και οικονομικά προσιτή. Φροντίσαμε επίσης τα υλικά που χρησιμοποιούνται στην παραγωγή να είναι 100% ακίνδυνα για τις μέλισσες(επίσημα πιστοποιημένα). Αυτό που εκτιμούμε περισσότερο είναι η ποιότητα και γι’αυτό οι κύλινδροι μας είναι κατασκευασμένοι με τα καλύτερα δυνατά πολυμερή υλικά που υπάρχουν στην αγορά."
+    },
+    "contact":{
+       "get_in_touch":"ΕΠΙΚΟΙΝΩΝΙΣΤΕ",
+       "visit_distributors":"Επισκεφτείτε μία από τις τοποθεσίες διανομής μας ή επικοινωνήστε μαζί μας σήμερα.",
+       "working_hours_1":"Δευτέρα με Παρασκευή: 10.00πμ to 7.00μμ",
+       "working_hours_2":"Κυριακή: 10.00πμ to 2.00μμ",
+       "working_hours_1-2": "Δευτέρα με Παρασκευή: 10:00πμ to 6.00μμ",
+       "working_hours_2-2": "Κυριακή: 10:00πμ to 1:30μμ",
+       "sofia_bulgaria":"Σόφια, Βουλγαρία",
+       "sofia_bulgaria-2":"Tilia Beekeeping Supplies - Σόφια, Βουλγαρία",
+       "address":"325-1, ж.к Младост 3 3251, 1712 София",
+       "phone_number_dist":"+359 88 650 8084",
+       "send_message_header":" Στείλτε μας μήνυμα",
+       "send_message_sub":"Έχετε κάποια ερώτηση; Αφήστε μας μήνυμα, με χαρά θα σας απαντήσουμε! ",
+       "send_now":" Στείλτε τώρα",
+       "enter_name":"Όνομα",
+       "enter_email":"Email",
+       "enter_message":"Μήνυμα"
+    },
+    "cart":{
+       "cart_title":"Καλάθι",
+       "continue_shopping":"Συνέχιση αγοράς",
+       "item_counter":"Εχετε {{cartItemsLength}} αντικείμενο(α) στο καλάθι σας.",
+       "discount":" ΈΚΠΤΩΣΗ",
+       "enter_discount_code":" Εισάγετε τον εκπτωτικό κωδικό εδώ.",
+       "apply_discount_code":"Εφαρμογή",
+       "personal_details":"Προσωπικά στοιχεία",
+       "first_name":"Όνομα",
+       "last_name":"Επώνυμο",
+       "email":"Email",
+       "phone_number":"Αριθμός τηλεφώνου",
+       "taxes_shipping":"Οι φόροι περιλαμβάνονται. Τα μεταφορικά υπολογίζονται κατά την ολοκλήρωση της αγοράς.",
+       "checkout":" Ολοκλήρωση αγοράς",
+       "empty_cart":"Το καλάθι σας είναι άδειο",
+       "go_shopping":"Πηγαίνετε για αγορά",
+       "agree":" Συμφωνώ με",
+       "privacy_policy":" Πολιτικά δεδομένα",
+       "terms":" Όροι και προϋποθέσεις."
+    },
+    "checkout":{
+       "information_link":" Πληροφορίες",
+       "personal_details_link":"Προσωπικά στοιχεία",
+       "shipping_address_link":" Διεύθυνση αποστολής",
+       "shipping_method_link":" Μέθοδος αποστολής",
+       "shipping_info":" Στοιχεία αποστολής",
+       "payment_link":" Πληρωμή",
+       "continue":" Συνέχεια",
+       "shipping_address":{
+          "line1":" Διεύθυνση 1",
+          "line2":" Διεύθυνση 2",
+          "country":" χώραCountry",
+          "city":" Πόλη",
+          "state":" Νομός.",
+          "postal_code":" Ταχυδρομικός κώδικας"
+       },
+       "shipping_method":{
+          "warning_international":" Παρακαλώ λάβετε υπόψη σας τον χρόνο παράδοσης μέσα σε 20 εργάσιμες μέρες.",
+          "processing_time":" Ο χρόνος παραγωγής μπορεί να διαρκέσει έως και 10 εργάσιμες μέρες.",
+          "standard_delivery_header_bg":"Μεταφορικά εντός Βουλγαρίας-δωρεάν",
+          "standard_delivery_content_bg":"Τυπικός χρόνος επεξεργασίας. Η παραγγελία σας προστίθεται στην ουρά προτεραιότητας και υποβάλλεται σε επεξεργασία με τη σειρά που ελήφθη. Δυνατότητα πληρωμής στην παράδοση. Μέσω παράδοσης EKONT.",
+          "priority_delivery_header_bg":" Προτεραιότητα παράδοσης-Βουλγαρία-",
+          "priority_delivery_content_bg":"Η παραγγελία σας λαμβάνει προτεραιότητα και υποβάλλεται σε επεξεργασία πρώτη. Δυνατότητα πληρωμής κατά την παράδοση. Μέσω παράδοσης EKONT.",
+          "standard_delivery_header_int":" Τυπική παράδοση - {{country}} -",
+          "standard_delivery_content_int":" Τυπικός χρόνος παράδοσης. Η παραγγελία σας προστέθηκε στην ουρά προτεραιότητας και υποβάλλεται σε επεξεργασία με τη σειρά που ελήφθη.",
+          "priority_delivery_header_int":" Προτεραιότητα παράδοσης - {{country}} -",
+          "priority_delivery_content_int":" Η παραγγελία σας λαμβάνει κατάσταση προτεραιότητας και υποβάλλεται σε επεξεργασία πρώτη."
+       },
+       "payment":{
+          "payment_method":" Τρόπος πληρωμής",
+          "order_and_pay":" Παραγγελία και πληρωμή",
+          "card":"Credit/Debit card",
+          "upon_delivery":" Πληρωμή με αντικαταβολή"
+       },
+       "overview":{
+          "order_overview":"Επισκόπηση παραγγελίας",
+          "shipping":" Μεταφορικά",
+          "total":" Σύνολο",
+          "subtotal":"Υποσύνολο",
+          "discount":"ΕΚΠΤΩΣΗ"
+       }
+    },
+    "footer":{
+       "terms_conditions":" Όροι και προϋποθέσεις",
+       "privacy_policy":" Πολιτική απορρήτου",
+       "return_policy":" Πολιτική επιστροφής",
+       "contact":" Επικοινωνία",
+       "about":" Σχετικά με",
+       "contact_us":" Επικοινωνήστε μαζί μας",
+       "payment":" Πληρωμή",
+       "secured_payment_gateways":" Όλες οι πληρωμές υποβάλλονται σε επεξεργασία από το Stripe",
+       "account":" Λογαριασμός",
+       "view_cart":" Προβολή καλαθιού",
+       "help":" Βοήθεια",
+       "copyright":"Ⓒ Με την επιφύλαξη κάθε δικαιώματος."
+    },
+    "newsletter":{
+       "newsletter":" Εγγραφτείτε στο ενημερωτικό μας δελτίο",
+       "newsletter_sub_1":" Λάβετε ενημερώσεις μέσω ηλεκτρονικού ταχυδρομείου σχετικά με τα πιο πρόσφατα προϊόντα μας και τις ειδικές μας προσφορές",
+       "newsletter_sub_2":" Ειδικές προσφορές.",
+       "subscribe":"Εγγραφή",
+       "enter_email":" Εισάγετε τη διεύθυνση email σας",
+       "subscribe_success":" Εγγραφήκατε επιτυχώς στο δελτίο.",
+       "subscribe_error":" Είστε ήδη εγγεγραμμένοι στο δελτίο μας."
+    },
+    "messages":{
+       "required_field":" Αυτό το πεδίο είναι υποχρεωτικό!",
+       "invalid_field":" Μη έγκυρη εισαγωγή!"
+    },
+    "modals": {
+		"continue_shopping": "Continue Shopping",
+		"view_cart": "View Cart",
+		"new_item_added": "New item added to cart",
+      "have_any_questions": "Have any questions?",
+		"close": "Close",
+		"call_us": "Call us for a free consultation at",
+		"or_email": " or send us an email at ",
+      "find_us_text": "Want to see first? Visit our distributor stores in Sofia, Bulgaria",
+		"here": "here",
+      "special_offer": "Special offer",
+      "win_message_1": "You have won a",
+		"win_message_2": "before the timer runs out!",
+		"shop_now": "Shop now"
+	}
+ }

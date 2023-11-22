@@ -1,0 +1,21 @@
+.selected {background:#008fb4}
+
+.clearFilters {
+    height: 53px;
+    width: 53px;
+    align-content: center; 
+    line-height: 20px;
+    margin-right: 10px
+}
+.productslist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.add-to-cart-button {
+  border: none;
+  border-radius: 5px;
+}
+
+.paginator {
+  margin-top: 100px;
+}

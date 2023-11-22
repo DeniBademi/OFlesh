@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.card {
+    border: none;
+    cursor: pointer;
+    margin: auto;
+    border-radius: 10px;
+    width: 250px;
+    position: relative;
+}
+
+.card-body {
+    padding: 0.5rem;
+    padding-top: 0.7rem;
+    padding-right: 0.2rem;
+    background-color: white;
+    position: relative;
+}
+
+.cardcontainer {
+    margin: auto;
+    border-radius: 10px;
+    padding-top: 10px;
+}
+
+.pricelabel {
+    float:right;
+    white-space: nowrap;
+}
+
+.add-to-cart-btn {
+    border: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.spec {
+    white-space: nowrap;
+    font-size: 15px;
+}
+
+.card-text-specs {
+    position: absolute;
+    bottom: 0;
+}
+
+.card-text {
+    min-height: 90px;
+}
+
+.card-img-top {
+    max-width: 250px;
+    height: 190px;
+    }
