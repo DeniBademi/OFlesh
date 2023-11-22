@@ -189,11 +189,6 @@ html {
   border-radius: 9px;
 }
 
-.label-warning[href],
-.badge-warning[href] {
-  background-color: #c67605;
-}
-
 
 .flag-container {
 
@@ -243,15 +238,16 @@ html {
       border-top: 3px solid #eee;
     }
     .navbar .nav-btn label:hover, .navbar #nav-check:checked ~ .nav-btn label {
-      /*background-color:  #CCC;  site-background; */
-      border-bottom: 1vh solidhotpink;
+      /* background-color:  #111; */
+      /* border-bottom: 1vh solidhotpink; */
+
     }
     .navbar .nav-links{
       position: absolute;
       display: block;
       text-align: center;
       width: 50%;
-      /*background-color:  #CCC;  site-background; */
+      background-color: #111;
       transition: all 0.3s ease-in;
       overflow-y: hidden;
       top: 70px;
