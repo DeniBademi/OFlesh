@@ -109,12 +109,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
 
 
-    setTimeout( ()=>{
-      this.modalService.open('modal-call-us')
-    }, 60000)
-    setTimeout( ()=>{
-      this.modalService.open('modal-find-us')
-    }, 180000)
+    // setTimeout( ()=>{
+    //   this.modalService.open('modal-call-us')
+    // }, 60000)
+    // setTimeout( ()=>{
+    //   this.modalService.open('modal-find-us')
+    // }, 180000)
   }
 
 }

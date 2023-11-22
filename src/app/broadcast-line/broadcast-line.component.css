@@ -1,20 +1,30 @@
 #background {
-    background-color: black;
+    background-color: hotpink;
     display: flex;
-    align-items: start;
     justify-content: center;
-    height: 20px;
-    margin: 0;
-    padding: 0;
+
     position: sticky;
     top:0;
     z-index: 999;
 }
 
-#content {
-    color: red;
+.content {
+    color: black;
     font-size: 1rem;
     margin: 0;
     padding: 2;
-    text-align: middle;
+    text-align: center;
+}
+.hashtag {
+    color: black;
+    font-size: 1rem;
+    margin: 0;
+    padding: 2;
+    text-align: end;
+}
+
+@media (max-width:700px) {
+    .desktop-only {
+        display: none;
+    }
 }

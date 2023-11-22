@@ -38,8 +38,8 @@ export class AppComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    if(localStorage.getItem('targetTime') == null && localStorage.getItem('discountExpired') != 'true')
-      this.modalService.open('modal-wheel-of-fortune')
+    // if(localStorage.getItem('targetTime') == null && localStorage.getItem('discountExpired') != 'true')
+    //   this.modalService.open('modal-wheel-of-fortune')
   }
 
   handleRouteEvents() {

@@ -4,16 +4,19 @@
     z-index: -1;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Helvetica:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 ::ng-deep * {
-      
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Spartan', sans-serif;
+    font-family: 'Helvetica';
   }
 
+body {
+    background-color: #fafafa;
+}
 
 .btn-warning, .btn-warning:hover, .btn-warning:active, .btn-warning:visited {
     background-color: yellow !important;
@@ -46,5 +49,5 @@
         padding: 0 !important;
         margin: 0 !important;
     }
-    
+
 }

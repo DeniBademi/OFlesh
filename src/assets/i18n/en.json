@@ -8,32 +8,18 @@
 	"optional": "Optional",
 	"free": "Free",
 	"home": {
-		"checkyour": "Check your ",
-		"for_promocodes_and_sales": " for promocodes and sales",
-		"go_to_catalog": "Explore more",
-		"heading": "Foundation making for everyone.",
-		"text": "Our specialty is 3D printed honeycomb rollers, designed to revolutionize the way you extract honey. With 3D printing, we have made this technology more affordable and accessible for beekeepers of all levels. Our 3D printed honeycomb rollers are not only cost-effective, but they also come with the added benefit of easy repair, as spare parts are readily available. Join us in embracing the future of beekeeping technology and make your honey extraction process easier, more efficient, and more sustainable with our 3D printed honeycomb rollers.",
-		"what_i_get_header": "What I get:",
-		"what_i_get_1": "Easy to make wax foundations at home",
-		"what_i_get_2": "100% wax foundations",
-		"what_i_get_3": "Thicker and heavier foundations - bees build their combs faster",
-		"what_i_get_4": "5 years warranty",
-		"what_i_get_5": "30 days money back guarantee",
-		"what_i_get_6": "Machine made of certified material - does not smell, does not rust and does not release toxins",
-		"what_i_get_7": "Bearings made of stainless steel",
-		"what_i_get_8": "Access to spare parts",
-		"what_i_get_9": "User manual",
-		"easy_to_make": "Easy to make",
-		"heavier_and_stronger": "Heavier and stronger",
-		"non_toxic_certified": "Non-toxic, certified"
+		"above_banner": "Products for true connoisseurs"
 	},
 	"nav": {
 		"home":"Home",
-		"catalog":"Shop",
 		"about": "About us",
-		"contact":"Contact",
-		"find_us": "Find us",
-		"language":"Language"
+		"models": "Models",
+		"catalog":"Shop",
+		"distributors": "Distributors",
+		"contact":"Contact"
+	},
+	"broadcast": {
+		"text": "Free shipping on all orders over 100 BGN!"
 	},
 	"catalog": {
 		"product_types_header": "Product Types",
@@ -144,18 +130,21 @@
 		}
 	},
 	"footer": {
+		"contacts": "Contacts",
 		"terms_conditions": "Terms and Conditions",
 		"privacy_policy": "Privacy Policy",
 		"return_policy": "Return Policy",
+		"cookie_policy": "Cookie Policy",
+		"physical_stores": "Physical stores",
+		"transport": "Transport",
 		"contact": "Contact",
 		"about": "About",
 		"contact_us": "Contact us",
 		"payment": "Payment",
 		"secured_payment_gateways": "All payments are processed by Stripe",
-		"account":"Account",
-		"view_cart": "View cart",
+		"account":"For the customer",
 		"help": "Help",
-		"copyright": "Ⓒ All rights reserved."
+		"copyright": "Oflesh Ⓒ All rights reserved."
 	},
 	"newsletter": {
 		"newsletter": "Sign Up For Our Newsletter",

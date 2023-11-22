@@ -2,7 +2,7 @@
     width: 100vw;
     height:100vh;
     position: relative;
-    background-color: #333;
+    background-color: /* #CCC;  site-background */;
     overflow: hidden;
 }
 
@@ -43,7 +43,7 @@
 /** Breadcrumb **/
 
 .single-product .breadcrumb{
-    background: #333;
+    background: /* #CCC;  site-background */;
     padding: 8px 4px;
     border-radius: 8px;
     font-size: 15px;
@@ -448,7 +448,7 @@
 }
 
 ::ng-deep .g-slider, .ng-star-inserted, .g-box  {
-    background-color: #333;
+    background-color: /* #CCC;  site-background */;
     border:none;
 }
 

@@ -54,7 +54,7 @@
 
 .applyfiltersbtn {
     background-color: yellow;
-    border: 2px solid #333;
+    border: 2px solid /* #CCC;  site-background */;
 }
 
 .applyfiltersbtn:hover {

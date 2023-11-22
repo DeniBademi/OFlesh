@@ -1,54 +1,49 @@
 
 
 <footer>
-     
-    <div class="section-p1">
+    <div class="container">
+        <div class="row align-items-start justify-content-around my-3">
+            <div class="col">
+                <!-- <img class="logo" src="img/logo.png" alt=""> -->
+                <h4>Oflesh</h4>
+                <!-- <p><strong>Address: </strong> 562 Wellington Road, Street 32, San Francisco</p> -->
+                <a [routerLink]="['/'+this.translate.currentLang+'/about']" routerLinkActive="router-link-active" >{{"nav.about" | translate}}</a>
+                <a [routerLink]="['/'+this.translate.currentLang+'/terms-and-conditions']" routerLinkActive="router-link-active">{{"footer.terms_conditions" | translate }}</a>
+                <a [routerLink]="['/'+this.translate.currentLang+'/cookie-policy']" routerLinkActive="router-link-active">{{"footer.cookie_policy" | translate }}</a>
+            </div>
 
-  <div class="col">
-      <!-- <img class="logo" src="img/logo.png" alt=""> -->
-      <h4>{{"phone" | translate}}</h4>
-      <!-- <p><strong>Address: </strong> 562 Wellington Road, Street 32, San Francisco</p> -->
-      <p><strong>{{"phone" | translate}}:</strong> +359 882 829 893</p>
-      <!-- <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p> -->
-      <p><strong>{{"hours" | translate}}:</strong> 24/7</p>
-      <p><strong>{{"Email" | translate}}:</strong> honeycomb.rollers@gmail.com</p>
-      <div class="follow">
-          <h4>{{"follow_us" | translate}}</h4>
-          <div class="icon">
-              <a target="_blank" href="https://www.facebook.com/honeycomb.rollers/"><i class="fab fa-2x fa-facebook-f"></i></a>
-              <!--
-              <i class="fab fa-twitter"></i>
-              -->
-              <a target="_blank" href="https://instagram.com/honeycombrollers?igshid=YmMyMTA2M2Y="><i class="fab fa-2x fa-instagram"></i></a>                   
-          </div>
-      </div>
-  </div>
+        <div class="col">
+            <h4>{{"footer.contacts" | translate}}</h4>
+            <p><strong>{{"hours" | translate}}: </strong>09:00-17:00</p>
+            <p><strong>{{"Email" | translate}}: </strong>oflesh9@gmail.com</p>
+            <p><strong>{{"Phone" | translate}}: </strong>???</p>
 
-  <div class="col">
-      <h4>{{"footer.about" | translate}}</h4>
-      <a [routerLink]="['/'+this.translate.currentLang+'/about']" routerLinkActive="router-link-active" >{{"nav.about" | translate}}</a>
-      <!-- <a href="#">Delivery Information</a> -->
-      <a [routerLink]="['/'+this.translate.currentLang+'/privacy-policy']" routerLinkActive="router-link-active">{{"footer.privacy_policy" | translate }}</a>
-      <a [routerLink]="['/'+this.translate.currentLang+'/terms-and-conditions']" routerLinkActive="router-link-active">{{"footer.terms_conditions" | translate }}</a>
-      <a [routerLink]="['/'+this.translate.currentLang+'/contact']" routerLinkActive="router-link-active" >{{"footer.contact_us" | translate }}</a>
-  </div>
+            <div class="row">
+                <p><strong>{{"follow_us" | translate}}: </strong></p>
+                <div class="icon">
+                    <a target="_blank" href="https://www.instagram.com/oflesh9/"><i class="fab fa-2x fa-instagram"></i></a>
+                    <a target="_blank" href="https://twitter.com/Oflesh69"><i class="fab fa-2x fa-x-twitter"></i></a>
+                    <a target="_blank"><i class="fab fa-2x fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
 
-  <div class="col">
-      <h4>{{"footer.account" | translate }}</h4>
-      <!-- <a href="#">Sign In</a> -->
-      <a [routerLink]="['/'+this.translate.currentLang+'/cart']" routerLinkActive="router-link-active" >{{"footer.view_cart" | translate }}</a>
-      <!-- <a href="#">My Wishlist</a> -->
-      <!-- <a href="#">Track My Order</a> -->
-      <a [routerLink]="['/'+this.translate.currentLang+'/contact']" routerLinkActive="router-link-active" >{{"footer.help" | translate }}</a>
-      <!-- <a href="#">FAQ</a> -->
-  </div>
+        <div class="col">
+            <h4>{{"footer.account" | translate }}</h4>
+            <a [routerLink]="['/'+this.translate.currentLang+'/privacy-policy']" routerLinkActive="router-link-active" >{{"footer.privacy_policy" | translate }}</a>
+            <a [routerLink]="['/'+this.translate.currentLang+'/distributors']" routerLinkActive="router-link-active" >{{"footer.physical_stores" | translate }}</a>
 
-  <div class="col install">
-      <h4>{{"footer.payment" | translate}}</h4>    
-      <img src="../../assets/img/pay/pay.png" alt="">
-      <p>{{"footer.secured_payment_gateways" | translate}}</p>
-      <!-- <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1686526874/design/MONEY-BACK-30_ovayoc.svg" style="width: 90px; height: auto">        -->
-  </div>
+            <!-- <a href="#">FAQ</a> -->
+        </div>
+
+        <div class="col install">
+            <h4>{{"footer.payment" | translate}}</h4>
+            <img src="../../assets/img/pay/pay.png" alt="">
+            <p>{{"footer.secured_payment_gateways" | translate}}</p>
+            <!-- <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1686526874/design/MONEY-BACK-30_ovayoc.svg" style="width: 90px; height: auto">        -->
+        </div>
+    </div>
+
 </div>
   <div class="row copyright">
     <div style="color:white;">{{"footer.copyright" | translate}}</div>

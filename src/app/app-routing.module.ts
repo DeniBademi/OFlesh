@@ -19,9 +19,11 @@ const routes: Routes = [
   {path: '', redirectTo: "en/home", pathMatch: "full"},
   {path: ':languageCode/home', component: HomeComponent, data: { title: 'Homepage' }},
   {path: ':languageCode/about', component: AboutComponent, data: { title: 'About' }},
+  {path: ':languageCode/models', component: AboutComponent, data: { title: 'About' }},
   {path: ':languageCode/catalog', component: ProductCatalogComponent, data: { title: 'Catalog' }},
   {path: ':languageCode/contact', component: ContactComponent, data: { title: 'Contact' }},
   {path: ':languageCode/cart', component: CartComponent, data: { title: 'Cart' }},
+
   {path: ':languageCode/checkout/:id/shipping-address', component: CheckoutShippingAddressComponent},
   {path: ':languageCode/checkout/:id/shipping-method', component: CheckoutShippingMethodComponent},
   {path: ':languageCode/checkout/:id/payment', component: CheckoutPaymentComponent},

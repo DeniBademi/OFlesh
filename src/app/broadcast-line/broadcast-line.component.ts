@@ -19,8 +19,8 @@ export class BroadcastLineComponent implements OnInit {
   ngOnInit() {
 
     if(localStorage.getItem('targetTime')== null) {
-      document.getElementById("background").style.backgroundColor = "#333";
-      document.getElementById("content").style.color = "#333";
+      document.getElementById("background").style.backgroundColor = "/* #CCC;  site-background */";
+      document.getElementById("content").style.color = "/* #CCC;  site-background */";
       this.text = ""
     }
   }

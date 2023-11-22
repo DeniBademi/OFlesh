@@ -13,7 +13,7 @@
 // })
 // export class CheckoutComponent implements OnInit, OnDestroy, AfterViewInit {
 //   @ViewChild('cardInfo') cardInfo: ElementRef | undefined;
-  
+
 //     checkoutID: string | null | undefined;
 //     checkout: Checkout | undefined;
 
@@ -44,15 +44,15 @@
 //     // STRIPE
 //     stripe: any;
 //     elements: any;
-    
+
 //     card: any;
 //     cardHandler = this.onChange.bind(this);
 //     cardError: string | undefined;
 //     shippingMethods: any;
 //     showStripe = false;
 //     selectedPaymentOption: any;
-    
-    
+
+
 //     constructor(private Route: ActivatedRoute, private Router: Router, private DataService: DataService, private cd: ChangeDetectorRef, @Optional() @Inject(MAT_DIALOG_DATA) private data: any, @Optional() private dialogRef: MatDialogRef<CheckoutComponent>) { }
 
 
@@ -67,7 +67,7 @@
 
 //                 if(checkout == undefined)
 //                     this.Router.navigate(["not-found"]);;
-                
+
 //                 this.checkout = checkout
 //                 })
 //             });
@@ -90,14 +90,14 @@
 //                 this.showStripe = true;
 //             } else {
 //                 this.showStripe = false;
-//             }         
+//             }
 //             //this.paymentOptions.disable();
 //         })
 
 
-        
+
 //     }
-    
+
 //     ngOnDestroy() {
 //             if (this.card) {
 //                 // We remove event listener here to keep memory clean
@@ -108,7 +108,7 @@
 
 
 //     ngAfterViewInit() {
-        
+
 //     }
 
 //     initiateCardElement() {
@@ -117,8 +117,8 @@
 //                 base: {
 //                     fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
 //                     fontSmoothing: 'antialiased',
-//                     backgroundColor: "#333",
-//                     color: "#fff", 
+//                     backgroundColor: "/* #CCC;  site-background */",
+//                     color: "#fff",
 //                     fontSize: '16px',
 //                     '::placeholder': {
 //                         color: '#aab7c4',

@@ -1,5 +1,5 @@
 .info-container {
-    background: #333;
+    background: /* #CCC;  site-background */;
     padding: 10px;
     border-radius: 6px;
     border: 2px solid yellow;
@@ -9,35 +9,35 @@
     margin-top: 2vh;
     margin-bottom: 2vh;
   }
-  
+
   .product-details {
     padding: 10px;
   }
-  
+
   .cart {
-    background: #333;
+    background: /* #CCC;  site-background */;
     color: white;
     /* border: 2px solid yellow; */
   }
-  
+
   .p-about {
     font-size: 12px;
   }
-  
+
   .table-shadow {
     -webkit-box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.42);
     box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.42);
   }
-  
+
   .type {
     font-weight: 400;
     font-size: 10px;
   }
-  
+
   label.radio {
     cursor: pointer;
   }
-  
+
   label.radio input {
     position: absolute;
     top: 0;
@@ -45,7 +45,7 @@
     visibility: hidden;
     pointer-events: none;
   }
-  
+
   label.radio span {
     padding: 1px 12px;
     border: 2px solid #ada9a9;
@@ -56,58 +56,58 @@
     font-size: 11px;
     font-weight: 300;
   }
-  
+
   label.radio input:checked + span {
     border-color: #fff;
     background-color: rgb(121, 121, 0);
     color: #fff;
   }
-  
+
   .credit-inputs {
     background: rgba(233, 229, 0, 0.418);
     color: white;
     border-color: rgba(233, 229, 0, 0.418);
     margin-bottom: 10px;
   }
-  
+
   .credit-inputs::placeholder {
     color: #fff;
     font-size: 13px;
   }
-  
+
   .credit-inputs:active {
     background: rgba(233, 229, 0, 0.418);
     border-color: rgba(233, 229, 0, 0.418);
   }
-  
-  
+
+
   .credit-card-label {
     font-size: 12px;
     font-weight: 400;
     color: white;
   }
-  
+
   .discount-code-label  {
     font-size: 12px;
     font-weight: 500;
     color: black;
   }
-  
+
   .form-control.credit-inputs:focus {
-    background: #333;
+    background: /* #CCC;  site-background */;
     border: rgba(233, 229, 0, 0.418);
     color: white;
   }
-  
+
   .line {
     border-bottom: 1px solid #aaaaaa;
   }
-  
+
   .information span {
     font-size: 12px;
     font-weight: 500;
   }
-  
+
   .information {
     margin-bottom: 5px;
 
@@ -116,7 +116,7 @@
   .information span {
     font-size:larger;
   }
-  
+
 
 
   .btn-continue {
@@ -148,9 +148,9 @@
   .btn-continue:hover {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(72, 255, 0, 0.45);
   box-shadow: 0 0 0.5rem 0.2rem rgba(72, 255, 0, 0.45);
-  
+
   }
-  
+
   .discountcontainer {
     background: yellow !important;
     color: black;
@@ -163,17 +163,17 @@
     border-radius: 0;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
-    
+
   }
-  
+
   .product-list {
     position: relative;
     max-height: 400px;
     margin: 0;
   }
-  
+
   .applydiscountbtn {
-    background-color: #333;
+    background-color: /* #CCC;  site-background */;
     color: #fff;
     width: 30%;
     margin-bottom: 10px;
@@ -181,16 +181,16 @@
     border-top-right-radius: 5px;
     border-left: 1px solid yellow;
   }
-  
+
   .discountform {
   display: flex;
   }
-  
+
   .quantity {
   padding-right: 0;
   margin-right: 0;
   }
-  
+
   .quantity .input-text.qty {
   width: 35px;
   height: 39px;
@@ -200,20 +200,20 @@
   border: none;
   /* 1px solid #efefef */
   }
-  
+
   .quantity.buttons_added {
   text-align: left;
   position: relative;
   white-space: nowrap;
   vertical-align: top; }
-  
+
   .quantity.buttons_added input {
   display: inline-block;
   margin: 0;
   vertical-align: top;
   box-shadow: none;
   }
-  
+
   .quantity.buttons_added .minus,
   .quantity.buttons_added .plus {
   padding: 7px 10px 8px;
@@ -224,28 +224,28 @@
   border-radius: 10px;
   font-weight: 600;
   cursor:pointer;}
-  
+
   .quantity.buttons_added .minus {
   border-right: 0; }
-  
+
   .quantity.buttons_added .plus {
   border-left: 0; }
-  
+
   .quantity.buttons_added .minus:hover,
   .quantity.buttons_added .plus:hover {
   background: #eeeeee; }
-  
+
   .quantity input::-webkit-outer-spin-button,
   .quantity input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   margin: 0; }
-  
+
   .quantity.buttons_added .minus:focus,
   .quantity.buttons_added .plus:focus {
   outline: none; }
-  
-  
+
+
   .cart-empty-label {
   color: yellow;
   font-size: 60px;
@@ -258,7 +258,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   }
-  
+
   .go-shopping-btn {
   color: white;
   font-size: 25px;
@@ -268,19 +268,19 @@
   margin: 3vh 1vh;
   border-radius: 10px;
   cursor: pointer;
-  
+
   }
-  
+
   .go-shopping-btn:hover {
   border: 2px solid yellow;
   }
-  
+
   .empty-cart-container {
   height: 60vh;
   text-align: center;
   position: relative;
   }
-  
+
   .deletebutton {
   border: none;
   background-color: black;
@@ -288,7 +288,7 @@
   border-radius: 50%;
   padding: 5px;
   }
-  
+
   .round-button {
   width:25%;
   }
@@ -298,7 +298,7 @@
   border-radius: 50%;
   overflow:hidden;
   background-color: black;
-        
+
   }
   .round-button-circle:hover {
   color:red;
@@ -312,31 +312,31 @@
   text-align:center;
   color: white;
   }
-  
 
-  
+
+
   .phoneInput {
     width: 300px;
-  
+
   }
-  
+
   .shipping-options {
     position: relative;
     width: 100%;
     height: 25vh;
-  
+
   }
-  
+
   .payment-options {
   }
-  
+
   .form-control {
-  
+
     display: grid;
     grid-template-columns: 1em auto;
     gap: 0.5em;
   }
-  
+
   .shipping-option {
     margin: 10px;
     margin-bottom: 20px;
@@ -344,7 +344,7 @@
   .description {
     font-weight: 500;
   }
-  
+
   input[type="radio"] {
     height: 1.2rem;
     width: 1.2rem;
@@ -353,13 +353,13 @@
   #accent {
     accent-color: yellow;
   }
-  
+
   .checkout {
     border-bottom: 1px solid #666;
   }
-  
+
 .single-product .breadcrumb{
-    background: #333;
+    background: /* #CCC;  site-background */;
     padding: 8px 4px;
     border-radius: 8px;
     font-size: 15px;
@@ -381,7 +381,7 @@
 .active {
     color: yellow;
 }
-  
+
 
 .items {
     -webkit-box-shadow: 5px 5px 4px -1px rgba(0,0,0,0.25);
@@ -392,7 +392,7 @@
     padding: 1vh;
     position: relative;
   }
-  
+
 
 
 .quantity-item {
@@ -415,7 +415,7 @@
   .item-desc {
     width: 65%;
   }
-  
+
   .price {
     text-align: left;
     padding: 0;
@@ -438,7 +438,7 @@
 }
 
 @media (max-width: 720px) {
-  
+
   .product-img {
     display: none;
   }

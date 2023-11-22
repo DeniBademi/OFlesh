@@ -72,6 +72,8 @@ import { ModalComponent } from './shared/modal/modal.component';
 import { WheelOfFortuneComponent } from './wheel-of-fortune/wheel-of-fortune.component';
 import { BroadcastLineComponent } from './broadcast-line/broadcast-line.component';
 import { CountdownTimerComponent } from './broadcast-line/countdown-timer/countdown-timer.component';
+import { ModelsComponent } from './pages/models/models.component';
+
 
 
 @NgModule({
@@ -107,7 +109,8 @@ import { CountdownTimerComponent } from './broadcast-line/countdown-timer/countd
       TermsAndConditionsComponent,
       WheelOfFortuneComponent,
       BroadcastLineComponent,
-      CountdownTimerComponent
+      CountdownTimerComponent,
+      ModelsComponent
    ],
   imports: [
     BrowserModule,

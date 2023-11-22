@@ -9,14 +9,8 @@ html {
     scroll-behavior: smooth;
 }
 
-
-body {
-    width: 100%;
-    background-color: #333;
-}
-
 .active {
-    color: yellow;
+    color:hotpink;
 }
 
 .navbar{
@@ -24,14 +18,14 @@ body {
     align-items: center;
     justify-content:space-between;
     padding: 20px 80px;
-    background: #333;
+    background: #111;
     position: sticky;
     min-height: 70px;
     top: 20px;
     left: 0;
     z-index: 999;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-    border-bottom: 1vh solid yellow;
+    border-bottom: 1vh solid hotpink;
     width: 100%;
 
   }
@@ -53,7 +47,7 @@ body {
 
   .navbar .nav-links a:hover,
   .navbar .nav-links a.active {
-    color: yellow;
+    color:hotpink;
 }
 
 .navbar .nav-links a:hover::after,
@@ -61,7 +55,7 @@ body {
     content: "";
     width: 30%;
     height: 2px;
-    background: yellow;
+    background:hotpink;
     position: absolute;
     bottom: -4px;
     left: 20px;
@@ -79,12 +73,12 @@ body {
     left: 10vw;
     width: 13vh;
     height: 13vh;
-    background: #333;
     position: absolute;
     overflow: hidden;
     display: inline-block;
     transform: translate( -50%, -50% );
-    clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%,  100% 0%, 0% 0% );
+    /* clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%,  100% 0%, 0% 0% ); */
+    /* clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%,  100% 0%, 0% 0% ); */
 
 }
 
@@ -100,11 +94,13 @@ body {
     left: 10vw;
     width: 15vh;
     height: 15vh;
-    background: yellow;
+    background:hotpink;
     position: absolute;
     overflow: hidden;
     transform: translate( -50%, -50% );
-    clip-path: polygon(0% 51%, 25% 95%, 75% 95%, 100% 51%);
+    /* clip-path: polygon(0% 51%, 25% 95%, 75% 95%, 100% 51%); */
+    clip-path: polygon(5% 51%, 5% 80%, 95% 80%, 95% 51%);
+
    /* 75% 5%, 25% 5% */
     z-index: -1;
 }
@@ -143,7 +139,7 @@ body {
 #navbar li a:hover,
 #navbar li a.active,
 .dropdown-toggle:hover {
-    color: yellow;
+    color:hotpink;
 }
 
 .dropdown-toggle {
@@ -167,7 +163,7 @@ body {
 #navbar li a:hover::after {
     content: "";
     height: 2px;
-    background: yellow;
+    background:hotpink;
     bottom: -4px;
 }
 
@@ -178,7 +174,7 @@ body {
 
 #lblCartCount {
     font-size: 12px;
-    background: #fffb00;
+    background: hotpink;
     color: black;
     padding: 2px 5px;
     vertical-align: bottom;
@@ -247,15 +243,15 @@ body {
       border-top: 3px solid #eee;
     }
     .navbar .nav-btn label:hover, .navbar #nav-check:checked ~ .nav-btn label {
-      background-color: #333;
-      border-bottom: 1vh solid yellow;
+      /*background-color:  #CCC;  site-background; */
+      border-bottom: 1vh solidhotpink;
     }
     .navbar .nav-links{
       position: absolute;
       display: block;
       text-align: center;
       width: 50%;
-      background-color: #333;
+      /*background-color:  #CCC;  site-background; */
       transition: all 0.3s ease-in;
       overflow-y: hidden;
       top: 70px;
