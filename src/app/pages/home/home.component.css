@@ -1,10 +1,27 @@
 p {
     font-size: 16px;
-    color: whitesmoke;
+    color: black;
     margin: 15px 0 20px 0;
 }
 
 .pre-carousel {
+    text-align: center;
+    margin: 30px;
+}
+
+.primary {
+    font-size: 2rem;
+    max-width: 450px;
+    margin-bottom: 0;
+
+}
+
+.secondary {
+    font-size: 1.1rem;
+    max-width: 450px;
+}
+
+.pre-carousel- {
     text-align: center;
 
     font-size: 2rem;
@@ -14,6 +31,18 @@ p {
     margin-bottom: 50px;
 }
 
+
+.content-title {
+    color: hotpink;
+    font-size: 2rem;
+}
+
+.feature-title {
+    color: hotpink;
+    font-size: 1.3rem;
+    margin-bottom: 0;
+
+}
 
 @media (min-width: 700px) {
     .featured {

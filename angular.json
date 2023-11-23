@@ -45,7 +45,8 @@
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.js",
               "./src/app/addtocart.js",
-              "node_modules/chart.js/dist/chart.js"
+              "node_modules/chart.js/dist/chart.js",
+              "./src/assets/js/aos.js"
             ]
           },
           "configurations": {
