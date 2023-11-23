@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Spartan', sans-serif;
+    font-family: Rockwell, serif;
 }
 
 html {
@@ -21,7 +21,7 @@ html {
     background: #111;
     position: sticky;
     min-height: 70px;
-    top: 20px;
+    /* top: 20px; */
     left: 0;
     z-index: 999;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
@@ -146,7 +146,7 @@ html {
     color: white;
     background-color: transparent;
     border: none;
-    font-family: 'Spartan', sans-serif;
+    font-family: Rockwell, serif;
     font-size: 16px;
     font-weight: 600;
 
