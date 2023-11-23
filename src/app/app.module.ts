@@ -73,6 +73,7 @@ import { WheelOfFortuneComponent } from './wheel-of-fortune/wheel-of-fortune.com
 import { BroadcastLineComponent } from './broadcast-line/broadcast-line.component';
 import { CountdownTimerComponent } from './broadcast-line/countdown-timer/countdown-timer.component';
 import { ModelsComponent } from './pages/models/models.component';
+import { CookiePolicyComponent } from './pages/cookie-policy/cookie-policy.component';
 
 
 
@@ -110,7 +111,8 @@ import { ModelsComponent } from './pages/models/models.component';
       WheelOfFortuneComponent,
       BroadcastLineComponent,
       CountdownTimerComponent,
-      ModelsComponent
+      ModelsComponent,
+      CookiePolicyComponent
    ],
   imports: [
     BrowserModule,

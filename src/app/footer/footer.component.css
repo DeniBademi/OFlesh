@@ -14,7 +14,7 @@ p {
 
 
 footer .follow i {
-    color: hotpink;
+    color: #983869;
     cursor: pointer;
 }
 
@@ -58,7 +58,7 @@ footer .copyright {
 
 footer .follow i:hover,
 footer a:hover {
-    color: hotpink;
+    color: #983869;
 }
 
 .icon a + a{

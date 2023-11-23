@@ -1,3 +1,9 @@
+@property --accent-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #bd377d;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +16,7 @@ html {
 }
 
 .active {
-    color:hotpink;
+    color: var(--accent-color);
 }
 
 .navbar{
@@ -25,7 +31,7 @@ html {
     left: 0;
     z-index: 999;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-    border-bottom: 1vh solid hotpink;
+    border-bottom: 1vh solid var(--accent-color);
     width: 100%;
 
   }
@@ -47,7 +53,7 @@ html {
 
   .navbar .nav-links a:hover,
   .navbar .nav-links a.active {
-    color:hotpink;
+    color:var(--accent-color);
 }
 
 .navbar .nav-links a:hover::after,
@@ -55,7 +61,7 @@ html {
     content: "";
     width: 30%;
     height: 2px;
-    background:hotpink;
+    background:var(--accent-color);
     position: absolute;
     bottom: -4px;
     left: 20px;
@@ -94,7 +100,7 @@ html {
     left: 10vw;
     width: 15vh;
     height: 15vh;
-    background:hotpink;
+    background:var(--accent-color);
     position: absolute;
     overflow: hidden;
     transform: translate( -50%, -50% );
@@ -139,7 +145,7 @@ html {
 #navbar li a:hover,
 #navbar li a.active,
 .dropdown-toggle:hover {
-    color:hotpink;
+    color:var(--accent-color);
 }
 
 .dropdown-toggle {
@@ -163,7 +169,7 @@ html {
 #navbar li a:hover::after {
     content: "";
     height: 2px;
-    background:hotpink;
+    background: var(--accent-color);
     bottom: -4px;
 }
 
@@ -174,7 +180,7 @@ html {
 
 #lblCartCount {
     font-size: 12px;
-    background: hotpink;
+    background: var(--accent-color);
     color: black;
     padding: 2px 5px;
     vertical-align: bottom;
@@ -239,7 +245,7 @@ html {
     }
     .navbar .nav-btn label:hover, .navbar #nav-check:checked ~ .nav-btn label {
       /* background-color:  #111; */
-      /* border-bottom: 1vh solidhotpink; */
+      /* border-bottom: 1vh solid#983869; */
 
     }
     .navbar .nav-links{

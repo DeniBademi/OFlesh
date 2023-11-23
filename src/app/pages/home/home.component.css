@@ -2,6 +2,21 @@
     font-family: Rockwell, serif;
 }
 
+@property --main-font {
+    syntax: "<font-family>";
+    inherits: false;
+    initial-value: Rockwell, serif;
+  }
+
+
+
+@property --accent-color {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #bd377d;
+  }
+
+
 p {
     font-size: 16px;
     color: black;
@@ -42,13 +57,13 @@ p {
 
 
 .content-title {
-    color: hotpink;
+    color: var(--accent-color);
     font-size: 2rem;
     font-family: Rockwell, serif !important;
 }
 
 .feature-title {
-    color: hotpink;
+    color: var(--accent-color);
     font-size: 1.3rem;
     margin-bottom: 0;
     font-family: Rockwell, serif !important;
