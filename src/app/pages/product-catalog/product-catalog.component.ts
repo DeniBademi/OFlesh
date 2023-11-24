@@ -116,6 +116,11 @@ export class ProductCatalogComponent implements OnInit {
       if(val instanceof NavigationEnd){
         this.readRoute();
 
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        });
       }
     });
   }
@@ -126,8 +131,6 @@ export class ProductCatalogComponent implements OnInit {
       behavior: 'smooth'
     });
     this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
-
-
   }
 
   readRoute() {
