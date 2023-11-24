@@ -22,10 +22,10 @@ export class ProductDetailsComponent implements OnInit {
   product: Product // new Product(1,"Roller 250mm 5.40mm", 390, "USD", "", "../../asset/img/products/product2.jpg");
   innerWidth: number = 0;
 
-  constructor(private route: ActivatedRoute, 
-    public CartService: CartService, 
+  constructor(private route: ActivatedRoute,
+    public CartService: CartService,
     public DataService: DataService,
-    private router: Router, 
+    private router: Router,
     public GlobalsService: GlobalsService,
     public translate: TranslateService) { }
 
@@ -33,36 +33,36 @@ export class ProductDetailsComponent implements OnInit {
 
     this.innerWidth = window.innerWidth;
 
-       window.scroll({ 
-           top: 0, 
-           left: 0, 
-           behavior: 'smooth' 
+       window.scroll({
+           top: 0,
+           left: 0,
+           behavior: 'smooth'
     });
 
     this.translate.use(this.route.snapshot.paramMap.get("languageCode")).subscribe(res=>{
       this.route.paramMap.subscribe( paramMap => {
         this.productID = paramMap.get('id');
         this.DataService.getByIdFull(this.productID, "product").subscribe( product => {
-  
+
           if(product == undefined)
             this.router.navigate(["not-found"]);
-          
+
             console.log(product)
-          this.product = new Product(product.id, 
-            product.name,
-            product.price,
-            "", 
-            product.description, 
-            JSON.parse(product.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
-            new ProductModel(product.productModel.id, product.productModel.name),
-            new ProductType(product.productType.id, product.productType.name),
-            new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "Euro",
-                            this.translate.currentLang == "bg" ? "лв" : "EUR", 
-                            ""))
+          // this.product = new Product(product.id,
+          //   product.name,
+          //   product.price,
+          //   "",
+          //   product.description,
+          //   JSON.parse(product.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
+          //   new ProductModel(product.productModel.id, product.productModel.name),
+          //   new ProductType(product.productType.id, product.productType.name),
+          //   new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "Euro",
+          //                   this.translate.currentLang == "bg" ? "лв" : "EUR",
+          //                   ""))
           //console.log(this.product)
-        
-  
-          
+
+
+
           this.photos.push(new ImageItem({
             src: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.thumbnail,
             thumb: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.thumbnail
@@ -71,21 +71,21 @@ export class ProductDetailsComponent implements OnInit {
           console.log(this.product.photosJSON)
           //https://res.cloudinary.com/dvkjlgu83/image/upload/v1679592200/product-photos/5.40mm-compressed/Top%20Roller/250mm_5.4mm_2023-Mar-15_12-40-34PM-000_CustomizedView9730449655_juzc56.jpg
           for(let i=0;i<this.product.photosJSON.gallery.length;i++){
-            
+
             this.photos.push(new ImageItem({
                 src: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.gallery[i],
                 thumb: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.gallery[i]
             }));
           }
-  
+
         //   this.translate.get('demo.greeting', {name: 'John'}).subscribe((res: string) => {
         //     console.log(res);
         // });
-          
+
         })
     })
     })
-    
+
 
 
   }

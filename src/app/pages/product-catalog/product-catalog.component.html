@@ -1,18 +1,34 @@
-    <!-- <section id="page-header">
-        <h2>Products</h2>
-    </section> -->
+<div class="wrapper">
+    <div class="container">
 
-    <!-- <div class="d-flex row">
-        <div class="col-sm-2">
-            <app-product-filters></app-product-filters>
+        <!-- Breadcrumbs -->
+        <div class="container d-flex my-4">
+                <div *ngFor="let route of this.breadCrumbs; index as i">
+                <span><a class="route-breadcrumb" [routerLink]="['/'+this.translate.currentLang+'/'+route.url]">{{route.name}}</a></span>
+                <span *ngIf="this.breadCrumbs.length>i+1"> > </span>
+         </div>
         </div>
-        <div class="col-sm-10"><app-product-list></app-product-list></div>
-    </div> -->
-    <div class="justify-content-center productlistel">
+
+
+        <h1 class="category-title">{{currentCategory.name}}</h1>
+        <h4 class="category-description">{{currentCategory.description}}</h4>
+
+
+        <!-- Button list -->
         <div class="row">
-            <div class="col-lg-2 filters"><app-product-filters (ChangeFilters)="onChangeFilters($event)"></app-product-filters></div>
-            <div class="col-lg-9"><app-product-list [changeFilters]="changeFilters.asObservable()"></app-product-list></div>
+            <button *ngFor="let category of categories"
+            class="category-btn col"
+            role="button"
+            (click)="onCategoryClick(category)"
+            [class.activeCategory] = "category.checked">{{category.name}}</button>
         </div>
+        <br>
+        <br>
+
+        <app-product-list></app-product-list>
+
+
     </div>
-    <br>    <br>    <br>    <br>    <br>    <br>    <br>    <br>
+</div>
+
 

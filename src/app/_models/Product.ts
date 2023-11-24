@@ -1,4 +1,5 @@
 import { Currency } from "./Currency";
+import { ProductFeature } from "./ProductFeature";
 import { ProductModel } from "./ProductModel";
 import { ProductType } from "./ProductType";
 
@@ -12,5 +13,6 @@ export class Product {
       public photosJSON: any,
       public productModel: ProductModel,
       public productType: ProductType,
-      public currency: Currency) { }
+      public currency: Currency,
+      public categoryRoute: string) { }
 }

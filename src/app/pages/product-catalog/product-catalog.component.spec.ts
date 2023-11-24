@@ -9,6 +9,7 @@ describe('ProductCatalogComponent', () => {
   let component: ProductCatalogComponent;
   let fixture: ComponentFixture<ProductCatalogComponent>;
 
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ProductCatalogComponent ]

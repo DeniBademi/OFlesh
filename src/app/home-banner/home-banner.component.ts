@@ -27,6 +27,7 @@ export class HomeBannerComponent implements OnInit {
         slideChanged: (s) => {
           this.currentSlide = s.track.details.rel
         },
+
       },
       [
         (slider) => {
@@ -60,6 +61,7 @@ export class HomeBannerComponent implements OnInit {
       ])
       this.dotHelper = [
         ...Array(this.slider.track.details.slides.length).keys(),
+
       ]
     })
   }

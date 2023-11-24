@@ -12,7 +12,7 @@ import { MenuOption } from './MenuOption';
 
 export class ProductFiltersComponent implements OnInit, AfterViewInit {
 
-  
+
   @Output() ChangeFilters = new EventEmitter<{}>();
 
   constructor(public dataService: DataService) { }
@@ -27,7 +27,7 @@ export class ProductFiltersComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.dataService.getTypes().subscribe(response => {
       for(let i=0;i<response.length;i++)
-        this.productTypes.push(new MenuOption(response[i].id, response[i].name, response[i].name != "Spare Part", response[i].count))
+        this.productTypes.push(new MenuOption(response[i].id, response[i].name, response[i].name != "Spare Part", response[i].count, "") )
       //this.applyFilters();
       console.log("Loaded types");
       //if(this.productModels.length>0)  this.applyFilters();
@@ -36,7 +36,7 @@ export class ProductFiltersComponent implements OnInit, AfterViewInit {
     })
     this.dataService.getModels().subscribe(response => {
       for(let i=0;i<response.length;i++)
-        this.productModels.push(new MenuOption(response[i].id,response[i].name, true, response[i].count))
+        this.productModels.push(new MenuOption(response[i].id,response[i].name, true, response[i].count, ""))
 
       console.log("Loaded models");
       console.log("applying filters");
@@ -48,7 +48,7 @@ export class ProductFiltersComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    
+
   }
 
   applyFilters(){
@@ -57,11 +57,11 @@ export class ProductFiltersComponent implements OnInit, AfterViewInit {
       "ProductModelId": []
     };
     for(let i=0;i<this.productTypes.length;i++) {
-      if (this.productTypes[i].checked === true) 
+      if (this.productTypes[i].checked === true)
         this.productFilters["ProductTypeId"].push(this.productTypes[i].id)
     }
     for(let i=0;i<this.productModels.length;i++) {
-      if (this.productModels[i].checked === true) 
+      if (this.productModels[i].checked === true)
         this.productFilters["ProductModelId"].push(this.productModels[i].id)
     }
 

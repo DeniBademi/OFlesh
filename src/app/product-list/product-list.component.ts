@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output, SkipSelf, ViewEncapsula
 import { map } from 'rxjs/operators';
 import { Product } from 'src/app/_models/Product';
 import { CartService } from 'src/app/_services/cart.service';
+import { DataService } from 'src/app/_services/data.service';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { ProductModel } from '../_models/ProductModel';
@@ -10,11 +11,12 @@ import { ProductType } from '../_models/ProductType';
 import { Currency } from '../_models/Currency';
 import { GlobalsService } from '../_services/globals.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss'],
+  styleUrls: ['./product-list.component.css', './single-product.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class ProductListComponent implements OnInit {
@@ -26,7 +28,7 @@ export class ProductListComponent implements OnInit {
   filters: any = {};
   types: any;
   models: any;
-  
+
   direction: any = "arrow_downward"
 
   productList: Product[] = [];
@@ -37,29 +39,45 @@ export class ProductListComponent implements OnInit {
   private currentProduct: any;
   typesLoaded: boolean = false;
   changeFiltersSubscription: any;
-  
-  constructor(@SkipSelf() private http: HttpClient, 
+
+  constructor(@SkipSelf() private http: HttpClient,
     public cartService: CartService,
     public toastr: ToastrService,
     private Globals: GlobalsService,
-    private translate: TranslateService) { 
+    public translate: TranslateService,
+    private CartService: CartService,
+    private dataService: DataService,
+    private router: Router,
+    private route: ActivatedRoute,) {
 
-    
-  
+
+
 }
 
   ngOnInit() {
 
-    this.filters = {"ProductTypeId":["d9e9e846-7a39-4aec-b065-88b9e22ff526"],"ProductModelId":["e752ef04-304f-49f2-b1ff-166309ea34fd","9c37bd3a-8ce5-42b2-8128-e0713beb7122","0638adf0-6e03-4715-b717-e3cad9b28ec0"]}
 
     this.changeFiltersSubscription = this.changeFilters.subscribe(res => {
       this.filters = res;
       console.log(this.filters)
       this.getProducts();
     });
-    
-    this.getProducts();
-    
+
+    //this.getProducts();
+    console.log()
+    let queryParams = this.route.snapshot.queryParamMap;
+    let featureList = queryParams.get("features") ? queryParams.get("features").split(",") : [];
+    this.productList = this.dataService.getProductsLocal(this.router.url.replace("/en","").replace("/bg","").split("?")[0], featureList);
+
+    this.router.events.subscribe((val) => {
+      if(val instanceof NavigationEnd){
+        let queryParams = this.route.snapshot.queryParamMap;
+        let featureList = queryParams.get("features") ? queryParams.get("features").split(",") : [];
+        console.log(featureList)
+        this.productList = this.dataService.getProductsLocal(this.router.url.replace("/en","").replace("/bg","").split("?")[0], featureList);
+        console.log("products loaded")
+      }
+    });
   }
 
   getProducts() {
@@ -67,7 +85,7 @@ export class ProductListComponent implements OnInit {
 
     this.productList = [];
 
-    this.http.get(this.Globals.baseURL+'product/getAll', 
+    this.http.get(this.Globals.baseURL+'product/getAll',
     {
       observe: 'response',
       params: new HttpParams().set("pageNumber", this.currentPage)
@@ -84,30 +102,30 @@ export class ProductListComponent implements OnInit {
       this.typesLoaded=true;
 
 
-      
-      let products = response.body.map((item: any) => {
-          return new Product(item.id, 
-          item.name, 
-          item.price, 
-          "", 
-          item.description, 
-          JSON.parse(item.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
-          new ProductModel(item.productModel.id, item.productModel.name),
-          new ProductType(item.productType.id, item.productType.name),
-          new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "EUR",
-                          this.translate.currentLang == "bg" ? "лв" : "EUR", 
-                          ""))
-          })
-      products.sort((n1,n2) => {
-        if (n1.productType.name === "Spare Part" && n2.productType.name === "Machine")
-          return 1;
 
-        if (n1.productType.name === "Machine" && n2.productType.name === "Spare Part")
-          return -1;
-        
-        return 0;
-      });
-      this.productList = products;
+      // let products = response.body.map((item: any) => {
+      //     return new Product(item.id,
+      //     item.name,
+      //     item.price,
+      //     "",
+      //     item.description,
+      //     JSON.parse(item.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
+      //     new ProductModel(item.productModel.id, item.productModel.name),
+      //     new ProductType(item.productType.id, item.productType.name),
+      //     new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "EUR",
+      //                     this.translate.currentLang == "bg" ? "лв" : "EUR",
+      //                     ""))
+      //     })
+      // products.sort((n1,n2) => {
+      //   if (n1.productType.name === "Spare Part" && n2.productType.name === "Machine")
+      //     return 1;
+
+      //   if (n1.productType.name === "Machine" && n2.productType.name === "Spare Part")
+      //     return -1;
+
+      //   return 0;
+      // });
+      // this.productList = products;
 
       // this.productList = response.body.sort((n1,n2) => {
       //   if (n1.productType.name === "Spare Part" && n2.productType.name === "Machine")
@@ -115,20 +133,20 @@ export class ProductListComponent implements OnInit {
 
       //   if (n1.productType.name === "Machine" && n2.productType.name === "Spare Part")
       //       return -1;
-        
+
       //   return 0;
       // }).map((item: any) => {
       //   //console.log(item)
-      //   return new Product(item.id, 
-      //     item.name, 
-      //     item.price, 
-      //     "", 
-      //     item.description, 
+      //   return new Product(item.id,
+      //     item.name,
+      //     item.price,
+      //     "",
+      //     item.description,
       //     JSON.parse(item.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
       //     new ProductModel(item.productModel.id, item.productModel.name),
       //     new ProductType(item.productType.id, item.productType.name),
       //     new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "EUR",
-      //                     this.translate.currentLang == "bg" ? "лв" : "EUR", 
+      //                     this.translate.currentLang == "bg" ? "лв" : "EUR",
       //                     ""))
       // });
       var pag = JSON.parse(response.headers.get("Pagination"))
@@ -211,12 +229,15 @@ export class ProductListComponent implements OnInit {
     this.types = [];
     this.models = [];
 
-    //console.log(this.filters)
-
-    this.getProducts()    
+    this.getProducts()
   }
 
-  
+  onAddToCart(product: Product) {
+    this.CartService.addItem(product);
+
+  }
+
+
   ngOnDestroy() {
     this.changeFiltersSubscription.unsubscribe();
   }

@@ -1,21 +1,25 @@
-@property --accent-color {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #bd377d;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Rockwell, serif;
+    font-family: 'Rockwell', serif;
 }
+@property --accent-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #983869;
+}
+
 
 html {
     scroll-behavior: smooth;
 }
 
 .active {
+    color: var(--accent-color);
+}
+
+a:hover {
     color: var(--accent-color);
 }
 
@@ -53,7 +57,7 @@ html {
 
   .navbar .nav-links a:hover,
   .navbar .nav-links a.active {
-    color:var(--accent-color);
+    color:orange;
 }
 
 .navbar .nav-links a:hover::after,
@@ -145,14 +149,14 @@ html {
 #navbar li a:hover,
 #navbar li a.active,
 .dropdown-toggle:hover {
-    color:var(--accent-color);
+    color: var(--accent-color);
 }
 
 .dropdown-toggle {
     color: white;
     background-color: transparent;
     border: none;
-    font-family: Rockwell, serif;
+    font-family: 'Spartan', sans-serif;
     font-size: 16px;
     font-weight: 600;
 
@@ -169,7 +173,7 @@ html {
 #navbar li a:hover::after {
     content: "";
     height: 2px;
-    background: var(--accent-color);
+    background:var(--accent-color);
     bottom: -4px;
 }
 
@@ -224,7 +228,7 @@ html {
 }
 
 
-@media (max-width:700px) {
+@media (max-width:1100px) {
     .navbar .nav-btn{
       display: inline-block;
       position: absolute;
@@ -245,7 +249,7 @@ html {
     }
     .navbar .nav-btn label:hover, .navbar #nav-check:checked ~ .nav-btn label {
       /* background-color:  #111; */
-      /* border-bottom: 1vh solid#983869; */
+      /* border-bottom: 1vh solidhotpink; */
 
     }
     .navbar .nav-links{
