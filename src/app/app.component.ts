@@ -8,6 +8,7 @@ import { CartService } from './_services/cart.service';
 import { GlobalsService } from './_services/globals.service';
 import { Observable } from 'rxjs';
 import { BroadcastLineComponent } from './broadcast-line/broadcast-line.component';
+import AOS from "aos";
 
 @Component({
   selector: 'app-root',
@@ -40,6 +41,7 @@ export class AppComponent implements OnInit {
   ngAfterViewInit() {
     // if(localStorage.getItem('targetTime') == null && localStorage.getItem('discountExpired') != 'true')
     //   this.modalService.open('modal-wheel-of-fortune')
+    AOS.init();
   }
 
   handleRouteEvents() {
