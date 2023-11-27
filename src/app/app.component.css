@@ -1,8 +1,8 @@
-.particles-js-canvas-el {
-    position: fixed;
-    top: 0;
-    z-index: -1;
-}
+@property --accent-color {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #bd377d;
+  }
 
 @import url('https://fonts.googleapis.com/css2?family=Helvetica:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
@@ -18,23 +18,48 @@ body {
     background-color: #fafafa;
 }
 
-.btn-warning, .btn-warning:hover, .btn-warning:active, .btn-warning:visited {
-    background-color: yellow !important;
-    border-color: yellow !important;
+.view-cart-btn, .view-cart-btn:hover, .view-cart-btn:active, .view-cart-btn:visited {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+
 
 }
 
 .btn-container {
     display: flex;
-    justify-content: space-around;
     width: 100%;
-    gap: 10px;
     padding: 10px;
 }
 
-/* make the class hidden by default */
-#result-wheel {
-    display: none;
+.btn {
+    margin: 10px;
+}
+
+.continue {
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.continue:hover {
+    background-color: black;
+    color: white;
+
+
+}
+
+
+
+.view-cart {
+    background-color: var(--accent-color);
+    transition: all 0.3s ease;
+
+}
+
+.view-cart:hover {
+    color: white;
+    background-color: var(--accent-color);
+
+
 }
 
 @media (max-width: 768px) {

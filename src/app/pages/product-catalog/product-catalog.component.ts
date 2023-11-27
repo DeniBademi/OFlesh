@@ -26,23 +26,26 @@ export class ProductCatalogComponent implements OnInit {
   categoryTree = {
         "id": 1,
         "name": "Catalog",
-        "description": "This is the catalog category. It is the root of the category tree.",
+        "description": "Крис да ми прати текст на английски за тук",
+        "descriptionBG": "Крис да ми прати текст на български за тук",
         "checked": false,
         "count": 0,
         "behavior": "category",
         "children": [
           {
             "id": 2,
-            "name": "Angela",
-            "description": "This is the basic category. It is a child of the catalog category.",
+            "name": "Andjela",
+            "description": "Крис да ми прати текст на английски за тук",
+            "descriptionBG": "Крис да ми прати текст на български за тук",
             "checked": false,
             "count": 0,
             "behavior": "category",
             "children": [
               {
                 "id": 4,
-                "name": "Manual",
-                "description": "This is the basic 1 feature. Features are the leaves of the category tree.",
+                "name": "Ofleshy",
+                "description": "",
+                "descriptionBG": "",
                 "checked": false,
                 "count": 0,
                 "behavior": "feature",
@@ -50,17 +53,9 @@ export class ProductCatalogComponent implements OnInit {
               },
               {
                 "id": 5,
-                "name": "Electric",
-                "description": "This is the basic 2 feature. Features are the leaves of the category tree.",
-                "checked": false,
-                "count": 0,
-                "behavior": "feature",
-                "children": []
-              },
-              {
-                "id": 6,
-                "name": "Semi-Automatic",
-                "description": "This is the basic 2 feature. Features are the leaves of the category tree.",
+                "name": "Autofleshy",
+                "description": "",
+                "descriptionBG": "",
                 "checked": false,
                 "count": 0,
                 "behavior": "feature",
@@ -68,34 +63,34 @@ export class ProductCatalogComponent implements OnInit {
               }
             ]
           },
-          {
-            "id": 3,
-            "name": "Daniela",
-            "description": "This is the electric category. It is a child of the catalog category.",
-            "checked": false,
-            "count": 0,
-            "behavior": "category",
-            "children": [
-              {
-                "id": 6,
-                "name": "Manual",
-                "description": "This is the electric 1 feature. Features are the leaves of the category tree.",
-                "checked": false,
-                "count": 0,
-                "behavior": "feature",
-                "children": []
-              },
-              {
-                "id": 7,
-                "name": "Electric",
-                "description": "This is the electric 2 feature. Features are the leaves of the category tree.",
-                "checked": false,
-                "count": 0,
-                "behavior": "feature",
-                "children": []
-              }
-            ]
-          }
+          // {
+          //   "id": 3,
+          //   "name": "Daniela",
+          //   "description": "This is the electric category. It is a child of the catalog category.",
+          //   "checked": false,
+          //   "count": 0,
+          //   "behavior": "category",
+          //   "children": [
+          //     {
+          //       "id": 6,
+          //       "name": "Manual",
+          //       "description": "This is the electric 1 feature. Features are the leaves of the category tree.",
+          //       "checked": false,
+          //       "count": 0,
+          //       "behavior": "feature",
+          //       "children": []
+          //     },
+          //     {
+          //       "id": 7,
+          //       "name": "Electric",
+          //       "description": "This is the electric 2 feature. Features are the leaves of the category tree.",
+          //       "checked": false,
+          //       "count": 0,
+          //       "behavior": "feature",
+          //       "children": []
+          //     }
+          //   ]
+          // }
         ]
   }
 
@@ -107,7 +102,7 @@ export class ProductCatalogComponent implements OnInit {
   breadCrumbs: any[] = []
 
   constructor(GlobalsService: GlobalsService,
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     public router: Router,
     public translate:TranslateService,
     public modalService: ModalService) {

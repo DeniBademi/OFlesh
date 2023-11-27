@@ -106,7 +106,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(){
 
-    AOS.init();
+   // AOS.init();
 
     // setTimeout( ()=>{
     //   this.modalService.open('modal-call-us')

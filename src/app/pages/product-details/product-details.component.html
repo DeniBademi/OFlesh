@@ -1,20 +1,10 @@
-<div class="container" *ngIf="product!=undefined">
 
-    <div class="label">
-        <div class="single-product">
+
+        <div class="container my-5 py-5" *ngIf="this.product!=undefined">
             <div class="row">
                 <div class="col-sm-7">
-                    <!-- <div class="product-image">
-                        <div class="product-image-main">
-                            <img [attr.src]="GlobalsService.productPhotosMediaURLs + product.photosJSON.thumbnail" alt="" id="product-main-image">
-                        </div>
-                        <div class="product-image-slider" >
-                            <img [attr.src]="GlobalsService.productPhotosMediaURLs + item" alt=""  class="image-list" *ngFor="let item of product.photosJSON['gallery']">
-                        </div>
-                    </div> -->
-
                     <div *ngIf="innerWidth>700">
-                        <gallery class="gallery" [items]="photos" thumbPosition="right" imageSize="cover"></gallery>
+                        <gallery class="gallery" [items]="photos" thumbPosition="left" imageSize="cover"></gallery>
                     </div>
                     <div *ngIf="innerWidth<=700">
                         <gallery class="gallery" [items]="photos" thumbPosition="bottom" imageSize="cover"></gallery>
@@ -43,7 +33,7 @@
                                 <!-- <span class="sale-price">$129.00</span> -->
                             </div>
                         </div>
-                        <div class="d-flex justify-content-start align-items-center" style="gap: 5px;" *ngIf="product.productType.name == 'Machine'">
+                        <!-- <div class="d-flex justify-content-start align-items-center" style="gap: 5px;" *ngIf="product.productType.name == 'Machine'">
                             <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1687206032/design/verified_qbvytb.png" class="shield-badge">
                             <div class="warranty-text">{{'catalog.warranty-5' | translate}}</div>
                         </div>
@@ -51,23 +41,87 @@
                         <div class="d-flex justify-content-start align-items-center" style="gap: 5px;" *ngIf="product.productType.name == 'Machine'">
                             <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1687206032/design/verified_qbvytb.png" class="shield-badge">
                             <div class="warranty-text">{{'catalog.money-30' | translate}}</div>
-                        </div>
+                        </div> -->
 
                         <span class="divider"></span>
-                        <div class="product-details" *ngIf="product.description.length>0">
-                            <div style="font-size:small;" [innerHTML]="product.description"></div>
-                        </div>
+
+
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                              <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Info</button>
+                              <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Reviews</button>
+                              <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Delivery</button>
+                            </div>
+                          </nav>
+                          <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="product-details" *ngIf="product.description.length>0">
+                                    <div style="font-size:small;" [innerHTML]="product.description"></div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                                <div class="my-3 mx-3">
+                                    <div>No reviews yet. Be the first!</div>
+                                    <button class="btn" disabled><i class="fa-solid fa-plus"></i>Add review</button>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                <div class="product-details">
+                                    <div style="font-size:small;">Крис да ми прати текст за тук.</div>
+                                </div>
+                            </div>
+                          </div>
+
 
                         <span class="divider"></span>
 
                         <div class="product-btn-group">
                             <a class="button buy-now" (click)="buyInstant()"><i class='bx bxs-zap' ></i>{{'catalog.buy_now' | translate}}</a>
-                            <div class="button add-cart" ><app-add-to-cart-btn (click)="CartService.addItem(product)" style="border-radius: 4px !important;"></app-add-to-cart-btn></div>
+                            <a class="button add-to-cart" (click)="CartService.addItem(product)" role="button"><i class="fa-solid fa-cart-shopping"></i> {{'product_details.add_to_cart' | translate}}</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-  </div>
+<div class="container my-4">
+    <div class="row align-items-center justify-content-md-center text-center mx-3">
+        <div class="col-sm text-center align-items-center justify-content-center">
+            <i class="fa fa-lock big-icon my-2" aria-hidden="true"></i>
+            <div class="icon-heading my-2">Крис да ми даде текст за тук</div>
+            <div class="icon-content">„Ала-Бала“ е детско занимателно предаване, излъчвано по БНТ от 2000 до 2005 г. Излъчвало се е по Канал 1 и сателитния канал ТВ България. Излъчва се всяка събота от 09:00 до 09:30 ч. с продължителност 30 минути.</div>
+        </div>
+        <div class="col-sm">
+            <i class="fa fa-truck big-icon my-2" aria-hidden="true"></i>
+            <div class="icon-heading my-2">Крис да ми даде текст за тук</div>
+            <div class="icon-content">„Ала-Бала“ е детско занимателно предаване, излъчвано по БНТ от 2000 до 2005 г. Излъчвало се е по Канал 1 и сателитния канал ТВ България. Излъчва се всяка събота от 09:00 до 09:30 ч. с продължителност 30 минути.</div>
+        </div>
+        <div class="col-sm">
+            <i class="fa fa-cube big-icon my-2" aria-hidden="true"></i>
+            <div class="icon-heading my-2">Крис да ми даде текст за тук</div>
+            <div class="icon-content">„Ала-Бала“ е детско занимателно предаване, излъчвано по БНТ от 2000 до 2005 г. Излъчвало се е по Канал 1 и сателитния канал ТВ България. Излъчва се всяка събота от 09:00 до 09:30 ч. с продължителност 30 минути.</div>
+
+        </div>
+        <div class="col-sm">
+            <i class="fa fa-star big-icon my-2" aria-hidden="true"></i>
+            <div class="icon-heading my-2">Крис да ми даде текст за тук</div>
+            <div class="icon-content">„Ала-Бала“ е детско занимателно предаване, излъчвано по БНТ от 2000 до 2005 г. Излъчвало се е по Канал 1 и сателитния канал ТВ България. Излъчва се всяка събота от 09:00 до 09:30 ч. с продължителност 30 минути.</div>
+        </div>
+    </div>
+</div>
+            <!-- <div class="elementor-column-wrap elementor-element-populated">
+                <div class="elementor-widget-wrap">
+                    <div class="elementor-element elementor-element-09b83ac elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box">
+                        <div class="elementor-widget-container">
+                            <div class="elementor-icon-box-wrapper">
+                                <div class="elementor-icon-box-icon">
+                                    <span class="elementor-icon elementor-animation-">
+                                        <i class="fa fa-lock" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <div class="elementor-icon-box-content">
+                                    <h3 class="elementor-icon-box-title">
+                                        <span> Pago Confidencial y 100% Seguro​ </span>
+                                    </h3><p class="elementor-icon-box-description">Paga tu pedido de manera segura y confidencial, con Tarjeta, Bizum, PayPal, Contra reembolso o transferencia.</p></div></div></div></div></div></div></div><div class="elementor-element elementor-element-4eef4cb elementor-column elementor-col-25 elementor-top-column" data-id="4eef4cb" data-element_type="column"><div class="elementor-column-wrap elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-element-26953ca elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="26953ca" data-element_type="widget" data-widget_type="icon-box.default"><div class="elementor-widget-container"><div class="elementor-icon-box-wrapper"><div class="elementor-icon-box-icon"> <span class="elementor-icon elementor-animation-"> <i class="fa fa-truck" aria-hidden="true"></i> </span></div><div class="elementor-icon-box-content"><h3 class="elementor-icon-box-title"> <span> Entrega Rápida en 24 horas </span></h3><p class="elementor-icon-box-description">Recibirás tu pedido al día siguiente hábil en Península (Con el servicio de envío urgente) 2-7 días en otros Países de Europa.</p></div></div></div></div></div></div></div><div class="elementor-element elementor-element-610be01 elementor-column elementor-col-25 elementor-top-column" data-id="610be01" data-element_type="column"><div class="elementor-column-wrap elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-element-c8a1de6 elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="c8a1de6" data-element_type="widget" data-widget_type="icon-box.default"><div class="elementor-widget-container"><div class="elementor-icon-box-wrapper"><div class="elementor-icon-box-icon"> <span class="elementor-icon elementor-animation-"> <i class="fa fa-cube" aria-hidden="true"></i> </span></div><div class="elementor-icon-box-content"><h3 class="elementor-icon-box-title"> <span> Pedido en Caja 100% Discreta </span></h3><p class="elementor-icon-box-description">Tu pedido se entregará en caja sin distintivos ni marcas relacionadas con sexshop. ¡Nadie tiene porque saber nada!</p></div></div></div></div></div></div></div><div class="elementor-element elementor-element-ac77b70 elementor-column elementor-col-25 elementor-top-column" data-id="ac77b70" data-element_type="column"><div class="elementor-column-wrap elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-element-b3f997c elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="b3f997c" data-element_type="widget" data-widget_type="icon-box.default"><div class="elementor-widget-container"><div class="elementor-icon-box-wrapper"><div class="elementor-icon-box-icon"> <span class="elementor-icon elementor-animation-"> <i class="fa fa-star" aria-hidden="true"></i> </span></div><div class="elementor-icon-box-content"><h3 class="elementor-icon-box-title"> <span> Máxima Calidad y 2 Años de Garantía </span></h3><p class="elementor-icon-box-description">Productos de alta calidad, fabricados por las principales marcas, con 2 años de garantía y 14 días de devoluciones.</p></div></div></div></div></div></div></div></div></div> -->

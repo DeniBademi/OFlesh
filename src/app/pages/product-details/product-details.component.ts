@@ -43,24 +43,24 @@ export class ProductDetailsComponent implements OnInit {
       this.route.paramMap.subscribe( paramMap => {
         this.productID = paramMap.get('id');
         this.DataService.getByIdFull(this.productID, "product").subscribe( product => {
+        //let product =this.DataService.getById(this.productID, "product").s
 
+
+          console.log(product)
           if(product == undefined)
             this.router.navigate(["not-found"]);
 
-            console.log(product)
-          // this.product = new Product(product.id,
-          //   product.name,
-          //   product.price,
-          //   "",
-          //   product.description,
-          //   JSON.parse(product.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
-          //   new ProductModel(product.productModel.id, product.productModel.name),
-          //   new ProductType(product.productType.id, product.productType.name),
-          //   new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "Euro",
-          //                   this.translate.currentLang == "bg" ? "лв" : "EUR",
-          //                   ""))
-          //console.log(this.product)
-
+          this.product = new Product(product.id,
+            product.name,
+            product.price,
+            "",
+            product.description,
+            JSON.parse(product.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
+            new ProductModel(product.productModel.id, product.productModel.name),
+            new ProductType(product.productType.id, product.productType.name),
+            new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "Euro",
+                            this.translate.currentLang == "bg" ? "лв" : "EUR",
+                            ""), product.categoryRoute)
 
 
           this.photos.push(new ImageItem({
@@ -80,9 +80,9 @@ export class ProductDetailsComponent implements OnInit {
 
         //   this.translate.get('demo.greeting', {name: 'John'}).subscribe((res: string) => {
         //     console.log(res);
-        // });
+        });
 
-        })
+        //})
     })
     })
 

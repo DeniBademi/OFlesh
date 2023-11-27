@@ -11,15 +11,15 @@
       </div>
       <div class="row">
           <!-- Single Product -->
-          <div class="col-md-6 col-lg-4 col-xl-3" *ngFor="let product of productList">
+          <div class="col-md-6 col-lg-4 col-xl-3" *ngFor="let product of productList" [routerLink]="['/'+this.translate.currentLang+'/product', product.id]">
             <div id="product-1" class="single-product">
-                <div class="part-1" [style.background]="'url(' + 'https://spectrumboutique.com/pub/media/catalog/product/cache/2df1527721ea1d44bf6869e6dd4a6b16/a/l/aliennation_lick_of_the_lair_main_specrum_boutique.jpg' + ') no-repeat center'" [style.background-size]="'cover'" [style.transition]="'all 0.3s'">
+                <div class="part-1" [style.background]="'url(' + 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Example_image.svg' + ') no-repeat center'" [style.background-size]="'cover'" [style.transition]="'all 0.3s'">
                     <!-- <span class="discount">15% off</span>
                     <span class="new">new</span> -->
                     <ul>
                         <li>
                             <div class="container">
-                                <button class="add-to-cart" (click)="onAddToCart(product)" role="button">ADD TO CART</button>
+                                <button class="add-to-cart-catalog" (click)="onAddToCart(product)" role="button">ADD TO CART</button>
                             </div>
                         </li>
                     </ul>

@@ -5,7 +5,7 @@
 <app-footer></app-footer>
 
 <jw-modal id="modal-1">
-    <h1 style="background-color: yellow;
+    <h1 style="background-color: #bd377d;
     color: black;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -20,11 +20,11 @@
                 </div>
                 <div class="col-8">
                     <div class="h6 font-weight-bold">{{item.product.name}}</div>
-                    <div class="card-text-specs">
+                    <!-- <div class="card-text-specs">
                         <div class="spec"><b>{{'catalog.product_type' | translate}}:</b> {{item.product.productType.name}}</div>
                         <div class="spec"><b>{{'catalog.product_model' | translate}}:</b> {{item.product.productModel.name}}</div>
-                    </div>
-                    <div class="h6 font-weight-bold pricelabel">{{item.product.price * 0.6 | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</div>
+                    </div> -->
+                    <div class="h6 font-weight-bold pricelabel">{{item.product.price | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</div>
                 </div>
                 <div class="col-1">
                     <div class="h6 font-weight-bold pricelabel">x{{item.quantity}}</div>
@@ -33,10 +33,15 @@
         </div>
     </div>
 
-    <div class="btn-container">
-        <button class="btn btn-light btn-block" (click)="modalService.close();">{{'modals.continue_shopping' | translate}}</button>
-        <button class="btn btn-warning btn-block" (click)="modalService.close(); this.router.navigate(['/'+this.translate.currentLang+'/cart'])">{{'modals.view_cart' | translate}}</button>
+    <div class="container">
+       <div class="row align-items-center justify-content-around">
+
+        <button class="col btn continue" (click)="modalService.close(); this.router.navigate(['/'+this.translate.currentLang+'/cart'])">{{'modals.view_cart' | translate}}</button>
+        <button class="col btn view-cart" (click)="modalService.close();">{{'modals.continue_shopping' | translate}}</button>
+
     </div>
+    </div>
+
 </jw-modal>
 
 

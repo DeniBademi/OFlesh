@@ -56,32 +56,31 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
 
-
     this.changeFiltersSubscription = this.changeFilters.subscribe(res => {
       this.filters = res;
-      console.log(this.filters)
-      this.getProducts();
+      //this.getProducts();
     });
 
     //this.getProducts();
-    console.log()
     let queryParams = this.route.snapshot.queryParamMap;
     let featureList = queryParams.get("features") ? queryParams.get("features").split(",") : [];
-    this.productList = this.dataService.getProductsLocal(this.router.url.replace("/en","").replace("/bg","").split("?")[0], featureList);
-
+    this.dataService.getProductsForCategory(this.router.url.replace("/en","").replace("/bg","").split("?")[0], featureList).subscribe(res => {
+      this.productList = res;
+    });
     this.router.events.subscribe((val) => {
       if(val instanceof NavigationEnd){
         let queryParams = this.route.snapshot.queryParamMap;
         let featureList = queryParams.get("features") ? queryParams.get("features").split(",") : [];
-        console.log(featureList)
-        this.productList = this.dataService.getProductsLocal(this.router.url.replace("/en","").replace("/bg","").split("?")[0], featureList);
-        console.log("products loaded")
+
+        this.dataService.getProductsForCategory(this.router.url.replace("/en","").replace("/bg","").split("?")[0], featureList).subscribe(res => {
+          this.productList = res;
+        });
+
       }
     });
   }
 
   getProducts() {
-
 
     this.productList = [];
 
