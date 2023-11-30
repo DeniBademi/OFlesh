@@ -74,6 +74,7 @@ import { BroadcastLineComponent } from './broadcast-line/broadcast-line.componen
 import { CountdownTimerComponent } from './broadcast-line/countdown-timer/countdown-timer.component';
 import { ModelsComponent } from './pages/models/models.component';
 import { CookiePolicyComponent } from './pages/cookie-policy/cookie-policy.component';
+import { LiveChatWidgetModule } from '@livechat/widget-angular'
 
 
 
@@ -156,6 +157,7 @@ import { CookiePolicyComponent } from './pages/cookie-policy/cookie-policy.compo
     NoopAnimationsModule,
     ReactiveFormsModule,
     RouterModule,
+    LiveChatWidgetModule,
 
     // RxTranslateModule.forRoot({filePath:'assets/i18n/{{language-code}}.json',isCache:true}),
         TranslateModule.forRoot({

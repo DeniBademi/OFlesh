@@ -18,7 +18,8 @@ import { TranslateService } from "@ngx-translate/core";
 @Component({
   selector: "app-cart",
   templateUrl: "./cart.component.html",
-  styleUrls: ["./cart.component.css"],
+  styleUrls: ["./cart.component copy.css", "./cart.component.css"],
+
   encapsulation: ViewEncapsulation.None
 })
 export class CartComponent implements OnInit {

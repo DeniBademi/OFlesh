@@ -19,7 +19,7 @@ import { CookiePolicyComponent } from './pages/cookie-policy/cookie-policy.compo
 const routes: Routes = [
   {path: '', redirectTo: "en/home", pathMatch: "full"},
   {path: ':languageCode/home', component: HomeComponent, data: { title: 'Homepage' }},
-  // {path: ':languageCode/about', component: AboutComponent, data: { title: 'About' }},
+  {path: ':languageCode/about', component: AboutComponent, data: { title: 'About' }},
   // {path: ':languageCode/models', component: AboutComponent, data: { title: 'About' }},
   {path: ':languageCode/catalog', component: ProductCatalogComponent, data: { title: 'Catalog' },
     children: [
@@ -28,10 +28,10 @@ const routes: Routes = [
   // {path: ':languageCode/contact', component: ContactComponent, data: { title: 'Contact' }},
    {path: ':languageCode/cart', component: CartComponent, data: { title: 'Cart' }},
 
-  // {path: ':languageCode/checkout/:id/shipping-address', component: CheckoutShippingAddressComponent},
-  // {path: ':languageCode/checkout/:id/shipping-method', component: CheckoutShippingMethodComponent},
-  // {path: ':languageCode/checkout/:id/payment', component: CheckoutPaymentComponent},
-  // {path: ':languageCode/checkout/:id/thank-you', component: CheckoutThankYouComponent},
+   {path: ':languageCode/checkout/:id/shipping-address', component: CheckoutShippingAddressComponent},
+  {path: ':languageCode/checkout/:id/shipping-method', component: CheckoutShippingMethodComponent},
+  {path: ':languageCode/checkout/:id/payment', component: CheckoutPaymentComponent},
+  {path: ':languageCode/checkout/:id/thank-you', component: CheckoutThankYouComponent},
   {path: ':languageCode/product/:id', component: ProductDetailsComponent},
   {path: ':languageCode/terms-and-conditions', component: TermsAndConditionsComponent},
   {path: ':languageCode/privacy-policy', component: PrivacyPolicyComponent},

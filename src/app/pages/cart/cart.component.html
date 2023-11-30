@@ -1,5 +1,5 @@
  <div class="container mt-5 p-3 rounded cart text-black" *ngIf="this.cartItemsLength>0">
-    <h1 style="font-weight: 500; font-size: 30px;">{{'cart.cart_title' | translate}}</h1>
+    <h1 style="font-weight: 500; font-size: 30px; color: black">{{'cart.cart_title' | translate}}</h1>
     <div class="row no-gutters">
         <div class="col-md-8 productlist">
             <div class="product-details mr-2">
@@ -7,40 +7,59 @@
                     <i class="fa fa-long-arrow-left"></i><span class="ml-2">{{'cart.continue_shopping' | translate}}</span>
                 </div>
                 <hr>
-                <!-- <h6 class="mb-0">Shopping cart</h6> -->
-                <div class="d-flex justify-content-between"><span>{{'cart.item_counter' | translate: {cartItemsLength: cartItemsLength} }}</span>
-                    <!-- <div class="d-flex flex-row align-items-center"><span class="text-black-50">Sort by:</span>
-                        <div class="price ml-2"><span class="mr-1">price</span><i class="fa fa-angle-down"></i></div>
-                    </div> -->
+                <div class="d-flex justify-content-between">
+                    <span>{{'cart.item_counter' | translate: {cartItemsLength: cartItemsLength} }}</span>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded overflow-auto" *ngFor="let item of cartItems">
-                    <div class="d-flex flex-row"><img class="rounded" [attr.src]="this.GlobalsService.productPhotosMediaURLs + item.product.photosJSON.thumbnail" width="40">
-                        <div class="ml-2"><span class="font-weight-bold d-block">{{item.product.name}}</span>
-                            <span class="spec"><b>{{item.product.productType.name}} | {{item.product.productModel.name}}</b></span>
+                    <div class="d-flex flex-row">
+                        <img class="rounded" [attr.src]="this.GlobalsService.productPhotosMediaURLs + item.product.photosJSON.thumbnail" style="width: 30%; height: auto;">
+                        <div class="ml-2">
+                            <span class="font-weight-bold d-block">{{item.product.name}}</span>
                         </div>
                     </div>
                     <div class="d-flex flex-row align-items-center">
-                        <!-- <span class="d-block">{{item.quantity}}</span> -->
                         <div class="quantity buttons_added">
                             <input type="button" value="-" class="minus" (click)="removeItem(item.product)">
                             <input type="number" step="1" min="1" max="" name="quantity" [(ngModel)]="item.quantity" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
                             <input type="button" value="+" class="plus" (click)="addItem(item.product)">
                         </div>
-
-                        <!-- <div class="round-button">
-                            <div class="round-button-circle">
-
-                            </div>
-                        </div> -->
                         <i class="fa-solid far fa-trash fa-lg ml-4" style="cursor: pointer;" (click)="this.CartService.deleteItem(item.product)"></i>
                     </div>
                 </div>
 
             </div>
+            <!-- <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+                <tr *ngFor="let item of cartItems">
+                    <td>
+                        <div class="cart-info">
+                            <img [attr.src]="this.GlobalsService.productPhotosMediaURLs + item.product.photosJSON.thumbnail">
+                            <div>
+                                <p>{{item.product.name}}</p>
+                                <small>Price: {{item.product.price | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</small>
+                                <a style="cursor: pointer;" (click)="this.CartService.deleteItem(item.product)">Remove</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="quantity buttons_added">
+                            <input type="button" value="-" class="minus" (click)="removeItem(item.product)">
+                            <input type="number" step="1" min="1" max="" name="quantity" [(ngModel)]="item.quantity" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
+                            <input type="button" value="+" class="plus" (click)="addItem(item.product)">
+                        </div>
+                    </td>
+                    <td>{{item.product.price * item.quantity| convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</td>
+                </tr>
+            </table> -->
         </div>
-        <div class="col-md-4 ">
+        <div class="col-md-4">
             <div class="payment-info discountcontainer">
                 <div class="d-flex justify-content-between align-items-center">
+
                     <span>{{'cart.discount' | translate}}</span>
                 </div>
                 <label class="discount-code-label">{{'cart.enter_discount_code' | translate}}</label>
@@ -60,7 +79,6 @@
                     <span>{{'cart.personal_details' | translate}}</span>
                 </div>
                 <span class="type d-block mt-3 mb-1"></span>
-
 
                 <form [formGroup]="PersonalDetailsForm" (ngSubmit)="checkout()">
                     <div class="row">
@@ -118,7 +136,7 @@
 
                     <hr class="line">
                     <!-- <div class="d-flex justify-content-between information"><span>Subtotal</span><span>{{total}} BGN</span></div> -->
-                    <div class="d-flex justify-content-between information"><span>{{'cart.taxes_shipping' | translate}}</span></div>
+                    <div class=""><span>{{'cart.taxes_shipping' | translate}}</span></div>
                     <button class="btn btn-checkout btn-block d-flex justify-content-between mt-3"
                     type="submit" [disabled]="!(PersonalDetailsForm.valid)">
                         <span *ngIf="this.discountType.length==0">{{sum | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</span>

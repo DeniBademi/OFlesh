@@ -1,51 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Helvetica:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-.container {
-    width: 100%;
-    padding-top: 10vh;
-    font-family: Rockwell, serif;
-}
-
-.label {
-    color: yellow;
-    font-size: 60px;
-    margin: 0;
-    line-height: 3vh;
-    margin:0in;
-    font-size:20px;
-    color:white;
-    border:none;
-}
-
-.title {
+#a-header {
+    background: linear-gradient(rgba(10, 45, 65, 0.6), rgba(10, 45, 65, 0.4)),url("https://www.technopolis.bg/medias/sys_master/hff/h7d/30054954074142.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    color: #fff;
+    text-shadow: 0 0 10px #0a2d41;
 
 }
-
-.bubble {
-    background-color: black;
-    border: 2px solid yellow;
-    border-radius: 20px;
-    padding: 1.6vh;
-    padding-left: 3vh;
-    padding-right: 3vh;
-    margin-bottom: 10vh;
+#a-header h1 {
+    font-size: 3.5em;
 
 }
-
-.left {
-    margin-right: 40%;
+.a-underline {
+    font-size: 36px;
+}
+.a-text {
+    font-size: 18px;
 }
 
-.right {
-    margin-left: 40%;
+@media only screen and (min-width: 720px) {
+.a-right {
+    padding-left: 20px;
 }
-
-
-@media (max-width:700px) {
-    .label {
-        font-size: 15px;
-    }
-    .left, .right {
-        margin: 5vw
-    }
+.a-left {
+    padding-right: 20px;
+}
 }

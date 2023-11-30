@@ -1,9 +1,14 @@
+@property --accent-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #983869;
+}
+
 .info-container {
-    background: /* #CCC;  site-background */;
+
     padding: 10px;
     border-radius: 6px;
-    border: 2px solid yellow;
-    color: #fff;
+    border: 2px solid var(--accent-color);
     font-weight: bold;
     margin-left: 2vh;
     margin-top: 2vh;
@@ -18,7 +23,6 @@
   }
 
   .credit-inputs::placeholder {
-    color: #fff;
     font-size: 13px;
   }
 
@@ -31,7 +35,6 @@
   .credit-card-label {
     font-size: 12px;
     font-weight: 400;
-    color: white;
   }
 
   .discount-code-label  {
@@ -41,9 +44,8 @@
   }
 
   .credit-inputs:focus {
-    background: /* #CCC;  site-background */;
+
     border: rgba(233, 229, 0, 0.418);
-    color: white;
   }
 
   .line {
@@ -62,7 +64,7 @@
   .items {
     -webkit-box-shadow: 5px 5px 4px -1px rgba(0,0,0,0.25);
     box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.08);
-    background-color: yellow;
+    background-color: var(--accent-color);
     color: black;
   }
 
@@ -112,11 +114,11 @@
   }
 
 .single-product .breadcrumb{
-    background: /* #CCC;  site-background */;
+
     padding: 8px 4px;
     border-radius: 8px;
     font-size: 15px;
-    color: yellow;
+    color: var(--accent-color);
 }
 
 .breadcrumb span{
@@ -124,7 +126,6 @@
     flex-direction: row;
     gap: 8px;
     margin-left: 8px;
-    color: white;
 }
 
 
@@ -133,7 +134,7 @@
     color: var(--primary-color);
 }
 .active {
-    color: yellow !important;
+    color: var(--accent-color) !important;
 }
 
 .items {
@@ -141,7 +142,7 @@
 }
 
 #accent {
-    accent-color: yellow;
+    accent-color: var(--accent-color);
 }
 .payment-option{
     margin-bottom: 2vh;
@@ -151,18 +152,14 @@
 .credit-card-label {
   font-size: 12px;
   font-weight: 400;
-  color: white;
 }
 
-.credit-inputs:focus {
-  background: /* #CCC;  site-background */;
-  border: rgba(233, 229, 0, 0.418);
-  color: white;
+.form-control.credit-inputs:focus {
+  border: rgba(233, 0, 221, 0.418);
 }
 
   .credit-inputs {
     background: rgba(233, 229, 0, 0.418);
-    color: white;
     border-color: rgba(233, 229, 0, 0.418);
     margin-bottom: 10px;
   }
@@ -173,7 +170,6 @@
   }
 
   .credit-inputs::placeholder {
-    color: #fff;
     font-size: 13px;
   }
 
@@ -183,10 +179,9 @@
   }
 
   #form-field {
-    border: 1px solid yellow;
+    border: 1px solid var(--accent-color);
     padding: 1vh;
     border-radius: 5px;
-    color: white !important;
 }
 
 
@@ -204,7 +199,7 @@
       #112 50%,
       rgb(34, 36, 12)
     ),
-    conic-gradient(from var(--border-angle), transparent 20%, yellow, yellow);
+    conic-gradient(from var(--border-angle), transparent 20%, var(--accent-color), var(--accent-color));
   background-size: calc(100% - (var(--border-size) * 2))
       calc(100% - (var(--border-size) * 2)),
     cover;
@@ -218,7 +213,6 @@
   align-items: center;
   font-family: Rockwell, serif;
   font-size: 20px;
-  color: white;
   font-weight: 400;
   cursor: pointer;
   float: right;

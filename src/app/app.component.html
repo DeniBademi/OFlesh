@@ -1,6 +1,6 @@
 <!-- <app-broadcast-line></app-broadcast-line> -->
 
-<app-nav-bar></app-nav-bar>
+<app-nav-bar class="sticky-top"></app-nav-bar>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 
@@ -136,3 +136,9 @@
         </div>
     </div>
 </jw-modal>
+
+<livechat-widget
+  license="16737354"
+  visibility="maximized"
+  (onNewEvent)="handleNewEvent($event)"
+></livechat-widget>

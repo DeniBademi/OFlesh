@@ -231,7 +231,8 @@ export class ProductListComponent implements OnInit {
     this.getProducts()
   }
 
-  onAddToCart(product: Product) {
+  onAddToCart($event, product: Product) {
+    $event.stopPropagation()
     this.CartService.addItem(product);
 
   }

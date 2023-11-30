@@ -9,6 +9,8 @@ import { GlobalsService } from './_services/globals.service';
 import { Observable } from 'rxjs';
 import { BroadcastLineComponent } from './broadcast-line/broadcast-line.component';
 import AOS from "aos";
+import { EventHandlerPayload } from '@livechat/widget-angular'
+
 
 @Component({
   selector: 'app-root',
@@ -83,6 +85,10 @@ export class AppComponent implements OnInit {
     console.log("start timer");
     this.broadcastLine.startTimer();
 
+  }
+
+  handleNewEvent(event: EventHandlerPayload<'onNewEvent'>) {
+    console.log('LiveChatWidget.onNewEvent', event)
   }
 
 

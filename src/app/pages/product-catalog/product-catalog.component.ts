@@ -26,8 +26,8 @@ export class ProductCatalogComponent implements OnInit {
   categoryTree = {
         "id": 1,
         "name": "Catalog",
-        "description": "Крис да ми прати текст на английски за тук",
-        "descriptionBG": "Крис да ми прати текст на български за тук",
+        "description": "The collections of your favourite models.",
+        "descriptionBG": "Колекциите на любимите ви модели.",
         "checked": false,
         "count": 0,
         "behavior": "category",
@@ -35,8 +35,14 @@ export class ProductCatalogComponent implements OnInit {
           {
             "id": 2,
             "name": "Andjela",
-            "description": "Крис да ми прати текст на английски за тук",
-            "descriptionBG": "Крис да ми прати текст на български за тук",
+            "description": "The Collection of \"Andjela Tasheva\" Ofleshy is made of high quality materials that\
+            provide not only a pleasant feeling, but also safety in use. Each toy is accurately replicated with\
+            a cast of your favorite star, giving you the opportunity to relax and enjoy the unique experience\
+            and intimacy you can achieve.",
+            "descriptionBG": "Колекцията на \"Анджела Ташева\" Ofleshy е изработена от висококачествени материали,\
+            които осигуряват не само приятно усещане, но и безопасност при употреба. Всяка играчка е точно\
+            репликирана с отливка на любимата ви звезда, като ви дава възможност да се отпуснете и да се насладите\
+            на уникалното изживяване и близост, които можете да постигнете.",
             "checked": false,
             "count": 0,
             "behavior": "category",
@@ -60,9 +66,10 @@ export class ProductCatalogComponent implements OnInit {
                 "count": 0,
                 "behavior": "feature",
                 "children": []
-              }
+              },
+
             ]
-          },
+          }
           // {
           //   "id": 3,
           //   "name": "Daniela",

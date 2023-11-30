@@ -1,6 +1,6 @@
-<!-- 
+<!--
    <div class="container">
-     
+
    </div> -->
    <div class="container mt-5 p-3 rounded cart">
       <div class="row no-gutters">
@@ -42,7 +42,7 @@
                         <div>{{'checkout.payment.upon_delivery' | translate}}</div>
                      </div>
                   </div>
-               
+
                   <span class="type d-block mt-3 mb-1"></span>
                   <div [hidden]="!showStripe">
                      <div class="checkout">
@@ -68,14 +68,22 @@
          </div>
          <div class="col-md-5" *ngIf="checkout">
             <app-checkout-order-overview [checkout]="checkout" [setShipping]="setShipping"></app-checkout-order-overview>
-            <button class="btn btn-block d-flex justify-content-between mt-3 box" 
-            type="submit" 
+            <!-- <button class="btn btn-block d-flex justify-content-between mt-3 box"
+            type="submit"
             id="submit-button"
             form="ngForm"
             [disabled]="!this.form.valid"
             (click)="nextStep()">
             <div class="spinner hidden" id="spinner"></div>
             <span id="button-text">{{'checkout.payment.order_and_pay' | translate}}<i class="fa fa-long-arrow-right ml-1"></i></span>
+            </button> -->
+            <button class="btn btn-continue btn-block d-flex justify-content-between mt-3"
+            type="submit"
+            id="submit-button"
+            form="ngForm"
+            [disabled]="!this.form.valid"
+            (click)="nextStep()">
+            <span>{{'checkout.payment.order_and_pay' | translate}}<i class="fa fa-long-arrow-right ml-1"></i></span>
             </button>
          </div>
       </div>
