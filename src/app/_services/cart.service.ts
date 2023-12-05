@@ -71,7 +71,7 @@ ngOnInit() {
     this.cartItems.next([]);
   }
 
-  addItem(product: Product, showPopup: boolean = true){
+  addItem(product: Product, showPopup: boolean = false){
     this.cartItemsCount.next(this.cartItemsCount.getValue()+1);
     let prevCart = this.cartItems.getValue();
     for(let i=0;i<prevCart.length;i++){

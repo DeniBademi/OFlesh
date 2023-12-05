@@ -3,12 +3,7 @@
         <div class="container my-5 py-5" *ngIf="this.product!=undefined" >
             <div class="row justify-content-between mx-0">
                 <div class="col-sm-7 px-0">
-                    <div *ngIf="innerWidth>700">
-                        <gallery class="gallery" [items]="photos" thumbPosition="left" imageSize="cover"></gallery>
-                    </div>
-                    <div *ngIf="innerWidth<=700">
-                        <gallery class="gallery" [items]="photos" thumbPosition="bottom" imageSize="cover"></gallery>
-                    </div>
+                    <gallery class="gallery" [items]="photos" thumbPosition="bottom" imageSize="cover" style="position: relative !important; z-index: -1;"></gallery>
                 </div>
                 <div class="col-sm-4">
                     <div class="product1">

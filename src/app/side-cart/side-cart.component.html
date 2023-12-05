@@ -1,31 +1,100 @@
-<div id="cd-cart">
-  <br>
-  <h2>Cart</h2>
-  <ul class="cd-cart-items">
-    <li>
-      <span class="cd-qty">1x</span> Product Name
-      <div class="cd-price">$9.99</div>
-      <a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
-    </li>
+<div class="cart">
+  <div class="cart__overlay"></div>
+  <div class="cart__contents" style="display: flex; flex-direction: column; justify-content: space-between;">
+     <div class="cart__products column justify-content-between">
+        <h2>Your Cart</h2>
+        <p class="microcopy">An overview of your selected products.</p>
+        <div class="products" *ngIf="this.CartService.cartItemsCount.getValue()>0">
+           <div class="product" *ngFor="let item of this.CartService.cartItems.getValue()">
+              <div class="product__1">
+                 <div class="product__thumbnail">
+                    <img [attr.src]="this.GlobalsService.productPhotosMediaURLs + item.product.photosJSON.thumbnail" alt=""   style="width: 100%; height: 100%;"/>
+                 </div>
+                 <div class="product__details">
+                    <div style="margin-bottom: 8px;"><b>{{item.product.name}}</b></div>
+                    <!-- <div style="font-size: 90%;">Size: <span class="tertiary">12" x 10"</span></div>
+                       <div style="font-size: 90%;">Frame: <span class="tertiary">0.75"</span></div>
+                       <div style="font-size: 90%;">Edge: <span class="tertiary">Photo Wrap</span></div>
+                       <div style="margin-top: 8px;"><a href="#">change</a></div> -->
+                 </div>
+              </div>
+              <div class="product__2">
+                 <div>
+                    <div class="input input--select input--small">
+                       <label for="country" class="input__label">Quantity:</label>
+                       <div class="d-flex flex-row align-items-center">
+                          <div class="quantity buttons_added">
+                             <input type="button" value="-" class="minus" (click)="this.CartService.removeItem(item.product)">
+                             <input type="number" step="1" min="1" max="" name="quantity" [(ngModel)]="item.quantity" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
+                             <input type="button" value="+" class="plus" (click)="this.CartService.addItem(item.product)">
+                          </div>
+                       </div>
+                       <!-- <div style="cursor: pointer;" (click)="this.CartService.deleteItem(item.product)">Delete</div> -->
+                    </div>
+                 </div>
+                 <div class="product__price"><b>{{item.product.price * item.quantity | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</b></div>
+              </div>
+           </div>
+        </div>
+        <div *ngIf="this.CartService.cartItemsCount.getValue()==0">
+           No products in cart.
+        </div>
+     </div>
+     <div class="cart__totals">
+        <table class="totals">
+           <tbody>
+              <tr>
+                 <td colspan="2">
+                    <div class="collapser">
+                       <a href="#" class="collapser__label">Add a coupon code</a>
+                       <div class="collapser__content">
+                          <div class="f">
+                             <div class="f70">
+                                <div class="input input--small">
+                                   <label for="couponcode" class="input__label">Coupon code <span class="optional">(optional)</span></label>
+                                   <input id="couponcode" type="text" class="input__input" data-mask=".{5,}" />
+                                   <div class="input__error">Please enter a valid coupon code.</div>
+                                </div>
+                             </div>
+                             <div class="f30">
+                                <button class="btn btn--small btn--secondary btn--full js-add-gift-card">Add</button>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </td>
+              </tr>
+              <tr>
+                 <th class="align-left font-normal tertiary">Subtotal</th>
+                 <td class="align-right">{{this.CartService.calculateTotal() | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</td>
+              </tr>
+              <tr>
+                 <th class="align-left font-normal tertiary">Shipping <small>(estimated)</small></th>
+                 <td class="align-right">TBD</td>
+              </tr>
+              <!-- <tr>
+                 <th class="align-left font-normal tertiary">Tax <small>(estimated)</small></th>
+                 <td class="align-right">$13.00</td>
+              </tr> -->
+              <tr>
+                 <th class="align-left">Total</th>
+                 <td class="align-right"><b>{{this.CartService.calculateTotal() | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</b></td>
+              </tr>
+           </tbody>
+           <tfoot>
+              <tr>
+                 <td colspan="2" class="tertiary"><small>Estimations based on Sofia, Bulgaria</small></td>
+              </tr>
+           </tfoot>
+        </table>
+        <div class="form__footer">
+           <button class="btn btn--secondary first js-toggle-cart">Continue Shopping</button>
+           <button class="btn btn--primary second">Pay Now</button>
+        </div>
+        <img src="https://storage.googleapis.com/upcart-public/payment-icons.png" alt="Secured payment gateways" style="padding: 20px; width: 100%;">
 
-    <li>
-      <span class="cd-qty">2x</span> Product Name
-      <div class="cd-price">$19.98</div>
-      <a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
-    </li>
+     </div>
 
-    <li>
-      <span class="cd-qty">1x</span> Product Name
-      <div class="cd-price">$9.99</div>
-      <a href="#0" class="cd-item-remove cd-img-replace">Remove</a>
-    </li>
-  </ul> <!-- cd-cart-items -->
+  </div>
 
-  <div class="cd-cart-total">
-    <p>Total <span>$39.96</span></p>
-  </div> <!-- cd-cart-total -->
-
-  <a href="#0" class="checkout-btn">Checkout</a>
-
-  <!-- <p class="cd-go-to-cart"><a  [routerLink]="['/'+this.translateService.currentLang+'/cart']">Go to cart page</a></p> -->
 </div>
