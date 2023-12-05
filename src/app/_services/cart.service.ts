@@ -5,6 +5,7 @@ import { Product } from '../_models/Product';
 import { ProductModel } from '../_models/ProductModel';
 import { ProductType } from '../_models/ProductType';
 import { ModalService } from './modal.service';
+import { toggleCart } from '../../assets/js/sidecart.js';
 
 @Injectable({
   providedIn: 'root'
@@ -71,7 +72,7 @@ ngOnInit() {
     this.cartItems.next([]);
   }
 
-  addItem(product: Product, showPopup: boolean = false){
+  addItem(product: Product, showPopup: boolean = false, showCart: boolean = false){
     this.cartItemsCount.next(this.cartItemsCount.getValue()+1);
     let prevCart = this.cartItems.getValue();
     for(let i=0;i<prevCart.length;i++){
@@ -89,6 +90,7 @@ ngOnInit() {
     }])
 
     if(showPopup) this.modal.open("modal-1");
+    if(showCart) toggleCart();
   }
   removeItem(product: Product){
     this.cartItemsCount.next(this.cartItemsCount.getValue()-1);

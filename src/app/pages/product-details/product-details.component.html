@@ -71,7 +71,7 @@
 
                         <div class="product-btn-group">
                             <a class="button buy-now" (click)="buyInstant()"><i class='bx bxs-zap' ></i>{{'catalog.buy_now' | translate}}</a>
-                            <a class="button add-to-cart" (click)="CartService.addItem(product)" role="button"><i class="fa-solid fa-cart-shopping"></i> {{'product_details.add_to_cart' | translate}}</a>
+                            <a class="button add-to-cart" (click)="CartService.addItem(product, false, true)" role="button"><i class="fa-solid fa-cart-shopping"></i> {{'product_details.add_to_cart' | translate}}</a>
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                     <div class="elementor-element elementor-element-09b83ac elementor-view-default elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-icon-box">
                         <div class="elementor-widget-container">
                             <div class="elementor-icon-box-wrapper">
-                                <div class="elementor-icon-box-icon">
+                                <div class="felementor-icon-box-icon">
                                     <span class="elementor-icon elementor-animation-">
                                         <i class="fa fa-lock" aria-hidden="true"></i>
                                     </span>

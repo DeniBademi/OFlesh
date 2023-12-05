@@ -12,7 +12,7 @@ import { Currency } from '../_models/Currency';
 import { GlobalsService } from '../_services/globals.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { toggleCart } from '../../assets/js/sidecart.js';
+
 
 @Component({
   selector: 'app-product-list',
@@ -234,8 +234,8 @@ export class ProductListComponent implements OnInit {
 
   onAddToCart($event, product: Product) {
     $event.stopPropagation()
-    this.CartService.addItem(product);
-    toggleCart();
+    this.CartService.addItem(product, false, true);
+
   }
 
 
