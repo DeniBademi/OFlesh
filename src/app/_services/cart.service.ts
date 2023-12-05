@@ -80,6 +80,7 @@ ngOnInit() {
         //increment quantity
         prevCart[i].quantity+=1;
         this.cartItems.next(prevCart);
+        if(showCart) toggleCart();
         return;
       }
     }
@@ -91,6 +92,7 @@ ngOnInit() {
 
     if(showPopup) this.modal.open("modal-1");
     if(showCart) toggleCart();
+    console.log(showCart)
   }
   removeItem(product: Product){
     this.cartItemsCount.next(this.cartItemsCount.getValue()-1);

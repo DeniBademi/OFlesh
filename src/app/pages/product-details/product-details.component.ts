@@ -97,7 +97,7 @@ export class ProductDetailsComponent implements OnInit {
 
   buyInstant() {
     this.CartService.emptyCart();
-    this.CartService.addItem(this.product, false)
+    this.CartService.addItem(this.product, false, true)
     this.router.navigate(['/'+this.translate.currentLang+"/cart"])
   }
 

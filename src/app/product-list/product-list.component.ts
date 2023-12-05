@@ -187,18 +187,18 @@ export class ProductListComponent implements OnInit {
     })
   }
 
-  clicked(product: Product): void {
-    this.currentProduct = product
-    this.onProductSelected.emit(product)
-    if(!this.cartService.productInCart(product)) {
-      this.toastr.info("Product added to cart", "Cart changed")
-      this.cartService.addItem(product);
-    }
-    else {
-      this.toastr.error("Product already in cart")
-    }
-    this.cartService.printCart();
-  }
+  // clicked(product: Product): void {
+  //   this.currentProduct = product
+  //   this.onProductSelected.emit(product)
+  //   if(!this.cartService.productInCart(product)) {
+  //     this.toastr.info("Product added to cart", "Cart changed")
+  //     this.cartService.addItem(product);
+  //   }
+  //   else {
+  //     this.toastr.error("Product already in cart")
+  //   }
+  //   this.cartService.printCart();
+  // }
 
   isSelected(product: Product): boolean {
     if (!product || !this.currentProduct) {
