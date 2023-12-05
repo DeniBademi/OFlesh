@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+@page{
+    size: auto;
+	margin-top: 0;
+    margin-bottom: 0;
+}
+
+html, body{
+	-webkit-print-color-adjust: exact;
+	background: white;
+}
+
+body{
+	padding-top: 36px;
+	padding-bottom: 36px;
+}
+
+#header,
+#footer{
+	display: none;
+}
+
+/* Headings */
+h1,h2,h3,h4,h5,h6 { page-break-after:avoid; }
+
+code { font: 12pt Courier, monospace; } 
+blockquote { margin: 1.2em; padding: 1em;  font-size: 12pt; }
+hr { background-color: #ccc; }
+
+/* Images */
+img { max-width: 100% !important; }
+a img { border: none; }
+
+img,tr {page-break-inside: avoid;} 
+
+table thead, table tbody, table tr, table th, table td{
+	page-break-inside: avoid;
+}
+
+.cart-preview .list-item{
+	page-break-before: avoid;
+	page-break-inside: avoid;
+	page-break-after: avoid;
+}
