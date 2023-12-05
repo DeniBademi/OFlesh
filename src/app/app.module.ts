@@ -75,6 +75,7 @@ import { CountdownTimerComponent } from './broadcast-line/countdown-timer/countd
 import { ModelsComponent } from './pages/models/models.component';
 import { CookiePolicyComponent } from './pages/cookie-policy/cookie-policy.component';
 import { LiveChatWidgetModule } from '@livechat/widget-angular'
+import { SideCartComponent } from './side-cart/side-cart.component';
 
 
 
@@ -113,7 +114,8 @@ import { LiveChatWidgetModule } from '@livechat/widget-angular'
       BroadcastLineComponent,
       CountdownTimerComponent,
       ModelsComponent,
-      CookiePolicyComponent
+      CookiePolicyComponent,
+      SideCartComponent
    ],
   imports: [
     BrowserModule,

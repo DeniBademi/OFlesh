@@ -8,11 +8,13 @@
 
 .big-icon {
     font-size: 7rem;
+    color: var(--accent-color);
 }
 
 .icon-heading {
     font-size: 1rem;
     font-weight: bold;
+
 }
 
 .icon-content {
