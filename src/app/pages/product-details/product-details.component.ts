@@ -71,7 +71,6 @@ export class ProductDetailsComponent implements OnInit {
           console.log(this.product.photosJSON)
           //https://res.cloudinary.com/dvkjlgu83/image/upload/v1679592200/product-photos/5.40mm-compressed/Top%20Roller/250mm_5.4mm_2023-Mar-15_12-40-34PM-000_CustomizedView9730449655_juzc56.jpg
           for(let i=0;i<this.product.photosJSON.gallery.length;i++){
-
             this.photos.push(new ImageItem({
                 src: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.gallery[i],
                 thumb: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.gallery[i]

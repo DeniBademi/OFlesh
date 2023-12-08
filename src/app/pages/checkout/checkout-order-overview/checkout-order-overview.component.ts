@@ -22,70 +22,63 @@ export class CheckoutOrderOverviewComponent implements OnInit {
   total: any = 0;
   discount: any;
   shippingPrice: number;
-  private eventsSubscription: any;
+  private countryIdSubscription: any;
+  private shippingMethodIdSubscription: any;
 
-  constructor(private Route: ActivatedRoute, 
-    private DataService: DataService, 
+  constructor(private Route: ActivatedRoute,
+    private DataService: DataService,
     public CartService: CartService,
     public GlobalsService: GlobalsService,
     public translate: TranslateService,
-    public form: OrderForm) { 
-
-
+    public form: OrderForm) {
     }
 
   ngOnInit() {
-    window.scroll({ 
-      top: 0, 
-      left: 0, 
-      behavior: 'smooth' 
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
     });
 
-    this.cartItems = JSON.parse(this.checkout["cartJSON"])
-    this.sum = this.CartService.calculateTotalJSON(this.cartItems);
-    this.total = this.sum;
-    console.log(this.checkout.coupon)
-    if(this.checkout.coupon != undefined) {
-      if(this.checkout.coupon.isPercentage) {
-        this.total = this.sum * (100 - this.checkout.coupon.discount)/100
-      } else {
-        this.total = this.sum - this.checkout.coupon.discount;
-      }
-    }
 
-    if( this.form.get("shippingAddress.countryId").value != undefined && this.form.get("shippingMethodId").value != null) {
-      this.shippingPrice = this.form.get("shippingAddress.countryId").value.price + (this.form.get("shippingMethodId").value == "priority"? 10 : 0);
-      this.recalculate();
-    }
-
-    this.eventsSubscription = this.form.valueChanges.subscribe((value) => {
-      if( value.shippingAddress.countryId != undefined && value.shippingMethodId != null) {
-        this.shippingPrice = value.shippingAddress.countryId.price + (value.shippingMethodId == "priority"? 10 : 0);
+    this.countryIdSubscription = this.form.get("shippingAddress.countryId").valueChanges.subscribe((value) => {
+      if(value != undefined) {
+        this.shippingPrice = value.price + (this.form.get("shippingMethodId").value == "priority"? 10 : 0);
         this.recalculate();
       }
-      
+      console.log(value);
     });
+
+    this.shippingMethodIdSubscription = this.form.get("shippingMethodId").valueChanges.subscribe((value) => {
+      if(value != undefined) {
+        this.shippingPrice = this.form.get("shippingAddress.countryId").value.price + (value == "priority"? 10 : 0);
+        this.recalculate();
+      }
+    });
+
+
+    // if(this.form.get("shippingAddress.countryId").value != undefined && this.form.get("shippingMethodId").value != null) {
+    //   this.shippingPrice = this.form.get("shippingAddress.countryId").value.price + (this.form.get("shippingMethodId").value == "priority"? 10 : 0);
+    //   this.recalculate();
+    // }
+
+    // this.eventsSubscription = this.form.valueChanges.subscribe((value) => {
+    //   console.log(value);
+    //   if(value.shippingAddress.countryId != undefined && value.shippingMethodId != null) {
+    //     this.shippingPrice = value.shippingAddress.countryId.price + (value.shippingMethodId == "priority"? 10 : 0);
+    //     this.recalculate();
+    //   }
+    // });
 
   }
 
   recalculate() {
-    this.sum = this.CartService.calculateTotalJSON(this.cartItems);
-    this.total = 0;
-    if(this.checkout.coupon != undefined) {
-      if(this.checkout.coupon.isPercentage) {
-        this.total = this.sum * (100 - this.checkout.coupon.discount)/100
-      } else {
-        this.total = this.sum - this.checkout.coupon.discount;
-      }
-    } else {
-      this.total += this.sum;
-    }
-    this.total += this.shippingPrice
-    console.log(this.checkout.coupon)
+    this.total = this.CartService.calculateTotal(true);
+    this.total += this.shippingPrice;
   }
 
   ngOnDestroy() {
-    this.eventsSubscription.unsubscribe();
+    if(this.countryIdSubscription) this.shippingMethodIdSubscription.unsubscribe();
   }
 
 }

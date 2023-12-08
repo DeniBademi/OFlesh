@@ -27,7 +27,6 @@ import { ProductListComponent } from './product-list/product-list.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AddToCartBtnComponent } from './add-to-cart-btn/add-to-cart-btn.component';
 import { ProductFiltersComponent } from './product-filters/product-filters.component';
 import { NgParticlesModule } from "ng-particles";
 import { HomeBannerComponent } from './home-banner/home-banner.component';
@@ -51,10 +50,9 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { RouterModule } from '@angular/router';
 import { ShippingInformationComponent } from './shipping-information/shipping-information.component';
-import { CheckoutShippingAddressComponent } from './pages/checkout/checkout-shipping-address/checkout-shipping-address.component';
-import { CheckoutShippingMethodComponent } from './pages/checkout/checkout-shipping-method/checkout-shipping-method.component';
 import { CheckoutPaymentComponent } from './pages/checkout/checkout-payment/checkout-payment.component';
 import { CheckoutOrderOverviewComponent } from './pages/checkout/checkout-order-overview/checkout-order-overview.component';
+import { CheckoutSinglePageComponent } from './pages/checkout/checkout-single-page/checkout-single-page.component';
 import { RxTranslateModule } from "@rxweb/translate"
 import {LocalizeRouterModule} from '@gilsdav/ngx-translate-router';
 import {LocalizeRouterHttpLoader} from '@gilsdav/ngx-translate-router-http-loader';
@@ -92,14 +90,11 @@ import { SideCartComponent } from './side-cart/side-cart.component';
       ProductCardComponent,
       ProductCatalogComponent,
       ProductListComponent,
-      AddToCartBtnComponent,
       ProductFiltersComponent,
       HomeBannerComponent,
       NewsletterFormComponent,
       ProductDetailsComponent,
       ShippingInformationComponent,
-      CheckoutShippingAddressComponent,
-      CheckoutShippingMethodComponent,
       CheckoutPaymentComponent,
       CheckoutOrderOverviewComponent,
       FooterComponent,
@@ -115,7 +110,8 @@ import { SideCartComponent } from './side-cart/side-cart.component';
       CountdownTimerComponent,
       ModelsComponent,
       CookiePolicyComponent,
-      SideCartComponent
+      SideCartComponent,
+      CheckoutSinglePageComponent
    ],
   imports: [
     BrowserModule,

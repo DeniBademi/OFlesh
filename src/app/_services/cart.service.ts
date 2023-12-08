@@ -12,27 +12,21 @@ import { toggleCart } from '../../assets/js/sidecart.js';
 })
 export class CartService {
 
-  cartItems: BehaviorSubject<{ product: any, quantity: number }[]> = new BehaviorSubject<{ product: any, quantity: number }[]>([
-
-  ]);
+  cartItems: BehaviorSubject<{ product: any, quantity: number }[]> = new BehaviorSubject<{ product: any, quantity: number }[]>([]);
   cartItemsCount: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  couponCode: string;
+  couponData: any;
+
 
 constructor(private modal: ModalService) {
   let temp = [
     {product: new Product(
-      "75E4EB9E-DD36-4F50-A50D-3711EE6DC679",
+      "b52271b9-7ee0-49ea-8d2c-ce40c5f16f11",
       "Ofleshy Andjela Tasheva",
-      150,
+      1,
       null,
-      "The Collection of „Andjela Tasheva“ Ofleshy is an exceptional quality male \
-      masturbator, designed with the ability to take you close to your beloved star. Oozing intimacy, \
-      this product delivers unparalleled pleasure and realism. Made of high quality TPE material that \
-      is safe for the skin, it offers a soft and realistic experience. Since it is manually operated, you \
-      can control the pace, strength and intensity of your pleasure by customizing it to your \
-      preference. A gift in the collection of &quot;Andjela Tasheva&quot; Ofleshy. Lubricant is Created with care \
-      and attention to the safety and sensitivity of your skin, it is water-based and will turn your \
-      intimate moments into pleasure.",
-      {'thumbnail':'5.4%D0%BC%D0%BC/Main_xtg2fj.jpg','gallery':['5.4%D0%BC%D0%BC/2_sccwvj.jpg','5.4%D0%BC%D0%BC/3_vqw97g.jpg','5.4%D0%BC%D0%BC/4_gl72vu.jpg','5.4%D0%BC%D0%BC/5_z9h0xg.jpg']},
+      "Колекцията на „Andjela Tasheva“ се състои от изключително качествени мъжки\n                    мастурбатори, създадени с възможността да ви приближи до любимата ви звезда.\n                    Излъчващ интимност, този продукт доставя несравнимо удоволствие и реализъм.\n                    Изработен от висококачествен TPE материал, който е безопасен за кожата, той предлага\n                    меко и реалистично изживяване. Тъй като се управлява ръчно, можете да контролирате\n                    темпото, силата и интензивността на удоволствието, като го настроите според\n                    предпочитанията си.\n                    <h3>Характеристики:</h3>\n                    <li> Име на модел: Ofleshy Andjela Tasheva </li>\n                    <li> Размери (сантиметри): 9x9x22 (LxWxH) <li>\n                    <li> Марка: Oflesh </li>\n                    <li> Материал: Термопластичен Еластомер (TPE) </li>\n                    <li> Цвят: Черен </li>\n                    <li> Нето тегло: 450г </li>\n                    <li> Наличен лубрикант: 30 ml. </i>",
+      {'thumbnail':'Ofleshy%20Andjela%20Tasheva/1_tmjxi9.jpg','gallery':['Ofleshy%20Andjela%20Tasheva/6_emnzh0.jpg','Ofleshy%20Andjela%20Tasheva/7_bkoqdr.jpg','Ofleshy%20Andjela%20Tasheva/8_iy0e1t.jpg']},
       new ProductModel(
         "e752ef04-304f-49f2-b1ff-166309ea34fd",
         "5,4 mm"
@@ -42,28 +36,38 @@ constructor(private modal: ModalService) {
         "Machine"
       ),
       null,
-      "/Catalog/Andjela_Tasheva/Manual"
+      "/Catalog/Andjela_Tasheva/Ofleshy"
     ),
+
+
+    quantity: 1},
+    {product: new Product(
+      "b52271b9-7ee0-49ea-8d2c-ce40c5f16f12",
+      "Autofleshy Andjela Tasheva",
+      1,
+      null,
+      "Колекцията на „Andjela Tasheva“ се състои от изключително качествени мъжки\n                    мастурбатори, създадени с възможността да ви приближи до любимата ви звезда.\n                    Излъчващ интимност, този продукт доставя несравнимо удоволствие и реализъм.\n                    Изработен от висококачествен TPE материал, който е безопасен за кожата, той предлага\n                    меко и реалистично изживяване. Тъй като се управлява ръчно, можете да контролирате\n                    темпото, силата и интензивността на удоволствието, като го настроите според\n                    предпочитанията си.\n                    <h3>Характеристики:</h3>\n                    <li> Име на модел: Ofleshy Andjela Tasheva </li>\n                    <li> Размери (сантиметри): 9x9x22 (LxWxH) <li>\n                    <li> Марка: Oflesh </li>\n                    <li> Материал: Термопластичен Еластомер (TPE) </li>\n                    <li> Цвят: Черен </li>\n                    <li> Нето тегло: 450г </li>\n                    <li> Наличен лубрикант: 30 ml. </i>",
+      {'thumbnail':'Ofleshy%20Andjela%20Tasheva/1_tmjxi9.jpg','gallery':['Ofleshy%20Andjela%20Tasheva/6_emnzh0.jpg','Ofleshy%20Andjela%20Tasheva/7_bkoqdr.jpg','Ofleshy%20Andjela%20Tasheva/8_iy0e1t.jpg']},
+      new ProductModel(
+        "e752ef04-304f-49f2-b1ff-166309ea34fd",
+        "5,4 mm"
+      ),
+      new ProductType(
+        "d9e9e846-7a39-4aec-b065-88b9e22ff526",
+        "Machine"
+      ),
+      null,
+      "/Catalog/Andjela_Tasheva/Ofleshy"
+    ),
+
+
     quantity: 1}
   ];
-  // temp.push({product: new Product("4c4d9f4f-c0ed-495d-b671-529557a1ae35", "Top Roller", 350, "BGN", "", JSON.parse('{"thumbnail":"001_main_gwqm02.jpg",' +
-  // '"gallery":["001_1_yl9bpm.png","001_2_cxbbdb.png","001_3_bspmo4.png","001_4_i2lafj.png"]}'),
-  // new ProductModel("e752ef04-304f-49f2-b1ff-166309ea34fd","250mm 5,4 mm"),
-  // new ProductType("dbd88a2b-8408-4a00-8af2-f8cda4584d14", "Spare part"),
-  // new Currency(2, "US Dollar", "USD", "Prefix")
-  // ), quantity: 1});
 
-  // temp.push({product: new Product("26d61449-b1b2-4c55-b4cc-ebd260a47a77", "Bottom Roller", 350, "BGN", "", JSON.parse('{"thumbnail":"001_main_gwqm02.jpg",' +
-  // '"gallery":["001_1_yl9bpm.png","001_2_cxbbdb.png","001_3_bspmo4.png","001_4_i2lafj.png"]}'),
-  // new ProductModel("e752ef04-304f-49f2-b1ff-166309ea34fd","250mm 5,4 mm"),
-  // new ProductType("dbd88a2b-8408-4a00-8af2-f8cda4584d14", "Spare part"),
-  // new Currency(2, "US Dollar", "USD", "Prefix")
-  // ), quantity: 1});
-
- //this.addItem(temp[0].product, false)
 }
 
 ngOnInit() {
+
 
 }
 
@@ -77,7 +81,6 @@ ngOnInit() {
     let prevCart = this.cartItems.getValue();
     for(let i=0;i<prevCart.length;i++){
       if(prevCart[i].product.id == product.id) {
-        //increment quantity
         prevCart[i].quantity+=1;
         this.cartItems.next(prevCart);
         if(showCart) toggleCart();
@@ -143,15 +146,20 @@ ngOnInit() {
 
   return false;
 }
-  printCart(){
-    //console.log(this.cartItems)
-  }
 
 
-  calculateTotal(){
+
+
+  calculateTotal(withDiscount: boolean = false){
     let total = 0;
     for(let i=0;i<this.cartItems.value.length;i++){
       total += this.cartItems.value[i].quantity * this.cartItems.value[i].product.price;
+    }
+    if(withDiscount && this.couponData) {
+      if(this.couponData.isPercentage)
+        total = total * (100 - this.couponData.discount)/100;
+      else
+        total = total - this.couponData.discount;
     }
     return total;
    }

@@ -3,26 +3,20 @@
         <div class="container my-5 py-5" *ngIf="this.product!=undefined" >
             <div class="row justify-content-between mx-0">
                 <div class="col-sm-7 px-0">
-                    <gallery class="gallery" [items]="photos" thumbPosition="bottom" imageSize="cover" style="position: relative !important; z-index: -1;"></gallery>
+                    <gallery class="gallery" [items]="photos" thumbPosition="bottom" style="position: relative !important; z-index: 0; background-color:transparent;"></gallery>
                 </div>
                 <div class="col-sm-4">
                     <div class="product1">
                         <div class="name-price">
                             <div class="product-title">
                                 <h2 style="font-family: 'Rockwell', sans-serif;">{{product.name}}</h2>
-                                <!-- <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1686526873/design/WARRANTY-5_jipazl.ai"> -->
                             </div>
                             <div class="product-price">
-                                <!-- <h2 class="offer-price">{{product.price | convert | currency: (translate.currentLang == "bg"? "BGN": "EUR")}}</h2> -->
                                 <h2 class="offer-price">
-                                <span *ngIf="this.DataService.isDiscountActive()">{{product.price*0.6 | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}
-                                    <br><s class="old-price">{{product.price | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</s>
-                                  </span>
-                                  <span *ngIf="!this.DataService.isDiscountActive()">{{product.price | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}
-                                  </span>
+                                    <span>
+                                        {{product.price | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}
+                                    </span>
                                 </h2>
-
-                                <!-- <span class="sale-price">$129.00</span> -->
                             </div>
                         </div>
                         <!-- <div class="d-flex justify-content-start align-items-center" style="gap: 5px;" *ngIf="product.productType.name == 'Machine'">

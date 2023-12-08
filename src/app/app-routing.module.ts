@@ -4,8 +4,6 @@ import { AboutComponent } from './pages/about/about.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { FindUsComponent } from './pages/find-us/find-us.component';
 import { CheckoutPaymentComponent } from './pages/checkout/checkout-payment/checkout-payment.component';
-import { CheckoutShippingAddressComponent } from './pages/checkout/checkout-shipping-address/checkout-shipping-address.component';
-import { CheckoutShippingMethodComponent } from './pages/checkout/checkout-shipping-method/checkout-shipping-method.component';
 import { CheckoutThankYouComponent } from './pages/checkout/checkout-thank-you/checkout-thank-you.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -15,6 +13,7 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { CookiePolicyComponent } from './pages/cookie-policy/cookie-policy.component';
+import { CheckoutSinglePageComponent } from './pages/checkout/checkout-single-page/checkout-single-page.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "en/home", pathMatch: "full"},
@@ -28,15 +27,14 @@ const routes: Routes = [
   // {path: ':languageCode/contact', component: ContactComponent, data: { title: 'Contact' }},
    {path: ':languageCode/cart', component: CartComponent, data: { title: 'Cart' }},
 
-   {path: ':languageCode/checkout/:id/shipping-address', component: CheckoutShippingAddressComponent},
-  {path: ':languageCode/checkout/:id/shipping-method', component: CheckoutShippingMethodComponent},
+   {path: ':languageCode/checkout', component: CheckoutSinglePageComponent},
   {path: ':languageCode/checkout/:id/payment', component: CheckoutPaymentComponent},
-  {path: ':languageCode/checkout/:id/thank-you', component: CheckoutThankYouComponent},
+  {path: ':languageCode/checkout/thank-you', component: CheckoutThankYouComponent},
   {path: ':languageCode/product/:id', component: ProductDetailsComponent},
   {path: ':languageCode/terms-and-conditions', component: TermsAndConditionsComponent},
   {path: ':languageCode/privacy-policy', component: PrivacyPolicyComponent},
   {path: ':languageCode/cookie-policy', component: CookiePolicyComponent},
-  // {path: ':languageCode/find-us', component: FindUsComponent},
+  {path: ':languageCode/distributors', component: FindUsComponent},
   { path: '**', component: NotFoundComponent }
 ];
 

@@ -44,7 +44,7 @@ export class ProductListComponent implements OnInit {
   constructor(@SkipSelf() private http: HttpClient,
     public cartService: CartService,
     public toastr: ToastrService,
-    private Globals: GlobalsService,
+    public Globals: GlobalsService,
     public translate: TranslateService,
     private CartService: CartService,
     private dataService: DataService,
@@ -67,6 +67,9 @@ export class ProductListComponent implements OnInit {
     let featureList = queryParams.get("features") ? queryParams.get("features").split(",") : [];
     this.dataService.getProductsForCategory(this.router.url.replace("/en","").replace("/bg","").split("?")[0], featureList).subscribe(res => {
       this.productList = res;
+      for(let i=0;i<this.productList.length;i++){
+        this.productList[i].photosJSON = JSON.parse(this.productList[i].photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\""))
+      }
     });
     this.router.events.subscribe((val) => {
       if(val instanceof NavigationEnd){
@@ -75,8 +78,10 @@ export class ProductListComponent implements OnInit {
 
         this.dataService.getProductsForCategory(this.router.url.replace("/en","").replace("/bg","").split("?")[0], featureList).subscribe(res => {
           this.productList = res;
+          for(let i=0;i<this.productList.length;i++){
+            this.productList[i].photosJSON = JSON.parse(this.productList[i].photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\""))
+          }
         });
-
       }
     });
   }
@@ -103,19 +108,20 @@ export class ProductListComponent implements OnInit {
 
 
 
-      // let products = response.body.map((item: any) => {
-      //     return new Product(item.id,
-      //     item.name,
-      //     item.price,
-      //     "",
-      //     item.description,
-      //     JSON.parse(item.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
-      //     new ProductModel(item.productModel.id, item.productModel.name),
-      //     new ProductType(item.productType.id, item.productType.name),
-      //     new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "EUR",
-      //                     this.translate.currentLang == "bg" ? "лв" : "EUR",
-      //                     ""))
-      //     })
+      let products = response.body.map((item: any) => {
+          return new Product(item.id,
+          item.name,
+          item.price,
+          "",
+          item.description,
+          JSON.parse(item.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
+          new ProductModel(item.productModel.id, item.productModel.name),
+          new ProductType(item.productType.id, item.productType.name),
+          new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "EUR",
+                          this.translate.currentLang == "bg" ? "лв" : "EUR",
+                          ""),
+                        item.categoryRoute)
+          })
       // products.sort((n1,n2) => {
       //   if (n1.productType.name === "Spare Part" && n2.productType.name === "Machine")
       //     return 1;

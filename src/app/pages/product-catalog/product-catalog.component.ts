@@ -70,34 +70,6 @@ export class ProductCatalogComponent implements OnInit {
 
             ]
           }
-          // {
-          //   "id": 3,
-          //   "name": "Daniela",
-          //   "description": "This is the electric category. It is a child of the catalog category.",
-          //   "checked": false,
-          //   "count": 0,
-          //   "behavior": "category",
-          //   "children": [
-          //     {
-          //       "id": 6,
-          //       "name": "Manual",
-          //       "description": "This is the electric 1 feature. Features are the leaves of the category tree.",
-          //       "checked": false,
-          //       "count": 0,
-          //       "behavior": "feature",
-          //       "children": []
-          //     },
-          //     {
-          //       "id": 7,
-          //       "name": "Electric",
-          //       "description": "This is the electric 2 feature. Features are the leaves of the category tree.",
-          //       "checked": false,
-          //       "count": 0,
-          //       "behavior": "feature",
-          //       "children": []
-          //     }
-          //   ]
-          // }
         ]
   }
 
@@ -108,14 +80,16 @@ export class ProductCatalogComponent implements OnInit {
   categories: MenuOption[] = []
   breadCrumbs: any[] = []
 
+  navigationSubscription: any;
+
   constructor(GlobalsService: GlobalsService,
     public route: ActivatedRoute,
     public router: Router,
     public translate:TranslateService,
     public modalService: ModalService) {
 
-    router.events.subscribe((val) => {
-      if(val instanceof NavigationEnd){
+    this.navigationSubscription = router.events.subscribe((val) => {
+      if(val instanceof NavigationEnd && val.url.startsWith("/"+this.route.snapshot.paramMap.get("languageCode")+"/catalog")){
         this.readRoute();
 
         window.scroll({
@@ -133,6 +107,12 @@ export class ProductCatalogComponent implements OnInit {
       behavior: 'smooth'
     });
     this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
+  }
+
+  ngOnDispose() {
+    if(this.navigationSubscription) {
+      this.navigationSubscription.unsubscribe();
+    }
   }
 
   readRoute() {

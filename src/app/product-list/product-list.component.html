@@ -13,7 +13,7 @@
           <!-- Single Product -->
           <div class="col-md-6 col-lg-4 col-xl-3" *ngFor="let product of productList" [routerLink]="['/'+this.translate.currentLang+'/product', product.id]">
             <div id="product-1" class="single-product">
-                <div class="part-1" [style.background]="'url(' + 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Example_image.svg' + ') no-repeat center'" [style.background-size]="'cover'" [style.transition]="'all 0.3s'">
+                <div class="part-1" [style.background]="'url(' + Globals.productPhotosMediaURLs + product.photosJSON.thumbnail + ') no-repeat center'" [style.background-size]="'cover'" [style.transition]="'all 0.3s'">
                     <!-- <span class="discount">15% off</span>
                     <span class="new">new</span> -->
                     <ul>

@@ -8,11 +8,11 @@ export class GlobalsService {
 
   //baseURL = "https://api.honeycomb-rollers.com/"
 
-  //baseURL = "https://localhost:5001/"
-  baseURL = "https://ofleshserver.azurewebsites.net/"
+  baseURL = "https://localhost:5001/"
+  //baseURL = "https://ofleshserver.azurewebsites.net/"
   // clientBaseURL = "http://213.124.166.84:4200/"
 
-  productPhotosMediaURLs = "https://res.cloudinary.com/dvkjlgu83/image/upload/v1679592200/product-photos/"
+  productPhotosMediaURLs = "https://res.cloudinary.com/dvkjlgu83/image/upload/v1701946895/product-photos-oflesh/"
   productDesignImagesURLs = "https://res.cloudinary.com/dvkjlgu83/image/upload/v1677171170/design/"
 
   //stripePublicKey = "pk_test_51MuGi1BAZhA0rlRn9ZAiDgRRfVhJ9F0j5KD62362DJQhM1T6SUjwT5m3ObdVrpYfJWD1C7BLi95dYm4Xks4XzZ3p00qELKSmiJ"

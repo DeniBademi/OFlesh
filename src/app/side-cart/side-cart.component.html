@@ -3,6 +3,7 @@
   <div class="cart__contents" style="display: flex; flex-direction: column; justify-content: space-between;">
      <div class="cart__products column justify-content-between">
         <h2>Your Cart</h2>
+        <br>
         <p class="microcopy">An overview of your selected products.</p>
         <div class="products" *ngIf="this.CartService.cartItemsCount.getValue()>0">
            <div class="product" *ngFor="let item of this.CartService.cartItems.getValue()">
@@ -52,12 +53,12 @@
                              <div class="f70">
                                 <div class="input input--small">
                                    <label for="couponcode" class="input__label">Coupon code <span class="optional">(optional)</span></label>
-                                   <input id="couponcode" type="text" class="input__input" data-mask=".{5,}" />
+                                   <input id="couponcode" type="text" class="input__input" data-mask=".{5,}"  [(ngModel)]="couponCode" value="this.CartService.couponCode"/>
                                    <div class="input__error">Please enter a valid coupon code.</div>
                                 </div>
                              </div>
                              <div class="f30">
-                                <button class="btn btn--small btn--secondary btn--full js-add-gift-card">Add</button>
+                                <button class="btn btn--small btn--secondary btn--full js-add-gift-card" (click)="validateCouponCode()">Add</button>
                              </div>
                           </div>
                        </div>
@@ -68,6 +69,11 @@
                  <th class="align-left font-normal tertiary">Subtotal</th>
                  <td class="align-right">{{this.CartService.calculateTotal() | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</td>
               </tr>
+              <tr *ngIf="CartService.couponData">
+               <th class="align-left font-normal tertiary">{{'checkout.overview.discount' | translate}}</th>
+               <td class="align-right" *ngIf="CartService.couponData.isPercentage">{{CartService.couponData.discount}} %</td>
+               <td class="align-right" *ngIf="!CartService.couponData.isPercentage">{{CartService.couponData.discount | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</td>
+            </tr>
               <tr>
                  <th class="align-left font-normal tertiary">Shipping <small>(estimated)</small></th>
                  <td class="align-right">TBD</td>
@@ -78,7 +84,7 @@
               </tr> -->
               <tr>
                  <th class="align-left">Total</th>
-                 <td class="align-right"><b>{{this.CartService.calculateTotal() | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</b></td>
+                 <td class="align-right"><b>{{this.CartService.calculateTotal(true) | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</b></td>
               </tr>
            </tbody>
            <tfoot>
@@ -89,7 +95,9 @@
         </table>
         <div class="form__footer">
            <button class="btn btn--secondary first js-toggle-cart">Continue Shopping</button>
-           <button class="btn btn--primary second">Pay Now</button>
+           <button class="btn btn--primary second js-toggle-cart"
+           (click)="this.router.navigate(['/'+this.translateService.currentLang+'/checkout/'])"
+           [disabled]="this.CartService.cartItemsCount.value<1">Pay Now</button>
         </div>
         <img src="https://storage.googleapis.com/upcart-public/payment-icons.png" alt="Secured payment gateways" style="padding: 20px; width: 100%;">
 
