@@ -6,8 +6,6 @@ import { Product } from '../_models/Product';
 })
 export class GlobalsService {
 
-  //baseURL = "https://api.honeycomb-rollers.com/"
-
   //baseURL = "https://localhost:5001/"
   baseURL = "https://ofleshserver.azurewebsites.net/"
   // clientBaseURL = "http://213.124.166.84:4200/"
@@ -18,7 +16,6 @@ export class GlobalsService {
   //stripePublicKey = "pk_test_51MuGi1BAZhA0rlRn9ZAiDgRRfVhJ9F0j5KD62362DJQhM1T6SUjwT5m3ObdVrpYfJWD1C7BLi95dYm4Xks4XzZ3p00qELKSmiJ"
   stripePublicKey = "pk_live_51MuGi1BAZhA0rlRnKh5ouoqDaBiS7YBIr7MjXtxVWrvarUvCIlI71l7eU6P9P4PUAyr966Ebwjh6miUpDzvuLhT500nRdEpzgw"
 
- // https://res.cloudinary.com/dvkjlgu83/image/upload/v1679592199/product-photos/5.40mm-compressed/Top%20Roller/250mm_5.4mm_2023-Mar-15_12-10-39PM-000_CustomizedView33014944612_pyoznp.jpg
   machines : any;
 
 
