@@ -16,7 +16,11 @@
     width: 35vw;
     min-width: 400px;
     padding-bottom: 50px;
-}
+    padding-left: 0;
+    padding-right: 0;
+
+
+  }
 
 
 .order-summary {
@@ -141,9 +145,24 @@
 
 }
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 700px) {
   .discountcontainer {
     margin-left: 0;
   }
+  .inputs-container {
+    width: 100vw ;
+    min-width: 0;
   }
+  .row {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .btn {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+
+  }
+}
 

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-7 inputs-container">
+  <div class="col-6 inputs-container">
      <form [formGroup]="form" (ngSubmit)="nextStep()">
      <div formGroupName="personalDetails">
          <h1>Contact</h1>
@@ -74,7 +74,7 @@
            </div>
         </div>
 
-        <div class="row">
+
           <div class="col-md-6">
              <label class="credit-card-label">{{'checkout.shipping_address.city' | translate}} *</label>
              <input required type="text" class="form-control credit-inputs" placeholder="" formControlName="city">
@@ -83,13 +83,11 @@
                     {{'messages.required_field' | translate}}
                 </div>
             </div>
-          </div>
           <div class="col-md-6">
              <label class="credit-card-label">{{'checkout.shipping_address.state' | translate}} ({{'optional' | translate}})</label>
              <input  type="text" class="form-control credit-inputs" placeholder="" formControlName="state">
           </div>
        </div>
-       <div>
           <label class="credit-card-label">{{'checkout.shipping_address.postal_code' | translate}} *</label>
           <input required type="text" class="form-control credit-inputs" placeholder="" formControlName="postalCode">
           <div *ngIf="form.controls['shippingAddress']['controls']['postalCode'].invalid && (form.controls['shippingAddress']['controls']['postalCode'].dirty || form.controls['shippingAddress']['controls']['postalCode'].touched)">
@@ -97,7 +95,6 @@
                  {{'messages.required_field' | translate}}
              </div>
          </div>
-       </div>
      </div>
 
      <div>
@@ -170,7 +167,7 @@
          <!--Stripe.js injects the Link Authentication Element-->
        </div>
       <label class="credit-card-label">{{'checkout.payment.payment_method' | translate}} *</label>
-      <div class="row payment-option">
+      <div class="payment-option">
          <div class="col-sm-auto">
             <input type="radio" id="accent" formControlName="paymentMethod" value="card">
          </div>
@@ -212,7 +209,6 @@
         type="submit"
         class="btn"
         [disabled]="!this.form.valid"
-
         style="width: 100%; background-color:limegreen;color: white;">Checkout</button>
      </form>
   </div>
