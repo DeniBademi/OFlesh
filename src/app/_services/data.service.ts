@@ -133,6 +133,15 @@ export class DataService {
     )
   }
 
+  getReviews(id: string){
+    return this.http.get(this.GlobalsService.baseURL+'review/getAllByProductId/'+id).pipe(
+      map((response: any) => {
+        const types = response;
+        return types;
+      })
+    )
+  }
+
   getModels(){
     return this.http.get(this.GlobalsService.baseURL+'productmodel/getAll').pipe(
       map((response: any) => {
@@ -194,6 +203,10 @@ export class DataService {
     return this.http.get(this.GlobalsService.baseURL+'coupon/validate',
     {params: new HttpParams().set("Code", code),
       observe: "response"})
+  }
+
+  sendReview(data: any) {
+    return this.http.post(this.GlobalsService.baseURL+'review/add', data);
   }
 
   checkout(data : any) {

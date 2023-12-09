@@ -75,19 +75,23 @@
         </div>
 
 
-          <div class="col-md-6">
-             <label class="credit-card-label">{{'checkout.shipping_address.city' | translate}} *</label>
-             <input required type="text" class="form-control credit-inputs" placeholder="" formControlName="city">
-             <div *ngIf="form.controls['shippingAddress']['controls']['city'].invalid && (form.controls['shippingAddress']['controls']['city'].dirty || form.controls['shippingAddress']['controls']['city'].touched)">
-                <div *ngIf="form.controls['shippingAddress']['controls']['city'].errors!['required']" class="error">
-                    {{'messages.required_field' | translate}}
-                </div>
-            </div>
-          <div class="col-md-6">
-             <label class="credit-card-label">{{'checkout.shipping_address.state' | translate}} ({{'optional' | translate}})</label>
-             <input  type="text" class="form-control credit-inputs" placeholder="" formControlName="state">
-          </div>
-       </div>
+        <div class="row">
+         <div class="col-md-6">
+            <label class="credit-card-label">{{'checkout.shipping_address.city' | translate}} *</label>
+            <input required type="text" class="form-control credit-inputs" placeholder="" formControlName="city">
+            <div *ngIf="form.controls['shippingAddress']['controls']['city'].invalid && (form.controls['shippingAddress']['controls']['city'].dirty || form.controls['shippingAddress']['controls']['city'].touched)">
+               <div *ngIf="form.controls['shippingAddress']['controls']['city'].errors!['required']" class="error">
+                   {{'messages.required_field' | translate}}
+               </div>
+           </div>
+        </div>
+         <div class="col-md-6">
+            <label class="credit-card-label">{{'checkout.shipping_address.state' | translate}} ({{'optional' | translate}})</label>
+            <input  type="text" class="form-control credit-inputs" placeholder="" formControlName="state">
+         </div>
+        </div>
+
+
           <label class="credit-card-label">{{'checkout.shipping_address.postal_code' | translate}} *</label>
           <input required type="text" class="form-control credit-inputs" placeholder="" formControlName="postalCode">
           <div *ngIf="form.controls['shippingAddress']['controls']['postalCode'].invalid && (form.controls['shippingAddress']['controls']['postalCode'].dirty || form.controls['shippingAddress']['controls']['postalCode'].touched)">
@@ -175,7 +179,7 @@
             <div>{{'checkout.payment.card' | translate}}</div>
          </div>
       </div>
-      <div class="row" *ngIf="form.get('shippingAddress.countryId').value.name=='Bulgaria'">
+      <div class="payment-option" *ngIf="form.get('shippingAddress.countryId').value.name=='Bulgaria'">
          <div class="col-sm-auto">
             <input type="radio" id="accent" formControlName="paymentMethod" value="delivery">
          </div>

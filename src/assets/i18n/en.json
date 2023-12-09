@@ -44,6 +44,17 @@
 	},
 	"product_details": {
 		"add_to_cart": "Add to cart",
+		"add_review": "Add review",
+		"reviews": "Reviews",
+		"rating_1": "Very bad",
+		"rating_2": "Bad",
+		"rating_3": "Average",
+		"rating_4": "Good",
+		"rating_5": "Excellent",
+		"order_id": "Id of order in which the product was purchased",
+		"order_first_name": "First name of the customer",
+		"order_last_name": "Last name of the customer",
+		"review_placeholder": "Write your review here...",
 		"icon_1_heading": "100% Discretion",
 		"icon_2_heading": "Fast and Discreet Shipping",
 		"icon_3_heading": "14 days return policy",
@@ -64,7 +75,7 @@
 		"paragraph_2": "Our advantage is the limited edition nature of our items, which are specially selected to offer you something unique. Every product we offer has been extensively tested and approved to provide you with maximum pleasure and safety. Plus, we offer innovative and exclusive designs that you won't find in other stores.",
 		"paragraph_3": "When you shop with us, you also benefit from our unrivalled customer support. Our teams of customer advisors are always ready to help and answer your questions and needs. We also have fast and discreet shipping to ensure your convenience and privacy when shopping.",
 		"paragraph_4": "The answer to the question is YES WE DO. In addition to our online store www.oflesh.com, we also work with distributors who offer our items in physical stores. This means that if you prefer to browse and buy our products in person, you can find them in local stores that work with us.",
-		"last_paragraph":"We want to invite you to explore our website and discover the joy and pleasure that awaits you. We promise you unforgettable moments and endless satisfaction. Thank you for choosing OFLESH GROUP Ltd. - your choice for experimentation and enjoyment.#Oflesh#Make me Freak"
+		"last_paragraph":"We want to invite you to explore our website and discover the joy and pleasure that awaits you. We promise you unforgettable moments and endless satisfaction. Thank you for choosing OFLESH GROUP Ltd. - your choice for experimentation and enjoyment. #Oflesh #Make me Freak"
 	},
 	"distributors": {
 		"text_1_1": "We are proud to share that our first distributor in Bulgaria is the erotic shop",

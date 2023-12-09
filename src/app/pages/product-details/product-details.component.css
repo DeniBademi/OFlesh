@@ -11,6 +11,36 @@
     color: var(--accent-color);
 }
 
+.review_placeholder {
+    color: var(--grey);
+    font-size: 0.8rem;;
+}
+.review_placeholder + .review_placeholder {
+    margin-top: 10px;
+}
+
+.rating label {
+    margin-left: 10px;
+}
+
+.send-review {
+   width: 100%;
+   margin: 10px;
+   padding: 0;
+   min-height: 2rem;
+}
+
+.error {
+    color: red;
+  }
+
+.review-date{
+    color: var(--grey);
+    font-size: 0.8rem;
+}
+
+
+
 .icon-heading {
     font-size: 1rem;
     font-weight: bold;

@@ -9,6 +9,9 @@ import { Product } from '../../_models/Product';
 import { ProductModel } from 'src/app/_models/ProductModel';
 import { ProductType } from 'src/app/_models/ProductType';
 import { Currency } from 'src/app/_models/Currency';
+import { NgFor } from '@angular/common';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -22,12 +25,35 @@ export class ProductDetailsComponent implements OnInit {
   product: Product // new Product(1,"Roller 250mm 5.40mm", 390, "USD", "", "../../asset/img/products/product2.jpg");
   innerWidth: number = 0;
 
+
+  productReviews: any[] = [];
+  showReviewForm: boolean = false;
+
+  reviewForm = new FormGroup({
+    orderId: new FormControl('20942001-2D73-4B4D-95A7-0C8F000DECE6', [
+      Validators.required
+    ]),
+    productId: new FormControl('', []),
+    firstName: new FormControl('', [
+      Validators.required
+    ]),
+    lastName: new FormControl('', [
+      Validators.required
+    ]),
+    rating: new FormControl(5, [
+      Validators.required
+    ]),
+    text: new FormControl(''),
+  });
+
+
   constructor(private route: ActivatedRoute,
     public CartService: CartService,
     public DataService: DataService,
     private router: Router,
     public GlobalsService: GlobalsService,
-    public translate: TranslateService) { }
+    public translate: TranslateService,
+    private toastr: ToastrService) { }
 
   ngOnInit() {
 
@@ -43,8 +69,6 @@ export class ProductDetailsComponent implements OnInit {
       this.route.paramMap.subscribe( paramMap => {
         this.productID = paramMap.get('id');
         this.DataService.getByIdFull(this.productID, "product").subscribe( product => {
-        //let product =this.DataService.getById(this.productID, "product").s
-
 
           console.log(product)
           if(product == undefined)
@@ -77,6 +101,10 @@ export class ProductDetailsComponent implements OnInit {
             }));
           }
 
+          this.DataService.getReviews(this.product.id).subscribe(res=>{
+            this.productReviews = res;
+            console.log(this.productReviews)
+          })
         //   this.translate.get('demo.greeting', {name: 'John'}).subscribe((res: string) => {
         //     console.log(res);
         });
@@ -101,6 +129,24 @@ export class ProductDetailsComponent implements OnInit {
   }
 
 
+  addReview(){
+    this.reviewForm.get('productId').setValue(this.product.id);
+    this.DataService.sendReview(this.reviewForm.value).subscribe(res=>{
+      this.showReviewForm = false;
+      this.reviewForm.reset();
+      this.toastr.success("Review sent successfully!");
+      this.DataService.getReviews(this.product.id).subscribe(res=>{
+        this.productReviews = res;
+      }),
+      err=>{
+        this.toastr.error("Error sending review!");
+      }
+    });
+  }
+
+  setRating(rating){
+    this.reviewForm.get('rating').setValue(rating);
+  }
 
 
 }

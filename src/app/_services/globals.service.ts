@@ -6,8 +6,8 @@ import { Product } from '../_models/Product';
 })
 export class GlobalsService {
 
-  //baseURL = "https://localhost:5001/"
-  baseURL = "https://ofleshserver.azurewebsites.net/"
+  baseURL = "https://localhost:5001/"
+  //baseURL = "https://ofleshserver.azurewebsites.net/"
   // clientBaseURL = "http://213.124.166.84:4200/"
 
   productPhotosMediaURLs = "https://res.cloudinary.com/dvkjlgu83/image/upload/v1701946895/product-photos-oflesh/"

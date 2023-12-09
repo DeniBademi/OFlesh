@@ -47,11 +47,101 @@
                             </div>
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 
-                                <div class="my-3 mx-3">
-                                    <div>{{'No reviews yet. Be the first!'}}</div>
-                                    <button class="btn" disabled><i class="fa-solid fa-plus"></i>{{'add_review' | translate}}</button>
+
+                                <div class="my-3 mx-3" *ngIf="!showReviewForm">
+                                    <div style="max-height:300px; overflow: scroll;">
+                                        <div *ngIf="this.productReviews.length < 1">{{'No reviews yet. Be the first!'}}</div>
+                                        <div *ngFor="let review of productReviews" class="review">
+                                            <div class="d-flex justify-content-between" style="margin-bottom: 20px;">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="review-name">{{review.firstName}} {{review.lastName}} -&nbsp;</div>
+                                                    <div class="rating-text" *ngIf="review.rating==1">{{'product_details.rating_1' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="review.rating==2">{{'product_details.rating_2' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="review.rating==3">{{'product_details.rating_3' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="review.rating==4">{{'product_details.rating_4' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="review.rating==5">{{'product_details.rating_5' | translate}}</div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="rating-date">{{review.dateCreated | date:'dd.MM.yyyy'}}</div>
+                                                </div>
+                                            </div>
+                                            <div>{{review.text}}</div>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <button class="btn send-review" (click)="showReviewForm=true"><i class="fa-solid fa-plus"></i>{{'product_details.add_review' | translate}}</button>
                                 </div>
 
+
+                                <!-- Add review form -->
+
+                                    <div class="my-3 mx-3" *ngIf="showReviewForm">
+                                        <div>{{'product_details.add_review' | translate}}</div>
+                                        <form [formGroup]="reviewForm" (ngSubmit)="addReview()">
+                                        <div class="my-3">
+                                            <input type="text" formControlName="orderId" class="form-control review_placeholder" placeholder="{{'product_details.order_id' | translate}}">
+                                            <div *ngIf="reviewForm.controls['orderId'].invalid && (reviewForm.controls['orderId'].dirty || reviewForm.controls['orderId'].touched)">
+                                                <div *ngIf="reviewForm.controls['orderId'].errors!['required']" class="error">
+                                                    {{'messages.required_field' | translate}}
+                                                </div>
+                                            </div>
+                                            <input type="text" formControlName="firstName" class="form-control review_placeholder" placeholder="{{'product_details.order_first_name' | translate}}">
+                                            <div *ngIf="reviewForm.controls['firstName'].invalid && (reviewForm.controls['firstName'].dirty || reviewForm.controls['firstName'].touched)">
+                                                <div *ngIf="reviewForm.controls['firstName'].errors!['required']" class="error">
+                                                    {{'messages.required_field' | translate}}
+                                                </div>
+                                            </div>
+                                            <input type="text" formControlName="lastName" class="form-control review_placeholder" placeholder="{{'product_details.order_last_name' | translate}}">
+                                            <div *ngIf="reviewForm.controls['lastName'].invalid && (reviewForm.controls['lastName'].dirty || reviewForm.controls['lastName'].touched)">
+                                                <div *ngIf="reviewForm.controls['lastName'].errors!['required']" class="error">
+                                                    {{'messages.required_field' | translate}}
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="d-flex justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="rating">
+                                                        <input type="radio" name="rating" id="rating-5" value="5" (click)="setRating(5)">
+                                                        <label for="rating-5">{{'product_details.rating_5' | translate}}</label>
+                                                        <br>
+                                                        <input type="radio" name="rating" id="rating-4" value="4" (click)="setRating(4)">
+                                                        <label for="rating-4">{{'product_details.rating_4' | translate}}</label>
+                                                        <br>
+                                                        <input type="radio" name="rating" id="rating-3" value="3" (click)="setRating(3)">
+                                                        <label for="rating-3">{{'product_details.rating_3' | translate}}</label>
+                                                        <br>
+                                                        <input type="radio" name="rating" id="rating-2" value="2" (click)="setRating(2)">
+                                                        <label for="rating-2">{{'product_details.rating_2' | translate}}</label>
+                                                        <br>
+                                                        <input type="radio" name="rating" id="rating-1" value="1" (click)="setRating(1)">
+                                                        <label for="rating-1">{{'product_details.rating_1' | translate}}</label>
+                                                    </div>
+                                                </div>
+                                                <div *ngIf="reviewForm.controls['rating'].invalid && (reviewForm.controls['rating'].dirty || reviewForm.controls['rating'].touched)">
+                                                    <div *ngIf="reviewForm.controls['rating'].errors!['required']" class="error">
+                                                        {{'messages.required_field' | translate}}
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex align-items-center">
+                                                    <div class="rating-text" *ngIf="reviewForm.get('rating').value==1">{{'product_details.rating_1' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="reviewForm.get('rating').value==2">{{'product_details.rating_2' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="reviewForm.get('rating').value==3">{{'product_details.rating_3' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="reviewForm.get('rating').value==4">{{'product_details.rating_4' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="reviewForm.get('rating').value==5">{{'product_details.rating_5' | translate}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="my-3">
+                                            <textarea class="form-control review_placeholder" formControlName="text" id="review_text" rows="3" placeholder="{{'product_details.review_placeholder' | translate}}"></textarea>
+                                        </div>
+                                        <div class="my-3 d-flex">
+                                            <button class="btn btn-primary send-review" type="submit" [disabled]="!reviewForm.valid"><i class="fa-solid fa-plus"></i>{{'product_details.add_review' | translate}}</button>
+                                            <button class="btn btn-secondary send-review" (click)="showReviewForm=false"><i class="fa-solid fa-x"></i>Cancel</button>
+                                        </div>
+
+                                        </form>
                             </div>
                             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                                 <div class="product-details">
