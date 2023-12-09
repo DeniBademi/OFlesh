@@ -44,19 +44,36 @@
 	},
 	"product_details": {
 		"add_to_cart": "Add to cart",
-		"added_to_cart": "Added to cart"
+		"icon_1_heading": "100% Discretion",
+		"icon_2_heading": "Fast and Discreet Shipping",
+		"icon_3_heading": "14 days return policy",
+		"icon_4_heading": "Certified",
+		"icon_1_text": "Discretion on our side is guaranteed.",
+		"icon_2_text": "The price of the delivery is strictly individual.",
+		"icon_3_text": "You can return the product in their original packaging within 14 days.",
+		"icon_4_text": "The products come with the necccary certificates for safety."
 	},
 	"about": {
-		"who_are_we_header": "Who are we and what is our story?",
-		"who_are_we_content": "We are a manufacturing facility based in Bulgaria that specialises in producing 3D printed products. We make our rollers affordable without compromising their durability because what we value most is the quality of the product and the satisfaction of the user.",
-		"our_team_header": "Our team",
-		"our_team_content": "We are a group of engineering students and together with professionals in the beekeeping area we worked hard and extensively to create a honeycomb roller that will be of use for small and large beekeepers.",
-		"our_mission_and_values_header": "Our mission and our values",
-		"our_mission_and_values_content": "The goal we had set for ourself to achieve was to give an alternative to beekeepers, that is both effective and affordable. We also made sure that the materials used in production are 100% harmless to the bees (officially certified). What we value most is quality and that’s why our rollers are made with the best possible polymers found on the market."
+		"the_company": "About the company",
+		"main_heading": "Welcome to our online sex shop www.oflesh.com! We are an innovative and pioneering company that strives to offer something completely different to the market. Established on 27.11.2023, OFLESH GROUP Ltd. has a wide variety of items that allow you to connect with your favorite celebrity and explore their private parts in an unparalleled way.",
+		"heading_1": "What are our main goals?",
+		"heading_2": "What makes us different from other sex shops in the market?",
+		"heading_3": "What is shopping with us?",
+		"heading_4": "Do we work with distributors?",
+		"paragraph_1": "Our main goal is to bring you the pleasure and enjoyment you have always dreamed of, with just one click. We pride ourselves on the high quality of our items and ensure that you get only the best. We have all the necessary retail and export certifications for the items, giving you complete security when shopping with us.",
+		"paragraph_2": "Our advantage is the limited edition nature of our items, which are specially selected to offer you something unique. Every product we offer has been extensively tested and approved to provide you with maximum pleasure and safety. Plus, we offer innovative and exclusive designs that you won't find in other stores.",
+		"paragraph_3": "When you shop with us, you also benefit from our unrivalled customer support. Our teams of customer advisors are always ready to help and answer your questions and needs. We also have fast and discreet shipping to ensure your convenience and privacy when shopping.",
+		"paragraph_4": "The answer to the question is YES WE DO. In addition to our online store www.oflesh.com, we also work with distributors who offer our items in physical stores. This means that if you prefer to browse and buy our products in person, you can find them in local stores that work with us.",
+		"last_paragraph":"We want to invite you to explore our website and discover the joy and pleasure that awaits you. We promise you unforgettable moments and endless satisfaction. Thank you for choosing OFLESH GROUP Ltd. - your choice for experimentation and enjoyment.#Oflesh#Make me Freak"
 	},
 	"distributors": {
-		"text_1": "Erotic shop",
-		"text_2": "is our first distributor in Bulgaria. With their support, you can see in person our limited items and touch them. You can find the Collection of Andjela Tasheva at Sofia, gk. Druzhba 2, bl.304 (next to the Post Office) in Sexwell's main showroom."
+		"text_1_1": "We are proud to share that our first distributor in Bulgaria is the erotic shop",
+		"text_1_2": ". Their support allows us to present our limited items often and you have the opportunity to experience them. The",
+		"text_1_3": "showroom is located at gk. Druzhba 2 bl. 304 next to the Post Office and is our main distributor. In 2012, their second showroom was opened in Sofia, Mladost 4, bl. 482 ground floor. There you will find our special collection \"Collection of Andjela Tasheva\".",
+		"text_2_1": "",
+		"text_2_2": "is a proven honest retailer that we work with and will gladly satisfy your needs for high quality products. They are one of the biggest leaders on the Bulgarian market in the industry and our cooperation with them is proof of mutual trust and confidence in the quality of our products.",
+		"text_3_1": "We are happy to work with serious and established companies like",
+		"text_3_2": "and we are set to expand our network of successful partners. We believe that cooperation with such companies will help us to reach a growing audience and satisfy the needs of more customers."
 	},
 	"contact": {
 		"get_in_touch": "GET IN TOUCH",
