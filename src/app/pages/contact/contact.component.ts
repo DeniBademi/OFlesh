@@ -8,13 +8,19 @@ import { DataService } from 'src/app/_services/data.service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./css/default.css', './css/mediaqueries.css', './contact.component.css']
 })
 export class ContactComponent implements OnInit {
 
 
-  contactUs = new FormGroup({
-    name: new FormControl('', [
+  form = new FormGroup({
+    firstName: new FormControl('', [
+      Validators.required,
+    ]),
+    lastName: new FormControl('', [
+      Validators.required,
+    ]),
+    phone: new FormControl('', [
       Validators.required,
     ]),
     email: new FormControl('', [
@@ -31,15 +37,15 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
 
-    window.scroll({ 
-      top: 0, 
-      left: 0, 
-      behavior: 'smooth' 
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
     });
   }
 
   sendMessage() {
-    this.DataService.sendMessage(this.contactUs.value).subscribe( 
+    this.DataService.sendMessage(this.form.value).subscribe(
     value => {
       this.toastr.success("We received your message!", "Thank you")
     },

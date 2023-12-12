@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 import { BroadcastLineComponent } from './broadcast-line/broadcast-line.component';
 import AOS from "aos";
 import { EventHandlerPayload } from '@livechat/widget-angular'
-
+import { useKlaviyo } from '@frontend-sdk/klaviyo'
 
 @Component({
   selector: 'app-root',
@@ -41,11 +41,10 @@ export class AppComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    // if(localStorage.getItem('targetTime') == null && localStorage.getItem('discountExpired') != 'true')
-    //   this.modalService.open('modal-wheel-of-fortune')
+    //this.modalService.open('modal-find-us')
     AOS.init();
+    useKlaviyo('VmhZS5')
   }
-
   handleRouteEvents() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {

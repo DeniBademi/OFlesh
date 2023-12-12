@@ -107,6 +107,7 @@
 		"send_message_sub": "Имате въпрос? Оставете ви съобщение, мнението Ви е важно за нас!",
 		"send_now": "Изпрати",
 		"enter_name": "Име",
+		"enter_lastName": "Фамилия",
 		"enter_email": "Имейл",
 		"enter_message": "Съобщение"
 	},

@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+
+<section id="contact-details" class="section-p1">
+<div class="container bubble">
+    <div class="content">
+      <div class="left-side">
+        <!-- <div class="address details">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="topic">Address</div>
+          <div class="text-one">Surkhet, NP12</div>
+          <div class="text-two">Birendranagar 06</div>
+        </div> -->
+        <div class="phone details">
+          <i class="fa fa-phone"></i>
+
+          <div class="topic">{{'phone' | translate}}</div>
+          <div class="text-one">+359 882 829 893</div>
+          <!-- <div class="text-two">tel 2 </div> -->
+        </div>
+        <div class="email details">
+          <i class="fas fa-envelope"></i>
+          <div class="topic">{{'Email' | translate}}</div>
+          <div class="text-one">honeycomb.rollers@gmail.com</div>
+          <!-- <div class="text-two">email@example.com</div> -->
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="topic-text">{{'contact.send_message_header' | translate}}</div>
+        <p>{{'contact.send_message_sub' | translate}}</p>
+      <form action="#" [formGroup]="contactUs" (ngSubmit)="sendMessage()">
+        <div class="input-box">
+          <input type="text" placeholder="{{'contact.enter_name' | translate}}" formControlName="name">
+        </div>
+        <div class="input-box">
+          <input type="text" placeholder="{{'contact.enter_email' | translate}}" formControlName="email">
+        </div>
+        <div class="input-box message-box">
+            <textarea placeholder="{{'contact.enter_message' | translate}}" formControlName="message"></textarea>
+        </div>
+        <div class="button">
+          <button class="submitBtn" type="submit" value="Send Now" [disabled]="!contactUs.valid">{{'contact.send_now' | translate}}</button>
+        </div>
+      </form>
+    </div>
+    </div>
+  </div>
+
+  </section><app-newsletter-form></app-newsletter-form>

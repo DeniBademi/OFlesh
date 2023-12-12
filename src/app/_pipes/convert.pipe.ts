@@ -12,7 +12,7 @@ const rates = {
   pure: false
 })
 export class ConvertPipe implements PipeTransform {
-   
+
   currentCurrency = "";
    constructor(private translate: TranslateService) {
     this.currentCurrency = translate.currentLang == "bg" ? "BGN" : "EUR"

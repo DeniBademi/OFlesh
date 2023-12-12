@@ -1,48 +1,128 @@
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+<div class="outer-container">
+  <div class="wrapper wrapper-1300">
+    <div class="embed-map">
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9863.881983661384!2d5.864932645820804!3d51.824969433639104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c708f5c7a47f0d%3A0x2fe462cd2786db52!2sESSO%20VISSERS%20NIJMEGEN!5e0!3m2!1sbg!2snl!4v1702300294372!5m2!1sbg!2snl" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>     </div>
+    <br>
+    <div class="text-center">
+       <h1 class="text-thin">Как да ни намерите</h1>
+    </div>
+    <ul class="contacts-list">
+       <li class="item">
+          <div class="item-header">
+             <div class="h4">Oflesh</div>
 
+         </div>
+          <div class="item-body">
+             <p>Централен офис:</p>
+             <p>София 1766, Младост 4, Околовръстен път 265 (срещу “Камбаните”)</p>
+             <span class="icon location d-flex align-items-center justify-content-center">
+               <i class="fa-solid fa-location-dot" style="color: white; font-size: 1.5rem;"></i>
+            </span>
 
-<section id="contact-details" class="section-p1">
-<div class="container bubble">
-    <div class="content">
-      <div class="left-side">
-        <!-- <div class="address details">
-          <i class="fas fa-map-marker-alt"></i>
-          <div class="topic">Address</div>
-          <div class="text-one">Surkhet, NP12</div>
-          <div class="text-two">Birendranagar 06</div>
-        </div> -->
-        <div class="phone details">
-          <i class="fas fa-phone-alt"></i>
-          <div class="topic">{{'phone' | translate}}</div>
-          <div class="text-one">+359 882 829 893</div>
-          <!-- <div class="text-two">tel 2 </div> -->
-        </div>
-        <div class="email details">
-          <i class="fas fa-envelope"></i>
-          <div class="topic">{{'Email' | translate}}</div>
-          <div class="text-one">honeycomb.rollers@gmail.com</div>
-          <!-- <div class="text-two">email@example.com</div> -->
-        </div>
+          </div>
+       </li>
+       <li class="item">
+          <div class="item-header">
+             <div class="h4">Tелефон на потребителя</div>
+          </div>
+          <div class="item-body">
+             <div class="h5"><a href="tel:070012340">070012340</a></div>
+             <p><small>(Универсален фиксиран номер от мрежата на А1. На цената на един градски разговор при обаждане от стационарен номер. При обаждане от мобилен номер, цената се определя според тарифния Ви план за обаждане към номера 0700.)</small></p>
+             <span class="icon location d-flex align-items-center justify-content-center">
+               <i class="fa-solid fa-phone" style="color: white; font-size: 1.5rem;"></i>
+            </span>
+          </div>
+          <br>
+          <div class="item-body">
+             <div class="h5"><a href="tel:*9090">*9090</a></div>
+             <p><small>(Номерът е достъпен от мобилни номера от национални мрежи и Виваком Фикс, на цена съгласно тарифния Ви план за обаждане към кратки номера.)</small></p>
+             <span class="icon location d-flex align-items-center justify-content-center">
+               <i class="fa-solid fa-mobile" style="color: white; font-size: 1.5rem;"></i>
+            </span>
+
+          </div>
+       </li>
+       <li class="item">
+          <div class="item-header">
+             <div class="h4">E-mail</div>
+          </div>
+          <div class="item-body">
+             <p><a href="mailto:eshop@eshop.technopolis.bg">oflesh9@gmail.com</a></p>
+             <span class="icon location d-flex align-items-center justify-content-center">
+               <i class="fa-solid fa-envelope" style="color: white; font-size: 1.5rem;"></i>
+            </span>
+          </div>
+       </li>
+     </ul>
+    <div class="text-center">
+       <div class="h2 text-thin">Пишете ни</div>
+    </div>
+    <form action="#" [formGroup]="form" (ngSubmit)="sendMessage()">
+
+      <div class="row">
+         <div class="col-md input-box">
+           <!-- <label for="firstName">Име<span class="required"> *</span>:</label>
+           <input type="text" name="firstName" id="firstName" autocomplete="off">
+           <span class="form-error" id="first_name_error"></span> -->
+
+         <label class="credit-card-label">{{'contact.enter_name' | translate}} *</label>
+         <input required type="text" class="form-control credit-inputs"  formControlName="firstName">
+         <div *ngIf="form.get('firstName').invalid && (form.get('firstName').dirty || form.get('firstName').touched)">
+            <div *ngIf="form.get('firstName').errors!['required']" class="error">
+               {{'messages.required_field' | translate}}
+            </div>
+         </div>
       </div>
-      <div class="right-side">
-        <div class="topic-text">{{'contact.send_message_header' | translate}}</div>
-        <p>{{'contact.send_message_sub' | translate}}</p>
-      <form action="#" [formGroup]="contactUs" (ngSubmit)="sendMessage()">
-        <div class="input-box">
-          <input type="text" placeholder="{{'contact.enter_name' | translate}}" formControlName="name">
+       <div class="col-md input-box">
+         <label class="credit-card-label">{{'contact.enter_lastName' | translate}} *</label>
+         <input required type="text" class="form-control credit-inputs" formControlName="lastName">
+         <div *ngIf="form.get('lastName').invalid && (form.get('lastName').dirty || form.get('lastName').touched)">
+            <div *ngIf="form.get('lastName').errors!['required']" class="error">
+               {{'messages.required_field' | translate}}
+            </div>
+         </div>
+       </div>
+       <div class="col-md input-box">
+         <label class="credit-card-label">{{'contact.enter_email' | translate}} *</label>
+         <input required type="text" class="form-control credit-inputs"  formControlName="email">
+         <div *ngIf="form.get('email').invalid && (form.get('email').dirty || form.get('email').touched)">
+            <div *ngIf="form.get('email').errors!['required']" class="error">
+               {{'messages.required_field' | translate}}
+            </div>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col-md input-box">
+            <label class="credit-card-label">{{'contact.enter_phone' | translate}} *</label>
+            <input required type="text" class="form-control credit-inputs" formControlName="phone">
+            <div *ngIf="form.get('phone').invalid && (form.get('phone').dirty || form.get('phone').touched)">
+               <div *ngIf="form.get('phone').errors!['required']" class="error">
+                  {{'messages.required_field' | translate}}
+               </div>
+            </div>
         </div>
-        <div class="input-box">
-          <input type="text" placeholder="{{'contact.enter_email' | translate}}" formControlName="email">
-        </div>
-        <div class="input-box message-box">
-            <textarea placeholder="{{'contact.enter_message' | translate}}" formControlName="message"></textarea>
-        </div>
-        <div class="button">
-          <button class="submitBtn" type="submit" value="Send Now" [disabled]="!contactUs.valid">{{'contact.send_now' | translate}}</button>
-        </div>
-      </form>
-    </div>
-    </div>
-  </div>
-  
-  </section><app-newsletter-form></app-newsletter-form>
+        <div class="col-md input-box"></div>
+        <div class="col-md input-box"></div>
+      </div>
+
+      <div class="row">
+         <div class="col-md input-box">
+         <label class="credit-card-label">{{'contact.enter_message' | translate}} *</label>
+         <textarea required type="text" class="form-control credit-inputs" formControlName="message" rows="3"></textarea>
+         <div *ngIf="form.get('message').invalid && (form.get('message').dirty || form.get('message').touched)">
+            <div *ngIf="form.get('message').errors!['required']" class="error">
+               {{'messages.required_field' | translate}}
+            </div>
+         </div>
+      </div>
+      </div>
+      <button type="submit" class="btn btn-primary submit-btn" [disabled]="!form.valid">{{'contact.send_now' | translate}}</button>
+      </div>
+    </form>
+
+
+
+ </div>
+</div>
+
