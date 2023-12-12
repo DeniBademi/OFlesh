@@ -184,9 +184,10 @@
 		"contact": "Contact",
 		"about": "About",
 		"contact_us": "Contact us",
-		"payment": "Payment",
+		"payment": "Payment and delivery",
 		"secured_payment_gateways": "All payments are processed by Stripe",
 		"account":"For the customer",
+		"delivery_partners": "Trusted delivery partners",
 		"help": "Help",
 		"copyright": "Oflesh Ⓒ All rights reserved."
 	},

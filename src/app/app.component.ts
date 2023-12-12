@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
   ngAfterViewInit() {
     //this.modalService.open('modal-find-us')
     AOS.init();
-    useKlaviyo('VmhZS5')
+    // useKlaviyo('VmhZS5')
   }
   handleRouteEvents() {
     this.router.events.subscribe(event => {

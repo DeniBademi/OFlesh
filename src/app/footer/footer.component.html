@@ -13,7 +13,7 @@
             </div>
 
         <div class="col">
-            <h4>{{"footer.contacts" | translate}}</h4>
+            <h4><b>{{"footer.contacts" | translate}}</b></h4>
             <p><strong>{{"hours" | translate}}: </strong>09:00-17:00</p>
             <p><strong>{{"Email" | translate}}: </strong>oflesh9@gmail.com</p>
             <p><strong>{{"Phone" | translate}}: </strong>???</p>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="col">
-            <h4>{{"footer.account" | translate }}</h4>
+            <h4><b>{{"footer.account" | translate }}</b></h4>
             <a [routerLink]="['/'+this.translate.currentLang+'/privacy-policy']" routerLinkActive="router-link-active" >{{"footer.privacy_policy" | translate }}</a>
             <a [routerLink]="['/'+this.translate.currentLang+'/distributors']" routerLinkActive="router-link-active" >{{"footer.physical_stores" | translate }}</a>
 
@@ -38,9 +38,16 @@
         </div>
 
         <div class="col install">
-            <h4>{{"footer.payment" | translate}}</h4>
+            <h4><b>{{"footer.payment" | translate}}</b></h4>
             <img src="../../assets/img/pay/pay.png" alt="">
             <p>{{"footer.secured_payment_gateways" | translate}}</p>
+
+            <div class="d-flex align-items-center justify-content-between" style="gap: 30px">
+                <img src="../../assets/img/econt_bg.png" alt="" style="height: 40px; width: auto;">
+                <img src="../../assets/img/eushipments.jpeg" alt="" style="height: 40px; width: auto;">
+            </div>
+            <p>{{"footer.delivery_partners" | translate}}</p>
+
             <!-- <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1686526874/design/MONEY-BACK-30_ovayoc.svg" style="width: 90px; height: auto">        -->
         </div>
     </div>

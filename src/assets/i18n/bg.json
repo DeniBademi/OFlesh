@@ -184,12 +184,13 @@
 		"contacts": "Контакти",
 		"about": "Относно",
 		"contact_us": "Свържете се с нас",
-		"payment": "Плащане",
+		"payment": "Плащане и доставка",
 		"secured_payment_gateways": "Всички онлайн плащания се обработват със Stripe",
 		"account":"Акаунт",
 		"view_cart": "Виж количката",
 		"physical_stores": "Физически магазини",
 		"help": "Помощ",
+		"delivery_partners": "Доверени доставчици",
 		"copyright":"Oflesh Ⓒ Всички права запазени."
 	},
 	"newsletter": {

@@ -58,6 +58,10 @@
   initial-value: #983869;
 }
 
+h1 {
+  color: var(--accent-color)
+}
+
 .credit-inputs {
     margin-bottom: 20px;
 }
