@@ -405,6 +405,20 @@
     touch-action: manipulation;
   }
 
+  .recommendations-container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 100px;
+        border: 2px solid var(--accent-color);
+        border-radius: 20px;
+        padding: 20px;
+  }
+
+  .recommendations-container h1 {
+    border-bottom: 1px solid var(--accent-color);
+  }
+
 
 /** Responsive Mobile **/
 @media screen and (max-width:520px) {
@@ -512,13 +526,30 @@
         margin: auto;
     }
 
+    .desktop-only {
+        display: none;
+    }
 
-
+    .mobile-only {
+        display: block;
+    }
 
 }
 
+@media screen and (min-width: 520px) {
+    .mobile-only {
+        display: none;
+    }
+    .desktop-only {
+        display: block;
+    }
+}
+
+
+
+
 ::ng-deep .g-slider, .ng-star-inserted, .g-box  {
-    background-color: /* #CCC;  site-background */;
+    /* background-color: #CCC;  site-background; */
     border:none;
 }
 
