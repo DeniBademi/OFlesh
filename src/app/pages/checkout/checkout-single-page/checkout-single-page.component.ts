@@ -230,7 +230,7 @@ export class CheckoutSinglePageComponent implements OnInit {
       elements: this.elements,
       confirmParams: {
         return_url: window.location.href+"/thank-you",
-        receipt_email: "oflesh9@gmail.com",
+        receipt_email: this.form.get("personalDetails.email").value,
         shipping: {
           name: this.form.get("personalDetails.firstName").value + " " + this.form.get("personalDetails.lastName").value,
           phone: this.form.get("personalDetails.phoneNumber").value,
