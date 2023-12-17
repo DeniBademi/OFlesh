@@ -106,36 +106,29 @@ export class CheckoutSinglePageComponent implements OnInit {
       })
 
 
-      // this.form.get('paymentMethod').valueChanges.subscribe(newValue => {
-
-      //   this.showPaymentOptions = newValue == undefined;
-      // });
-
-
-
-
-
-
-
-
-
-
-
       this.form.get('paymentMethod').valueChanges.subscribe(x => {
         this.showStripe = x == "card";
           //this.paymentOptions.disable();
       })
 
-      this.DataService.getStripeClientSecret({
-        'checkoutId':'',
-        'countryId':this.form.get('shippingAddress.countryId').value.id,
-        'shippingMethod':"",
-        'currencyCode': this.translate.currentLang=="bg"?"BGN":"EUR"}).subscribe(
-        (data) => {
-          this.clientSecret = data["clientSecret"]
-          this.initiateCardElement();
+      this.form.valueChanges.subscribe(x => {
+        if(this.form.get('paymentMethod').value == 'card') {
+
+          if(this.form.valid) {
+            this.DataService.getStripeClientSecret({
+              'countryId':this.form.get('shippingAddress.countryId').value.id,
+              'shippingMethod':this.form.get('shippingMethodId').value,
+              'currencyCode': this.translate.currentLang=="bg"?"BGN":"EUR",
+              "cartJSON": JSON.stringify(this.CartService.cartItems.getValue()),
+              "couponCode": this.CartService.couponCode} ).subscribe(
+              (data) => {
+                this.clientSecret = data["clientSecret"]
+                this.initiateCardElement();
+              });
+          }
         }
-      )
+      });
+
 
 
       this.DataService.getAll("country").subscribe(value => {
@@ -236,9 +229,11 @@ export class CheckoutSinglePageComponent implements OnInit {
     const { error } = await this.stripe.confirmPayment({
       elements: this.elements,
       confirmParams: {
-        return_url: window.location.href.replace("payment", "thank-you"),
-        receipt_email: "denis.zaharievv@gmail.com",
+        return_url: window.location.href+"/thank-you",
+        receipt_email: "oflesh9@gmail.com",
         shipping: {
+          name: this.form.get("personalDetails.firstName").value + " " + this.form.get("personalDetails.lastName").value,
+          phone: this.form.get("personalDetails.phoneNumber").value,
           address: {
             city: this.form.get("shippingAddress.city").value,
             country: this.form.get("shippingAddress.countryId").value.name,
@@ -247,10 +242,25 @@ export class CheckoutSinglePageComponent implements OnInit {
             postal_code: this.form.get("shippingAddress.postalCode").value,
             state: this.form.get("shippingAddress.state").value,
           },
-          name: '',
-          carrier: this.form.get("shippingMethodId").value
-        }
+          carrier: this.form.get("shippingMethodId").value,
+        },
+        payment_method_data: {
+          billing_details: {
+            name: this.form.get("personalDetails.firstName").value + " " + this.form.get("personalDetails.lastName").value,
+            phone: this.form.get("personalDetails.phoneNumber").value,
+            address: {
+              city: this.form.get("shippingAddress.city").value,
+              country: this.form.get("shippingAddress.countryId").value.name,
+              line1: this.form.get("shippingAddress.addressLine1").value,
+              line2: this.form.get("shippingAddress.addressLine2").value,
+              postal_code: this.form.get("shippingAddress.postalCode").value,
+              state: this.form.get("shippingAddress.state").value,
+            },
+          },
+        },
+
       }
+
     })
 
     if (error.type === "card_error" || error.type === "validation_error") {
