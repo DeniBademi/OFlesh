@@ -19,10 +19,13 @@ html {
   font-family: 'Rockwell', sans-serif !important;
 }
 
+
+
 .container {
   margin: auto;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  width: 100vw;
 }
 
 img {
@@ -45,7 +48,7 @@ a {
   margin: auto;
   margin-top: 30px;
   width: 70%;
-  min-width: 400px;
+  min-width: 300px;
 
   max-width: 800px;
 
@@ -67,3 +70,5 @@ a {
 
 
 }
+
+

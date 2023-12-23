@@ -40,11 +40,12 @@ export class SideCartComponent implements OnInit {
         this.CartService.couponCode = this.couponCode;
         this.CartService.couponData = data.body;
         this.CartService.calculateTotal();
-        console.log(data);
+
+        this.toastr.success(this.translateService.instant('Code applied successfuly'))
       },
       (error) => {
         console.log(error);
-        this.toastr.error(this.translateService.instant('Invalid coupon code'));
+        this.toastr.error(this.translateService.instant('Error applying code'));
       }
     );
 

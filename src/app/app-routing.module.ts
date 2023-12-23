@@ -14,6 +14,7 @@ import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { CookiePolicyComponent } from './pages/cookie-policy/cookie-policy.component';
 import { CheckoutSinglePageComponent } from './pages/checkout/checkout-single-page/checkout-single-page.component';
+import { ReffererComponent } from './pages/refferer/refferer.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "en/home", pathMatch: "full"},
@@ -35,6 +36,8 @@ const routes: Routes = [
   {path: ':languageCode/privacy-policy', component: PrivacyPolicyComponent},
   {path: ':languageCode/cookie-policy', component: CookiePolicyComponent},
   {path: ':languageCode/distributors', component: FindUsComponent},
+  {path: ':languageCode/distributors', component: FindUsComponent},
+  {path: ':languageCode/andjela', component: ReffererComponent},
   { path: '**', component: NotFoundComponent }
 ];
 

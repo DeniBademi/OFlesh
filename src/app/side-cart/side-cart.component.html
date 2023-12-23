@@ -58,7 +58,7 @@
                                 </div>
                              </div>
                              <div class="f30">
-                                <button class="btn btn--small btn--secondary btn--full js-add-gift-card" (click)="validateCouponCode()">Add</button>
+                                <button class="btn btn--small btn--secondary btn--full js-add-gift-card" style="margin-left: 0;" (click)="validateCouponCode()">Add</button>
                              </div>
                           </div>
                        </div>
@@ -70,9 +70,9 @@
                  <td class="align-right">{{this.CartService.calculateTotal() | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</td>
               </tr>
               <tr *ngIf="CartService.couponData">
-               <th class="align-left font-normal tertiary">{{'checkout.overview.discount' | translate}}</th>
-               <td class="align-right" *ngIf="CartService.couponData.isPercentage">{{CartService.couponData.discount}} %</td>
-               <td class="align-right" *ngIf="!CartService.couponData.isPercentage">{{CartService.couponData.discount | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</td>
+               <th class="align-left font-normal tertiary" *ngIf="CartService.couponData.discount>0">{{'checkout.overview.discount' | translate}}</th>
+               <td class="align-right" *ngIf="CartService.couponData.isPercentage && CartService.couponData.discount>0">{{CartService.couponData.discount}} %</td>
+               <td class="align-right" *ngIf="!CartService.couponData.isPercentage && CartService.couponData.discount>0">{{CartService.couponData.discount | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</td>
             </tr>
               <tr>
                  <th class="align-left font-normal tertiary">Shipping <small>(estimated)</small></th>

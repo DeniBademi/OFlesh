@@ -26,3 +26,60 @@
     padding-right: 20px;
 }
 }
+
+
+@media screen and (min-width: 1200px) {
+
+  .outer-container::after {
+    right: 0;
+  }
+
+  .outer-container {
+    /* Set the background image URL for the specific class */
+    /* /background-image: url('https://image.spreadshirtmedia.net/image-server/v1/compositions/T631A1PA4699PT17X215Y56D159904152W4799H28727/views/1,width=1200,height=1200,appearanceId=1,backgroundColor=FFFFFF,noPt=true/hearts-red-vertical-womens-t-shirt.jpg'); */
+
+    /* Set background size to cover the entire container */
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+
+    position: relative;
+    width: 100% !important;
+    max-width: 1600px; /* Adjust as needed */
+    padding-left: 200px;
+    padding-right: 200px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0 !important;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 0 !important;
+  }
+
+
+  /* Create two pseudo-elements to represent the two columns within the container */
+  .outer-container::before,
+  .outer-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    object-fit: cover;
+    /* Set the background image URL for the pseudo-elements */
+    background-image: url('https://res.cloudinary.com/dvkjlgu83/image/upload/v1703366000/design/hearts-background_e8ixdb.jpg');
+    /* Set background size to cover the entire viewport for the pseudo-elements */
+    background-size: 200px 800px;
+  }
+
+  /* Position the left pseudo-element on the left side of the container */
+  .outer-container::before {
+    left: 0;
+  }
+
+  /* Position the right pseudo-element on the right side of the container */
+  .outer-container::after {
+    right: 0;
+  }
+}
+

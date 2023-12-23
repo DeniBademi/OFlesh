@@ -45,7 +45,7 @@
     <ul id="navbar">
       <li><a [routerLink]="['/'+this.translateService.currentLang+'/home']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">{{'nav.home' | translate}}</a></li>
       <li><a [routerLink]="['/'+this.translateService.currentLang+'/about']" routerLinkActive="active" (click)="closeMenu()">{{'nav.about' | translate}}</a></li>
-      <li><a [routerLink]="['/'+this.translateService.currentLang+'/models']" routerLinkActive="active" (click)="closeMenu()">{{'nav.models' | translate}}</a></li>
+      <!-- <li><a [routerLink]="['/'+this.translateService.currentLang+'/models']" routerLinkActive="active" (click)="closeMenu()">{{'nav.models' | translate}}</a></li> -->
       <li><a [routerLink]="['/'+this.translateService.currentLang+'/catalog']" routerLinkActive="active" (click)="closeMenu()">{{'nav.catalog' | translate}}</a></li>
       <li><a [routerLink]="['/'+this.translateService.currentLang+'/contact']" routerLinkActive="active" (click)="closeMenu()" >{{'nav.contact' | translate}}</a></li>
       <li><a [routerLink]="['/'+this.translateService.currentLang+'/distributors']" routerLinkActive="active" (click)="closeMenu()">{{'nav.distributors' | translate}}</a></li>

@@ -92,15 +92,17 @@
 		"text_3_2": "and we are set to expand our network of successful partners. We believe that cooperation with such companies will help us to reach a growing audience and satisfy the needs of more customers."
 	},
 	"contact": {
-		"get_in_touch": "GET IN TOUCH",
-		"visit_distributors": "Visit one of our distributor locations or contact us today",
-		"sofia_bulgaria":"Sofia, Bulgaria",
+		"how_to_find_us": "How to find us",
+		"central_office": "Central office",
+		"customer_phone":"Customer phone",
+		"address": "Sofia 1756, g.k. Darvenitsa, ul. \"Plovdivsko Pole\"",
+		"text_us": "Text us",
+
 		"sofia_bulgaria-2": "Tilia Beekeeping Supplies - Sofia, Bulgaria",
 		"working_hours_1": "Monday to Friday: 10:00am to 7:00pm",
 		"working_hours_2": "Saturday: 10:00am to 2:00pm",
 		"working_hours_1-2": "Monday to Friday: 10:00am to 6.00pm",
 		"working_hours_2-2": "Saturday: 10:00am to 1:30pm",
-		"address": "325-1, ж.к Младост 3 3251, 1712 София",
 		"address-2": "ул. „Княз Борис I“ 172, 1202 София център, София",
 		"phone_number_dist": "+359 88 650 8084",
 		"send_message_header": "Send us a message",

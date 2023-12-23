@@ -74,6 +74,8 @@ import { ModelsComponent } from './pages/models/models.component';
 import { CookiePolicyComponent } from './pages/cookie-policy/cookie-policy.component';
 import { LiveChatWidgetModule } from '@livechat/widget-angular'
 import { SideCartComponent } from './side-cart/side-cart.component';
+import { ReffererComponent } from './pages/refferer/refferer.component';
+
 
 
 
@@ -111,7 +113,8 @@ import { SideCartComponent } from './side-cart/side-cart.component';
       ModelsComponent,
       CookiePolicyComponent,
       SideCartComponent,
-      CheckoutSinglePageComponent
+      CheckoutSinglePageComponent,
+      ReffererComponent
    ],
   imports: [
     BrowserModule,
