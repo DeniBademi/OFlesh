@@ -167,48 +167,58 @@
       <h1>Payment</h1>
 
 
-      <div id="link-authentication-element">
-         <!--Stripe.js injects the Link Authentication Element-->
-       </div>
-      <label class="credit-card-label">{{'checkout.payment.payment_method' | translate}} *</label>
-      <div class="payment-option">
-         <div class="col-sm-auto">
-            <input type="radio" id="accent" formControlName="paymentMethod" value="card">
+      <div *ngIf="!form.get('shippingAddress.countryId').value">Please select a country first!</div>
+      <div *ngIf="form.get('shippingAddress.countryId').value">
+         <div id="link-authentication-element">
+            <!--Stripe.js injects the Link Authentication Element-->
+          </div>
+         <label class="credit-card-label">{{'checkout.payment.payment_method' | translate}} *</label>
+         <div class="payment-option">
+            <div class="col-sm-auto">
+               <input type="radio" id="accent" formControlName="paymentMethod" value="card">
+            </div>
+            <div class="col-md-5">
+               <div>{{'checkout.payment.card' | translate}}</div>
+            </div>
          </div>
-         <div class="col-md-5">
-            <div>{{'checkout.payment.card' | translate}}</div>
+         <div class="payment-option" *ngIf="form.get('shippingAddress.countryId').value.name=='Bulgaria'">
+            <div class="col-sm-auto">
+               <input type="radio" id="accent" formControlName="paymentMethod" value="delivery">
+            </div>
+            <div class="col-md-5">
+               <div>{{'checkout.payment.upon_delivery' | translate}}</div>
+            </div>
          </div>
-      </div>
-      <div class="payment-option" *ngIf="form.get('shippingAddress.countryId').value.name=='Bulgaria'">
-         <div class="col-sm-auto">
-            <input type="radio" id="accent" formControlName="paymentMethod" value="delivery">
-         </div>
-         <div class="col-md-5">
-            <div>{{'checkout.payment.upon_delivery' | translate}}</div>
+
+         <span class="type d-block mt-3 mb-1"></span>
+         <div [hidden]="!showStripe">
+            <div class="checkout">
+               <label for="card-info">Card Info</label>
+               <div id="form-field">
+                  <!-- <div id="card-info" #cardInfo></div>
+                  <mat-error id="card-errors" role="alert" *ngIf="cardError">
+                     <mat-icon style="color: #f44336">cancel</mat-icon>
+                     &nbsp;{{ cardError }}
+                  </mat-error> -->
+                  <div id="payment-element">
+                     <!--Stripe.js injects the Payment Element-->
+                   </div>
+                   <div id="payment-message" class="hidden"></div>
+               </div>
+               <!-- <button id="submit-button" type="submit">
+               Pay ${{total}}
+               </button> -->
+            </div>
          </div>
       </div>
 
-      <span class="type d-block mt-3 mb-1"></span>
-      <div [hidden]="!showStripe">
-         <div class="checkout">
-            <label for="card-info">Card Info</label>
-            <div id="form-field">
-               <!-- <div id="card-info" #cardInfo></div>
-               <mat-error id="card-errors" role="alert" *ngIf="cardError">
-                  <mat-icon style="color: #f44336">cancel</mat-icon>
-                  &nbsp;{{ cardError }}
-               </mat-error> -->
-               <div id="payment-element">
-                  <!--Stripe.js injects the Payment Element-->
-                </div>
-                <div id="payment-message" class="hidden"></div>
-            </div>
-            <!-- <button id="submit-button" type="submit">
-            Pay ${{total}}
-            </button> -->
-         </div>
-      </div>
-        <div class=""><span>{{'cart.taxes_shipping' | translate}}</span></div>
+        <!-- <div class=""><span>{{'cart.taxes_shipping' | translate}}</span></div> -->
+        <hr class="line">
+        <input type="checkbox" id="privacy_policy" name="privacy_policy" formControlName="agreed_privacy_policy">
+        <label for="privacy_policy" id="privacy_policy_label">{{'cart.agree' | translate}} <a [routerLink]="['/'+this.translate.currentLang+'/privacy-policy']">{{'cart.privacy_policy' | translate}}</a></label><br>
+        <input type="checkbox" id="terms_cons" name="terms_cons" formControlName="agreed_to_terms">
+        <label for="terms_cons" id="terms_cons_label">{{'cart.agree' | translate}} <a [routerLink]="['/'+this.translate.currentLang+'/terms-and-conditions']">{{'cart.terms' | translate}}</a></label><br>
+
         <button
         type="submit"
         class="btn"

@@ -41,6 +41,9 @@ export class CheckoutSinglePageComponent implements OnInit {
 
   countries = [];
 
+  agreed_terms: any = new FormControl(false);
+  agreed_privacy_policy: any = new FormControl(false);
+
   public bankCtrl: FormControl<any> = new FormControl<any>(null);
 
   /** control for the MatSelect filter keyword */
@@ -96,6 +99,8 @@ export class CheckoutSinglePageComponent implements OnInit {
             this.form.get('paymentMethod').enable();
             this.form.get('paymentMethod').setValue(undefined)
         }
+        console.log(this.agreed_privacy_policy)
+        console.log(this.agreed_terms)
       });
 
       // print shipping method if value changes
@@ -120,6 +125,10 @@ export class CheckoutSinglePageComponent implements OnInit {
               'shippingMethod':this.form.get('shippingMethodId').value,
               'currencyCode': this.translate.currentLang=="bg"?"BGN":"EUR",
               "cartJSON": JSON.stringify(this.CartService.cartItems.getValue()),
+              "FirstName": this.form.get('personalDetails.firstName').value,
+              "LastName": this.form.get('personalDetails.lastName').value,
+              "Email": this.form.get('personalDetails.email').value,
+              "PhoneNumber": this.form.get('personalDetails.phoneNumber').value,
               "couponCode": this.CartService.couponCode} ).subscribe(
               (data) => {
                 this.clientSecret = data["clientSecret"]
@@ -303,7 +312,7 @@ export class CheckoutSinglePageComponent implements OnInit {
     const cardStyle = {
       base: {
         Color: "#fff",
-        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontFamily: '"Rockwell", sans-serif',
         fontSmoothing: "antialiased",
         color: "white",
         fontSize: "16px",

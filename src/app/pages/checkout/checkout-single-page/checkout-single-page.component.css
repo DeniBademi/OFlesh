@@ -128,6 +128,13 @@ h1 {
   margin-bottom: 20px;
 }
 
+/* style input checkbox */
+input[type="checkbox"] {
+  height: 1.2rem;
+  width: 1.2rem;
+  margin-right: 0.5rem;
+}
+
 @media (max-width: 720px) {
   .icon {
     width: 70px;
