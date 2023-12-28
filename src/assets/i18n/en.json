@@ -177,7 +177,8 @@
 			"shipping": "Shipping",
 			"total": "Total",
 			"subtotal":"Subtotal",
-			"discount": "DISCOUNT"
+			"discount": "DISCOUNT",
+			"processing_fee": "Processing fee"
 		}
 	},
 	"footer": {

@@ -6,6 +6,7 @@ import { ProductModel } from '../_models/ProductModel';
 import { ProductType } from '../_models/ProductType';
 import { ModalService } from './modal.service';
 import { toggleCart } from '../../assets/js/sidecart.js';
+import { GlobalsService } from './globals.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,51 +19,7 @@ export class CartService {
   couponData: any;
 
 
-constructor(private modal: ModalService) {
-  let temp = [
-    {product: new Product(
-      "b52271b9-7ee0-49ea-8d2c-ce40c5f16f11",
-      "Ofleshy Andjela Tasheva",
-      1,
-      null,
-      "Колекцията на „Andjela Tasheva“ се състои от изключително качествени мъжки\n                    мастурбатори, създадени с възможността да ви приближи до любимата ви звезда.\n                    Излъчващ интимност, този продукт доставя несравнимо удоволствие и реализъм.\n                    Изработен от висококачествен TPE материал, който е безопасен за кожата, той предлага\n                    меко и реалистично изживяване. Тъй като се управлява ръчно, можете да контролирате\n                    темпото, силата и интензивността на удоволствието, като го настроите според\n                    предпочитанията си.\n                    <h3>Характеристики:</h3>\n                    <li> Име на модел: Ofleshy Andjela Tasheva </li>\n                    <li> Размери (сантиметри): 9x9x22 (LxWxH) <li>\n                    <li> Марка: Oflesh </li>\n                    <li> Материал: Термопластичен Еластомер (TPE) </li>\n                    <li> Цвят: Черен </li>\n                    <li> Нето тегло: 450г </li>\n                    <li> Наличен лубрикант: 30 ml. </i>",
-      {'thumbnail':'Ofleshy%20Andjela%20Tasheva/1_tmjxi9.jpg','gallery':['Ofleshy%20Andjela%20Tasheva/6_emnzh0.jpg','Ofleshy%20Andjela%20Tasheva/7_bkoqdr.jpg','Ofleshy%20Andjela%20Tasheva/8_iy0e1t.jpg']},
-      new ProductModel(
-        "e752ef04-304f-49f2-b1ff-166309ea34fd",
-        "5,4 mm"
-      ),
-      new ProductType(
-        "d9e9e846-7a39-4aec-b065-88b9e22ff526",
-        "Machine"
-      ),
-      null,
-      "/Catalog/Andjela_Tasheva/Ofleshy"
-    ),
-
-
-    quantity: 1},
-    {product: new Product(
-      "b52271b9-7ee0-49ea-8d2c-ce40c5f16f12",
-      "Autofleshy Andjela Tasheva",
-      1,
-      null,
-      "Колекцията на „Andjela Tasheva“ се състои от изключително качествени мъжки\n                    мастурбатори, създадени с възможността да ви приближи до любимата ви звезда.\n                    Излъчващ интимност, този продукт доставя несравнимо удоволствие и реализъм.\n                    Изработен от висококачествен TPE материал, който е безопасен за кожата, той предлага\n                    меко и реалистично изживяване. Тъй като се управлява ръчно, можете да контролирате\n                    темпото, силата и интензивността на удоволствието, като го настроите според\n                    предпочитанията си.\n                    <h3>Характеристики:</h3>\n                    <li> Име на модел: Ofleshy Andjela Tasheva </li>\n                    <li> Размери (сантиметри): 9x9x22 (LxWxH) <li>\n                    <li> Марка: Oflesh </li>\n                    <li> Материал: Термопластичен Еластомер (TPE) </li>\n                    <li> Цвят: Черен </li>\n                    <li> Нето тегло: 450г </li>\n                    <li> Наличен лубрикант: 30 ml. </i>",
-      {'thumbnail':'Ofleshy%20Andjela%20Tasheva/1_tmjxi9.jpg','gallery':['Ofleshy%20Andjela%20Tasheva/6_emnzh0.jpg','Ofleshy%20Andjela%20Tasheva/7_bkoqdr.jpg','Ofleshy%20Andjela%20Tasheva/8_iy0e1t.jpg']},
-      new ProductModel(
-        "e752ef04-304f-49f2-b1ff-166309ea34fd",
-        "5,4 mm"
-      ),
-      new ProductType(
-        "d9e9e846-7a39-4aec-b065-88b9e22ff526",
-        "Machine"
-      ),
-      null,
-      "/Catalog/Andjela_Tasheva/Ofleshy"
-    ),
-
-
-    quantity: 1}
-  ];
+constructor(private modal: ModalService, private globals: GlobalsService) {
 
 }
 
@@ -150,7 +107,7 @@ ngOnInit() {
 
 
 
-  calculateTotal(withDiscount: boolean = false){
+  calculateTotal(withDiscount: boolean = false, withProcessingFee: boolean = false){
     let total = 0;
     for(let i=0;i<this.cartItems.value.length;i++){
       total += this.cartItems.value[i].quantity * this.cartItems.value[i].product.price;
@@ -161,6 +118,9 @@ ngOnInit() {
       else
         total = total - this.couponData.discount;
     }
+
+    if(withProcessingFee) total += this.globals.processing_fee;
+
     return total;
    }
 
@@ -169,6 +129,7 @@ ngOnInit() {
     for(let i=0;i<items.length;i++){
       total += items[i].quantity * items[i].product.price;
     }
+
     return total
    }
 

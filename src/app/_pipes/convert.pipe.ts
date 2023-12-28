@@ -4,8 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 
 const rates = {
   "BGN": 1,
-  "EUR":0.5112,
-  "USD":0.5577
+  "EUR":0.51,
+  "USD":0.57
 }
 @Pipe({
   name: 'convert',

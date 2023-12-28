@@ -82,9 +82,13 @@
                  <th class="align-left font-normal tertiary">Tax <small>(estimated)</small></th>
                  <td class="align-right">$13.00</td>
               </tr> -->
+              <tr  *ngIf="this.GlobalsService.processing_fee>0">
+               <th class="align-left font-normal tertiary">{{'checkout.overview.processing_fee' | translate}}</th>
+               <td class="align-right">{{ this.GlobalsService.processing_fee | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</td>
+              </tr>
               <tr>
                  <th class="align-left">{{'cart.total' | translate}}</th>
-                 <td class="align-right"><b>{{this.CartService.calculateTotal(true) | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</b></td>
+                 <td class="align-right"><b>{{this.CartService.calculateTotal(true, true) | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</b></td>
               </tr>
            </tbody>
            <tfoot>

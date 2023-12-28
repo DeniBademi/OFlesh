@@ -41,8 +41,6 @@ export class CheckoutSinglePageComponent implements OnInit {
 
   countries = [];
 
-  agreed_terms: any = new FormControl(false);
-  agreed_privacy_policy: any = new FormControl(false);
 
   public bankCtrl: FormControl<any> = new FormControl<any>(null);
 
@@ -78,18 +76,16 @@ export class CheckoutSinglePageComponent implements OnInit {
         left: 0,
         behavior: 'smooth'
       });
-      if(!this.CartService.cartItems.getValue().length) {
+      if(!this.CartService.cartItems.getValue().length)
         this.Router.navigate(['/'+this.translate.currentLang+"/home"])
-      }
-      console.log(this.form.controls['personalDetails'].get('email'))
 
       this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
-
 
       this.form.get('shippingAddress.countryId').valueChanges.subscribe(newValue => {
         let shippingPrice = newValue.price
         console.log(shippingPrice)
         this.setShippingInOverview(shippingPrice + (this.form.get("shippingMethodId").value=="priority"?this.priorityOrderPrice:0))
+
         if(newValue.name != "Bulgaria" && newValue.name != "България"){
           this.form.get('paymentMethod').setValue("card")
           this.form.get('paymentMethod').disable();
@@ -99,8 +95,6 @@ export class CheckoutSinglePageComponent implements OnInit {
             this.form.get('paymentMethod').enable();
             this.form.get('paymentMethod').setValue(undefined)
         }
-        console.log(this.agreed_privacy_policy)
-        console.log(this.agreed_terms)
       });
 
       // print shipping method if value changes
@@ -108,18 +102,40 @@ export class CheckoutSinglePageComponent implements OnInit {
 
         let shippingPrice = this.form.get('shippingAddress.countryId').value.price
         this.setShippingInOverview(shippingPrice + (newValue=="priority"?this.priorityOrderPrice:0))
+
+        if(this.form.get('shippingAddress.countryId').value.name != "Bulgaria" && this.form.get('shippingAddress.countryId').value.name != "България"){
+
+          this.showStripe = true;
+          this.DataService.getStripeClientSecret({
+            'countryId':this.form.get('shippingAddress.countryId').value.id,
+            'shippingMethod':this.form.get('shippingMethodId').value,
+            'currencyCode': this.translate.currentLang=="bg"?"BGN":"EUR",
+            "cartJSON": JSON.stringify(this.CartService.cartItems.getValue()),
+            "FirstName": this.form.get('personalDetails.firstName').value,
+            "LastName": this.form.get('personalDetails.lastName').value,
+            "Email": this.form.get('personalDetails.email').value,
+            "PhoneNumber": this.form.get('personalDetails.phoneNumber').value,
+            "couponCode": this.CartService.couponCode} ).subscribe(
+            (data) => {
+              this.clientSecret = data["clientSecret"]
+              this.initiateCardElement();
+            });
+        }
       })
 
 
       this.form.get('paymentMethod').valueChanges.subscribe(x => {
-        this.showStripe = x == "card";
-          //this.paymentOptions.disable();
-      })
+        console.log(x)
+        if(x == "card") {
+          // create a copy of the form and discard agreed_to_terms and agreed_to_privacy
+          let tempForm = this.form
+          delete tempForm.value.agreed_to_terms
+          delete tempForm.value.agreed_to_privacy
+          // check if the form is valid
 
-      this.form.valueChanges.subscribe(x => {
-        if(this.form.get('paymentMethod').value == 'card') {
+          if(tempForm.valid) {
 
-          if(this.form.valid) {
+            this.showStripe = true;
             this.DataService.getStripeClientSecret({
               'countryId':this.form.get('shippingAddress.countryId').value.id,
               'shippingMethod':this.form.get('shippingMethodId').value,
@@ -135,8 +151,12 @@ export class CheckoutSinglePageComponent implements OnInit {
                 this.initiateCardElement();
               });
           }
+        } else {
+          this.showStripe = false;
         }
-      });
+          //this.paymentOptions.disable();
+      })
+
 
 
 
@@ -195,11 +215,6 @@ export class CheckoutSinglePageComponent implements OnInit {
     this.filteredCountries
       .pipe(take(1), takeUntil(this._onDestroy))
       .subscribe(() => {
-        // setting the compareWith property to a comparison function
-        // triggers initializing the selection according to the initial value of
-        // the form control (i.e. _initializeSelection())
-        // this needs to be done after the filteredCountries are loaded initially
-        // and after the mat-option elements are available
         this.singleSelect.compareWith = (a: any, b: any) => a && b && a.id === b.id;
       });
   }
@@ -208,7 +223,6 @@ export class CheckoutSinglePageComponent implements OnInit {
     this._onDestroy.next();
     this._onDestroy.complete();
     if (this.card) {
-      // We remove event listener here to keep memory clean
       this.card.removeEventListener('change', this.cardHandler);
       this.card.destroy();
     }
@@ -325,16 +339,17 @@ export class CheckoutSinglePageComponent implements OnInit {
         iconColor: "#fa755a",
       },
     };
-     //this.stripe = await loadStripe('pk_test_51KUEGcE2HlANu4Kr1gkhviY29YvdUIw6XVNHi7KyaatBfBY8ztFXDtiXT2BdLjLP918VXdsV8a72xMgFFOjgwxkf00Nu2bgDBv')
      this.stripe = await loadStripe(this.Globals.stripePublicKey)
-     //console.log(this.clientSecret)
      this.elements = this.stripe.elements({clientSecret: this.clientSecret});
+
     // this.card = this.elements.create("card", {style:cardStyle});
     // this.card.mount("#card-info");
     // this.card.addEventListener("change", this.cardHandler);
 
     const paymentElement = this.elements.create("payment", {style:cardStyle});
+    paymentElement.unmount();
     paymentElement.mount("#payment-element");
+
   }
   onChange({ error }) {
     if (error) {

@@ -171,7 +171,8 @@
 			"shipping": "Доставка",
 			"total": "Тотал",
 			"subtotal":"Междинна сума",
-			"discount": "Отстъпка"
+			"discount": "Отстъпка",
+			"processing_fee": "Такса за обработка"
 		}
 	},
 	"footer": {

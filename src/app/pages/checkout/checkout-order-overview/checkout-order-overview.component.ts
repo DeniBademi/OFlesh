@@ -56,6 +56,8 @@ export class CheckoutOrderOverviewComponent implements OnInit {
       }
     });
 
+    this.total = this.CartService.calculateTotal(true,true);
+
 
     // if(this.form.get("shippingAddress.countryId").value != undefined && this.form.get("shippingMethodId").value != null) {
     //   this.shippingPrice = this.form.get("shippingAddress.countryId").value.price + (this.form.get("shippingMethodId").value == "priority"? 10 : 0);
@@ -73,7 +75,7 @@ export class CheckoutOrderOverviewComponent implements OnInit {
   }
 
   recalculate() {
-    this.total = this.CartService.calculateTotal(true);
+    this.total = this.CartService.calculateTotal(true, true);
     this.total += this.shippingPrice;
   }
 
