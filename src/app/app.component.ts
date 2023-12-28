@@ -81,13 +81,13 @@ export class AppComponent implements OnInit {
   }
 
   startTimer() {
-    console.log("start timer");
+    //console.log("start timer");
     this.broadcastLine.startTimer();
 
   }
 
   handleNewEvent(event: EventHandlerPayload<'onNewEvent'>) {
-    console.log('LiveChatWidget.onNewEvent', event)
+    //console.log('LiveChatWidget.onNewEvent', event)
   }
 
 

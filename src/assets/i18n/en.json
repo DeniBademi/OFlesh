@@ -115,10 +115,12 @@
 		"enter_message": "Message"
 	},
 	"cart": {
+
 		"header": "Your cart",
 		"subheader": "An overview of your selected products.",
 		"quantity": "Quantity",
 		"add_code": "Add code",
+		"total_per_product": "Total price",
 		"code": "Code",
 		"apply": "Apply",
 		"please_enter_valid_code": "Please enter a valid code",
@@ -137,6 +139,11 @@
 	},
 
 	"checkout": {
+		"first_name": "First name",
+		"last_name": "Last name",
+		"email": "Email",
+		"phone": "Phone",
+		"phone_number": "Phone number",
 		"information_link":"Information",
 		"personal_details_link":"Personal Details",
 		"shipping_address_link": "Shipping Address",

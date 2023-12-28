@@ -52,7 +52,7 @@ ngOnInit() {
 
     if(showPopup) this.modal.open("modal-1");
     if(showCart) toggleCart();
-    console.log(showCart)
+    //console.log(showCart)
   }
   removeItem(product: Product){
     this.cartItemsCount.next(this.cartItemsCount.getValue()-1);

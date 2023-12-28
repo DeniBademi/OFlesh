@@ -9,18 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class AddToCartBtnComponent implements OnInit {
 
 
-  constructor(private elementRef: ElementRef) { 
-    
+  constructor(private elementRef: ElementRef) {
+
   }
 
   ngOnInit() {
   }
 
   ngAfterViewChecked() {
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.src = "../assets/js/addtocart.js";
-    this.elementRef.nativeElement.appendChild(s);
   }
 
 }

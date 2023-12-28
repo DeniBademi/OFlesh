@@ -29,20 +29,20 @@ export class ProductFiltersComponent implements OnInit, AfterViewInit {
       for(let i=0;i<response.length;i++)
         this.productTypes.push(new MenuOption(response[i].id, response[i].name, response[i].name != "Spare Part", response[i].count, "") )
       //this.applyFilters();
-      console.log("Loaded types");
+      //console.log("Loaded types");
       //if(this.productModels.length>0)  this.applyFilters();
     }, error => {
-      console.log(error.error);
+      //console.log(error.error);
     })
     this.dataService.getModels().subscribe(response => {
       for(let i=0;i<response.length;i++)
         this.productModels.push(new MenuOption(response[i].id,response[i].name, true, response[i].count, ""))
 
-      console.log("Loaded models");
-      console.log("applying filters");
+      //console.log("Loaded models");
+      //console.log("applying filters");
       //if(this.productTypes.length>0) this.applyFilters();
     }, error => {
-      console.log(error.error);
+      //console.log(error.error);
     })
 
   }

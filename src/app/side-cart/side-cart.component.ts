@@ -34,7 +34,7 @@ export class SideCartComponent implements OnInit {
     if(this.couponCode.length < 5) return;
     if(this.CartService.cartItemsCount.value == 0) return;
 
-    console.log(this.couponCode);
+    //(this.couponCode);
     this.DataService.validateCouponCode(this.couponCode).subscribe(
       (data) => {
         this.CartService.couponCode = this.couponCode;
@@ -44,7 +44,7 @@ export class SideCartComponent implements OnInit {
         this.toastr.success(this.translateService.instant('Code applied successfuly'))
       },
       (error) => {
-        console.log(error);
+       // console.log(error);
         this.toastr.error(this.translateService.instant('Error applying code'));
       }
     );

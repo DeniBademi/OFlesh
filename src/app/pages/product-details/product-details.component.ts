@@ -70,7 +70,7 @@ export class ProductDetailsComponent implements OnInit {
         this.productID = paramMap.get('id');
         this.DataService.getByIdFull(this.productID, "product").subscribe( product => {
 
-          console.log(product)
+          //console.log(product)
           if(product == undefined)
             this.router.navigate(["not-found"]);
 
@@ -92,7 +92,7 @@ export class ProductDetailsComponent implements OnInit {
             thumb: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.thumbnail
           }));
 
-          console.log(this.product.photosJSON)
+          //console.log(this.product.photosJSON)
           //https://res.cloudinary.com/dvkjlgu83/image/upload/v1679592200/product-photos/5.40mm-compressed/Top%20Roller/250mm_5.4mm_2023-Mar-15_12-40-34PM-000_CustomizedView9730449655_juzc56.jpg
           for(let i=0;i<this.product.photosJSON.gallery.length;i++){
             this.photos.push(new ImageItem({
@@ -103,7 +103,7 @@ export class ProductDetailsComponent implements OnInit {
 
           this.DataService.getReviews(this.product.id).subscribe(res=>{
             this.productReviews = res;
-            console.log(this.productReviews)
+            //console.log(this.productReviews)
           })
         //   this.translate.get('demo.greeting', {name: 'John'}).subscribe((res: string) => {
         //     console.log(res);
@@ -124,8 +124,8 @@ export class ProductDetailsComponent implements OnInit {
 
   buyInstant() {
     this.CartService.emptyCart();
-    this.CartService.addItem(this.product, false, true)
-    this.router.navigate(['/'+this.translate.currentLang+"/cart"])
+    this.CartService.addItem(this.product, false, false)
+    this.router.navigate(['/'+this.translate.currentLang+"/checkout"])
   }
 
 

@@ -5,7 +5,7 @@
          <h1>Contact with you</h1>
          <div class="row">
            <div class="col-md-6">
-              <label class="credit-card-label">{{'cart.first_name' | translate}} *</label>
+              <label class="credit-card-label">{{'checkout.first_name' | translate}} *</label>
               <input required type="text" class="form-control credit-inputs" placeholder="John" formControlName="firstName">
               <div *ngIf="form.controls['personalDetails'].get('firstName').invalid && (this.form.controls['personalDetails'].get('firstName').dirty || this.form.controls['personalDetails'].get('firstName').touched)">
                  <div *ngIf="this.form.controls['personalDetails']['firstName'].errors!['required']" class="error">
@@ -14,7 +14,7 @@
               </div>
            </div>
            <div class="col-md-6">
-              <label class="credit-card-label">{{'cart.last_name' | translate}} *</label>
+              <label class="credit-card-label">{{'checkout.last_name' | translate}} *</label>
               <input required type="text" class="form-control credit-inputs" placeholder="Smith" formControlName="lastName">
               <div *ngIf="form.controls['personalDetails'].get('lastName').invalid && (form.controls['personalDetails'].get('lastName').dirty || form.controls['personalDetails'].get('lastName').touched)">
                  <div *ngIf="form.controls['personalDetails'].get('lastName').errors!['required']" class="error">
@@ -23,14 +23,14 @@
               </div>
            </div>
         </div>
-        <label class="credit-card-label">{{'cart.email' | translate}} *</label>
+        <label class="credit-card-label">{{'checkout.email' | translate}} *</label>
         <input required type="email" class="form-control credit-inputs" placeholder="john.smith@example.com" formControlName="email">
         <div *ngIf="form.controls['personalDetails'].get('email').invalid && (form.controls['personalDetails'].get('email').dirty || form.controls['personalDetails'].get('email').touched)">
            <div *ngIf="form.controls['personalDetails'].get('email').errors!['required']" class="error">
               {{'messages.required_field' | translate}}
            </div>
         </div>
-        <label class="credit-card-label">{{'cart.phone_number' | translate}} *</label>
+        <label class="credit-card-label">{{'checkout.phone_number' | translate}} *</label>
         <div class="phoneContainer">
            <input required class="form-control credit-inputs" formControlName="phoneNumber" type="tel" placeholder="+359 999 999 999">
            <div *ngIf="form.controls['personalDetails'].get('phoneNumber').invalid && (form.controls['personalDetails'].get('phoneNumber').dirty || form.controls['personalDetails'].get('phoneNumber').touched)">

@@ -116,6 +116,7 @@
 		"add_code": "Добави код",
 		"code": "Код",
 		"apply": "Приложи",
+		"total_per_product": "Общо",
 		"please_enter_valid_code": "Моля, въведете валиден код",
 		"optional": "опционално",
 		"subtotal": "Междинна сума",
@@ -131,6 +132,11 @@
 	},
 
 	"checkout": {
+		"first_name": "Име",
+		"last_name": "Фамилия",
+		"email": "Имейл",
+		"phone_number": "Телефон",
+
 		"information_link":"Информация",
 		"personal_details_link":"Лични данни",
 		"shipping_address_link": "Адрес за доставка",

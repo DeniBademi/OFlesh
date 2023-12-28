@@ -158,7 +158,7 @@ export class ProductListComponent implements OnInit {
       var pag = JSON.parse(response.headers.get("Pagination"))
       this.totalPages = String(pag["TotalItems"])
     }, error => {
-      console.log(error.error);
+      //console.log(error.error);
     })
   }
 
@@ -189,7 +189,7 @@ export class ProductListComponent implements OnInit {
       this.models = response;
       //console.log(response[0])
     }, error => {
-      console.log(error.error);
+     // console.log(error.error);
     })
   }
 

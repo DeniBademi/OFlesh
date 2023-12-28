@@ -33,8 +33,8 @@
                        <!-- <div style="cursor: pointer;" (click)="this.CartService.deleteItem(item.product)">Delete</div> -->
                     </div>
                  </div>
-                 <div class="product__price"><b>{{item.product.price * item.quantity | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</b></div>
               </div>
+              <div class="product__price" style="float: left; text-align:left; "><b>{{"cart.total_per_product" | translate}}: {{item.product.price * item.quantity | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</b></div>
            </div>
         </div>
         <div *ngIf="this.CartService.cartItemsCount.getValue()==0">
