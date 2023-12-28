@@ -20,7 +20,7 @@ export class ContactComponent implements OnInit {
     lastName: new FormControl('', [
       Validators.required,
     ]),
-    phone: new FormControl('', [
+    phonenumber: new FormControl('', [
       Validators.required,
     ]),
     email: new FormControl('', [

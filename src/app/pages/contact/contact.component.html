@@ -86,9 +86,9 @@
       <div class="row">
          <div class="col-md input-box">
             <label class="credit-card-label">{{'contact.enter_phone' | translate}} *</label>
-            <input required type="text" class="form-control credit-inputs" formControlName="phone">
-            <div *ngIf="form.get('phone').invalid && (form.get('phone').dirty || form.get('phone').touched)">
-               <div *ngIf="form.get('phone').errors!['required']" class="error">
+            <input required type="text" class="form-control credit-inputs" formControlName="phonenumber">
+            <div *ngIf="form.get('phonenumber').invalid && (form.get('phonenumber').dirty || form.get('phonenumber').touched)">
+               <div *ngIf="form.get('phonenumber').errors!['required']" class="error">
                   {{'messages.required_field' | translate}}
                </div>
             </div>
