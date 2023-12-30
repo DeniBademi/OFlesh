@@ -3,6 +3,8 @@
 jw-modal {
     /* modals are hidden by default */
     display: none;
+    position: absolute;
+    z-index: 100000;
 
     .jw-modal {
         /* modal container fixed across whole screen */
@@ -13,7 +15,7 @@ jw-modal {
         z-index: 10000;
 
         /* semi-transparent black background exposed by padding */
-        background-color: rgba(0, 0, 0, .75);
+        background-color: rgb(21, 21, 21);
         padding: 40px;
 
         /* enables scrolling for tall modals */
@@ -24,11 +26,13 @@ jw-modal {
 
     .jw-modal-body {
 
-        width: 30%;
+        width: 40%;
         margin: 0 auto;
         border-radius: 10px;
         box-shadow: 0 0 10px #000;
         color: #fff;
+        padding: 40px;
+
     }
 
     @media (max-width: 768px) {

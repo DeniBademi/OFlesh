@@ -69,6 +69,44 @@ export class ProductCatalogComponent implements OnInit {
               },
 
             ]
+          },
+          {
+            "id": 2,
+            "name": "Daniela",
+            "description": "The Collection of \"Andjela Tasheva\" Ofleshy is made of high quality materials that\
+            provide not only a pleasant feeling, but also safety in use. Each toy is accurately replicated with\
+            a cast of your favorite star, giving you the opportunity to relax and enjoy the unique experience\
+            and intimacy you can achieve.",
+            "descriptionBG": "Колекцията на \"Анджела Ташева\" Ofleshy е изработена от висококачествени материали,\
+            които осигуряват не само приятно усещане, но и безопасност при употреба. Всяка играчка е точно\
+            репликирана с отливка на любимата ви звезда, като ви дава възможност да се отпуснете и да се насладите\
+            на уникалното изживяване и близост, които можете да постигнете.",
+            "checked": false,
+            "count": 0,
+            "behavior": "category",
+            "children": [
+              {
+                "id": 4,
+                "name": "Ofleshy",
+                "description": "",
+                "descriptionBG": "",
+                "checked": false,
+                "count": 0,
+                "behavior": "feature",
+                "children": []
+              },
+              {
+                "id": 5,
+                "name": "Autofleshy",
+                "description": "",
+                "descriptionBG": "",
+                "checked": false,
+                "count": 0,
+                "behavior": "feature",
+                "children": []
+              },
+
+            ]
           }
         ]
   }

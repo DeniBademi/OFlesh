@@ -41,7 +41,7 @@ body {
 }
 
 .continue:hover {
-    background-color: black;
+    background-color: rgb(18, 18, 18);
     color: white;
 
 
@@ -61,6 +61,55 @@ body {
 
 
 }
+
+
+.ageDisclaimerExit {
+    width: 45%;
+    min-width: 200px;
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    border-radius: 10px;
+    height: 50px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+
+}
+
+.googleRedirect {
+    width: 45%;
+    min-width: 200px;
+    background-color: darkgrey;
+    border-radius: 10px;
+    height: 50px;
+    font-size: 1rem;
+    margin:10px;
+    transition: all 0.3s ease;
+
+}
+
+.heading1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 10px;
+    text-align: center;
+}
+
+.ageDisclaimerExit:hover {
+    background-color: #b6447f;
+    border-color: #b6447f;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+
+.googleRedirect:hover {
+    background-color: rgb(212, 210, 210);
+    border-color: rgb(212, 210, 210);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+
 
 @media (max-width: 768px) {
     .btn-container {

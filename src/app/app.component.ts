@@ -41,9 +41,8 @@ export class AppComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    //this.modalService.open('modal-find-us')
+    this.modalService.open('age_verification')
     AOS.init();
-    // useKlaviyo('VmhZS5')
   }
   handleRouteEvents() {
     this.router.events.subscribe(event => {

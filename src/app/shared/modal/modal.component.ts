@@ -10,6 +10,8 @@ import { ModalService } from '../../_services/modal.service';
 })
 export class ModalComponent implements OnInit, OnDestroy {
     @Input() id?: string;
+
+    @Input() closeBtnClass?: string;
     isOpen = false;
     private element: any;
 
@@ -24,9 +26,9 @@ export class ModalComponent implements OnInit, OnDestroy {
         // move element to bottom of page (just before </body>) so it can be displayed above everything else
         document.body.appendChild(this.element);
 
-        // close modal on background click
+        //close modal on background click
         this.element.addEventListener('click', (el: any) => {
-            if (el.target.className === 'jw-modal') {
+            if (el.target.className === this.closeBtnClass) {
                 this.close();
             }
         });
