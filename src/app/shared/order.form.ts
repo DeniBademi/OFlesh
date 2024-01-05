@@ -3,17 +3,17 @@ import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 
 const form = {
   personalDetails: new FormGroup({
-    firstName: new FormControl('Denis', [
+    firstName: new FormControl('', [
       Validators.required,
     ]),
-    lastName: new FormControl('Zahariev', [
+    lastName: new FormControl('', [
       Validators.required,
     ]),
-    email: new FormControl('denis.zaharievv@gmail.com', [
+    email: new FormControl('', [
       Validators.required,
       Validators.email
     ]),
-    phoneNumber: new FormControl('+359878426545',[
+    phoneNumber: new FormControl('',[
       Validators.required,
       Validators.pattern(/^\+?\d{1,3}[- ]?\d{3}[- ]?\d{3}[- ]?\d{4}$/)
 
@@ -21,19 +21,19 @@ const form = {
     discountCode: new FormControl('', []),
   }),
   shippingAddress: new FormGroup({
-    addressLine1: new FormControl('A', [
+    addressLine1: new FormControl('', [
       Validators.required,
     ]),
-    addressLine2: new FormControl('B', [
+    addressLine2: new FormControl('', [
     ]),
     countryId: new FormControl('', [
       Validators.required
     ]),
-    city: new FormControl('Sofia', [
+    city: new FormControl('', [
       Validators.required,
     ]),
     state: new FormControl('', []),
-    postalCode: new FormControl('1335',[
+    postalCode: new FormControl('',[
       Validators.required
     ]),
     }),
