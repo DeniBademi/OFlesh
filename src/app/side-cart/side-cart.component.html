@@ -98,7 +98,7 @@
            </tfoot>
         </table>
         <div class="form__footer">
-           <button class="btn btn--secondary first js-toggle-cart">{{'cart.continue_shopping' | translate}}</button>
+           <button class="btn btn--secondary first js-toggle-cart" click-stop-propagation>{{'cart.continue_shopping' | translate}}</button>
            <button class="btn btn--primary second js-toggle-cart"
            (click)="this.router.navigate(['/'+this.translateService.currentLang+'/checkout/'])"
            [disabled]="this.CartService.cartItemsCount.value<1">{{'cart.pay_now' | translate}}</button>

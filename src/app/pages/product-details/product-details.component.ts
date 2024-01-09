@@ -12,6 +12,7 @@ import { Currency } from 'src/app/_models/Currency';
 import { NgFor } from '@angular/common';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Meta } from '@angular/platform-browser';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class ProductDetailsComponent implements OnInit {
   photos: GalleryItem[] = [];
   product: Product // new Product(1,"Roller 250mm 5.40mm", 390, "USD", "", "../../asset/img/products/product2.jpg");
   innerWidth: number = 0;
+
 
 
   productReviews: any[] = [];
@@ -53,7 +55,17 @@ export class ProductDetailsComponent implements OnInit {
     private router: Router,
     public GlobalsService: GlobalsService,
     public translate: TranslateService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private meta: Meta) {
+      this.meta.addTags([
+        {name: 'keywords', content: "Male, women, masturbator, маструбатор, мъжки маструбатор, мъжкимаструбатор, masturbatorcup \
+        masturbator cup, cupmasturbator, cup, only fans, onlyfans, of, andjela tasheva, andjela tasheva only fans, andjela \
+        tasheva onlyfans, onlyfans andjela tasheva, анджела ташева onlyfans, изкуствена вагина, маструбатори \
+        вагини, секс играчки за мъже, Autofleshy, autofleshy, ofleshy, Ofleshy, OFLESH GROUP, Oflesh group, oflesh \
+        group, make me freak, Freak, Make me Freak, The collection of Andjela Tasheva, lubricants, лубриканти, male \
+        masturbator"
+     }])
+    }
 
   ngOnInit() {
 
