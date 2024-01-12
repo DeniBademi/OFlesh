@@ -25,6 +25,7 @@ export class SideCartComponent implements OnInit {
     public router: Router) { }
 
   ngOnInit() {
+    this.couponCode = this.CartService.couponCode;
   }
 
 
