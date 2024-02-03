@@ -151,6 +151,7 @@
 		"shipping_info":"Shipping information",
 		"payment_link": "Payment",
 		"continue":"Continue",
+		"calculate_shipping": "Calculate shipping",
 		"shipping_address": {
 			"line1":"Address Line 1",
 			"line2":"Address Line 2",
@@ -162,12 +163,13 @@
 
 		},
 		"shipping_method": {
+
 			"warning_international": "Please note that international delivery time is around 20 business days.",
 			"processing_time": "Manufacturing time can take up to 10 business days.",
-			"standard_delivery_header_bg": "Standard Delivery - Bulgaria - Free",
-			"standard_delivery_content_bg": "Standard processing time. Your order is added to our queue and is processed in the order it was received. Payment on delivery possible. Shipped to you via EKONT.",
+			"standard_delivery_header_bg": "Standard Delivery - Bulgaria -",
+			"standard_delivery_content_bg": "Standard processing time. Your order is added to our queue and is processed in the order it was received. Payment on delivery possible. Shipped to you via Speedy.",
 			"priority_delivery_header_bg": "Prioritized Delivery - Bulgaria -",
-			"priority_delivery_content_bg": "Your order receives prioritized status and is processed first. Payment on delivery possible. Shipped to you via EKONT.",
+			"priority_delivery_content_bg": "Your order receives prioritized status and is processed first. Payment on delivery possible. Shipped to you via Speedy.",
 			"standard_delivery_header_int": "Standard Delivery - {{country}} -",
 			"standard_delivery_content_int": "Standard processing time. Your order is added to our queue and is processed in the order it was received.",
 			"priority_delivery_header_int": "Prioritized Delivery - {{country}} -",

@@ -16,7 +16,7 @@ export class GlobalsService {
 
   processing_fee = 2;
 
-  //stripePublicKey = "pk_test_51MuGi1BAZhA0rlRn9ZAiDgRRfVhJ9F0j5KD62362DJQhM1T6SUjwT5m3ObdVrpYfJWD1C7BLi95dYm4Xks4XzZ3p00qELKSmiJ"
+  //stripePublicKey = "pk_live_51OLB0fHxoFbSYRPaPDZbqTtO6h4Y6XazXhtqRq1mRBHZViCA9DITo93WAj9wk9nbEWJMK3bHhNDQRADzlVTcjoHw00YXhBstUe"
   stripePublicKey = "pk_test_51OLB0fHxoFbSYRPa7e4TDoCvq7yyprp746MujJyE2tARffODpEg7UQA6VvHJY7l6M7p985SAjRaJxrVnYgD7amaL008edOZDhP"
 
 

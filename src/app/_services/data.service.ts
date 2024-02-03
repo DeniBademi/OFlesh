@@ -225,6 +225,11 @@ export class DataService {
     return this.http.post(this.GlobalsService.baseURL +'stripe/create-payment-intent', data);
   }
 
+  getDeliveryPrice(data) {
+    return this.http.post(this.GlobalsService.baseURL +'delivery/calculate', data);
+  }
+
+
   isDiscountActive() {
     try {
       return new Date(localStorage.getItem('targetTime')!).getTime() - new Date().getTime() > 0

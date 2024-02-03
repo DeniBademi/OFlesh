@@ -135,6 +135,19 @@ input[type="checkbox"] {
   margin-right: 0.5rem;
 }
 
+.calc-shipping {
+  background-color: #e2007a;
+  border: #e2007a;
+  box-shadow: none;
+}
+
+.calc-shipping:hover {
+  box-shadow: #e2007a;
+
+
+
+}
+
 @media (max-width: 720px) {
   .icon {
     width: 70px;
@@ -164,6 +177,8 @@ input[type="checkbox"] {
   }
 
 }
+
+
 
   @media only screen and (max-width: 700px) {
   .discountcontainer {

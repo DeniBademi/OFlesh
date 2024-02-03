@@ -41,19 +41,24 @@ export class CheckoutOrderOverviewComponent implements OnInit {
     });
 
 
-    this.countryIdSubscription = this.form.get("shippingAddress.countryId").valueChanges.subscribe((value) => {
-      if(value != undefined) {
-        this.shippingPrice = value.price + (this.form.get("shippingMethodId").value == "priority"? 10 : 0);
-        this.recalculate();
-      }
-      console.log(value);
-    });
+    // this.countryIdSubscription = this.form.get("shippingAddress.countryId").valueChanges.subscribe((value) => {
+    //   if(value != undefined) {
+    //     this.shippingPrice = value.price + (this.form.get("shippingMethodId").value == "priority"? 10 : 0);
+    //     this.recalculate();
+    //   }
+    //   console.log(value);
+    // });
 
-    this.shippingMethodIdSubscription = this.form.get("shippingMethodId").valueChanges.subscribe((value) => {
-      if(value != undefined) {
-        this.shippingPrice = this.form.get("shippingAddress.countryId").value.price + (value == "priority"? 10 : 0);
-        this.recalculate();
-      }
+    // this.shippingMethodIdSubscription = this.form.get("shippingMethodId").valueChanges.subscribe((value) => {
+    //   if(value != undefined) {
+    //     this.shippingPrice = this.form.get("shippingAddress.countryId").value.price + (value == "priority"? 10 : 0);
+    //     this.recalculate();
+    //   }
+    // });
+
+    this.setShipping.subscribe((value) => {
+      this.shippingPrice = value;
+      this.recalculate();
     });
 
     this.total = this.CartService.calculateTotal(true,true);

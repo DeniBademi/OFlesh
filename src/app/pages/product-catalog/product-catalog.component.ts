@@ -66,7 +66,7 @@ export class ProductCatalogComponent implements OnInit {
                 "count": 0,
                 "behavior": "feature",
                 "children": []
-              },
+              }
 
             ]
           }

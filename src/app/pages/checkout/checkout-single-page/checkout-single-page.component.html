@@ -107,8 +107,13 @@
 
       <div class="shipping-options overflow-auto">
 
-        <div *ngIf="!form.get('shippingAddress.countryId').value">Please select a country first!</div>
-         <div *ngIf="form.get('shippingAddress.countryId').value.name != 'Bulgaria' && form.get('shippingAddress.countryId').value" >
+        <div *ngIf="!form.get('shippingAddress.countryId').value">Please, complete the previous steps first.</div>
+
+        <div *ngIf="form.get('shippingAddress.countryId').value && form.get('shippingAddress.postalCode').value && form.get('shippingAddress.city').value">
+         <div *ngIf="this.retrievedShippingPrice==0" class="btn btn-primary calc-shipping" (click)="this.calculateShippingPrice()">{{'checkout.calculate_shipping' | translate}}</div>
+        </div>
+
+         <div *ngIf="form.get('shippingAddress.countryId').value.name != 'Bulgaria' && this.retrievedShippingPrice>0">
             <div class="description">{{'checkout.shipping_method.warning_international' | translate}} </div>
             <div class="description">{{'checkout.shipping_method.processing_time' | translate}} </div>
 
@@ -118,7 +123,7 @@
                 <input type="radio" id="accent" formControlName="shippingMethodId" value="standard">
                 <img class="icon" [attr.src]="this.Globals.productDesignImagesURLs + 'delivery-truck_fwxrxy.png'">
                 <div class="option-text">
-                  <div class="option-header">{{'checkout.shipping_method.standard_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name } }} {{this.form.get('shippingAddress.countryId').value.price | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
+                  <div class="option-header">{{'checkout.shipping_method.standard_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name } }} {{this.retrievedShippingPrice | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
                   <div class="description">{{'checkout.shipping_method.standard_delivery_content_int' | translate}}</div>
                 </div>
               </div>
@@ -128,13 +133,13 @@
                 <input type="radio" id="accent" formControlName="shippingMethodId" value="priority">
                 <img class="rounded icon col-md-2" [attr.src]="this.Globals.productDesignImagesURLs + 'fast_v4g5qd.png'">
                 <div class="option-text">
-                  <div class="option-header">{{'checkout.shipping_method.priority_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name} }} {{(this.form.get('shippingAddress.countryId').value.price + this.priorityOrderPrice) | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
+                  <div class="option-header">{{'checkout.shipping_method.priority_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name} }} {{(this.retrievedShippingPrice + this.priorityOrderPrice) | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
                   <div class = "description">{{'checkout.shipping_method.priority_delivery_content_int' | translate}} </div>
                 </div>
               </div>
             </div>
          </div>
-         <div *ngIf="this.form.get('shippingAddress.countryId').value.name == 'Bulgaria'" >
+         <div *ngIf="this.form.get('shippingAddress.countryId').value.name == 'Bulgaria' && this.retrievedShippingPrice>0">
           <div class="description">{{'checkout.shipping_method.processing_time' | translate}}</div>
             <div class="row shipping-option d-flex align-items-center">
                <div class="col-sm-auto">
@@ -143,7 +148,7 @@
                <!-- <div class="col-md-10 row"> -->
                  <img class="rounded icon col-md-2" [attr.src]="this.Globals.productDesignImagesURLs + 'delivery-truck_fwxrxy.png'">
                  <!-- <div class="col-md-10"> -->
-                  <div>{{'checkout.shipping_method.standard_delivery_header_bg' | translate }}</div>
+                  <div>{{'checkout.shipping_method.standard_delivery_header_bg' | translate }} {{ this.retrievedShippingPrice | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
                    <div class ="description">{{'checkout.shipping_method.standard_delivery_content_bg' | translate}}</div>
 
                <!-- </div> -->
@@ -155,7 +160,7 @@
                <!-- <div class="col-md-10 row"> -->
                  <img class="rounded icon col-md-2" [attr.src]="this.Globals.productDesignImagesURLs + 'fast_v4g5qd.png'">
                  <!-- <div class="col-md-10"> -->
-                   <div>{{'checkout.shipping_method.priority_delivery_header_bg' | translate }} {{this.form.get('shippingAddress.countryId').value.price + this.priorityOrderPrice | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
+                   <div>{{'checkout.shipping_method.priority_delivery_header_bg' | translate }} {{ this.retrievedShippingPrice + this.priorityOrderPrice | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
                    <div class = "description">{{'checkout.shipping_method.priority_delivery_content_bg' | translate}}</div>
                  <!-- </div> -->
                <!-- </div> -->
@@ -167,8 +172,8 @@
       <h1>Payment</h1>
 
 
-      <div *ngIf="!form.get('shippingAddress.countryId').value">Please select a country first!</div>
-      <div *ngIf="form.get('shippingAddress.countryId').value">
+      <div *ngIf="showPaymentOptions==false">Please, complete the previous steps first.</div>
+      <div *ngIf="showPaymentOptions">
          <div id="link-authentication-element">
             <!--Stripe.js injects the Link Authentication Element-->
           </div>

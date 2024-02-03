@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Stripe, loadStripe } from '@stripe/stripe-js';
@@ -11,13 +11,14 @@ import { CartService } from 'src/app/_services/cart.service';
 import { DataService } from 'src/app/_services/data.service';
 import { FormControl } from '@angular/forms';
 import { MatSelect } from '@angular/material/select';
+import { parse } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-checkout-single-page',
   templateUrl: './checkout-single-page.component.html',
   styleUrls: ['./checkout-single-page.component.css']
 })
-export class CheckoutSinglePageComponent implements OnInit {
+export class CheckoutSinglePageComponent implements OnInit, OnDestroy {
 
   totalAmount: any;
   card: any;
@@ -29,14 +30,18 @@ export class CheckoutSinglePageComponent implements OnInit {
   shippingMethods: any;
 
   showStripe = false;
-  showPaymentOptions = true;
+  showPaymentOptions = false;
   selectedPaymentOption: any;
   total: any;
   clientSecret: any;
 
   setShipping: Subject<number> = new Subject<number>();
+  formSubscriptions: any = [];
 
   priorityOrderPrice = 10;
+
+
+  retrievedShippingPrice;
 
 
   countries = [];
@@ -81,84 +86,7 @@ export class CheckoutSinglePageComponent implements OnInit {
 
       this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
 
-      this.form.get('shippingAddress.countryId').valueChanges.subscribe(newValue => {
-        let shippingPrice = newValue.price
-        console.log(shippingPrice)
-        this.setShippingInOverview(shippingPrice + (this.form.get("shippingMethodId").value=="priority"?this.priorityOrderPrice:0))
-
-        if(newValue.name != "Bulgaria" && newValue.name != "България"){
-          this.form.get('paymentMethod').setValue("card")
-          this.form.get('paymentMethod').disable();
-          this.showPaymentOptions = false;
-          this.showStripe = true;
-        } else {
-            this.form.get('paymentMethod').enable();
-            this.form.get('paymentMethod').setValue(undefined)
-        }
-      });
-
-      // print shipping method if value changes
-      this.form.get("shippingMethodId").valueChanges.subscribe(newValue => {
-
-        let shippingPrice = this.form.get('shippingAddress.countryId').value.price
-        this.setShippingInOverview(shippingPrice + (newValue=="priority"?this.priorityOrderPrice:0))
-
-        if(this.form.get('shippingAddress.countryId').value.name != "Bulgaria" && this.form.get('shippingAddress.countryId').value.name != "България"){
-
-          this.showStripe = true;
-          this.DataService.getStripeClientSecret({
-            'countryId':this.form.get('shippingAddress.countryId').value.id,
-            'shippingMethod':this.form.get('shippingMethodId').value,
-            'currencyCode': this.translate.currentLang=="bg"?"BGN":"EUR",
-            "cartJSON": JSON.stringify(this.CartService.cartItems.getValue()),
-            "FirstName": this.form.get('personalDetails.firstName').value,
-            "LastName": this.form.get('personalDetails.lastName').value,
-            "Email": this.form.get('personalDetails.email').value,
-            "PhoneNumber": this.form.get('personalDetails.phoneNumber').value,
-            "couponCode": this.CartService.couponCode} ).subscribe(
-            (data) => {
-              this.clientSecret = data["clientSecret"]
-              this.initiateCardElement();
-            });
-        }
-      })
-
-
-      this.form.get('paymentMethod').valueChanges.subscribe(x => {
-        console.log(x)
-        if(x == "card") {
-          // create a copy of the form and discard agreed_to_terms and agreed_to_privacy
-          let tempForm = this.form
-          delete tempForm.value.agreed_to_terms
-          delete tempForm.value.agreed_to_privacy
-          // check if the form is valid
-
-          if(tempForm.valid) {
-
-            this.showStripe = true;
-            this.DataService.getStripeClientSecret({
-              'countryId':this.form.get('shippingAddress.countryId').value.id,
-              'shippingMethod':this.form.get('shippingMethodId').value,
-              'currencyCode': this.translate.currentLang=="bg"?"BGN":"EUR",
-              "cartJSON": JSON.stringify(this.CartService.cartItems.getValue()),
-              "FirstName": this.form.get('personalDetails.firstName').value,
-              "LastName": this.form.get('personalDetails.lastName').value,
-              "Email": this.form.get('personalDetails.email').value,
-              "PhoneNumber": this.form.get('personalDetails.phoneNumber').value,
-              "couponCode": this.CartService.couponCode} ).subscribe(
-              (data) => {
-                this.clientSecret = data["clientSecret"]
-                this.initiateCardElement();
-              });
-          }
-        } else {
-          this.showStripe = false;
-        }
-          //this.paymentOptions.disable();
-      })
-
-
-
+      this.addFormControlSubscriptions();
 
       this.DataService.getAll("country").subscribe(value => {
         this.countries = value.slice();
@@ -171,6 +99,73 @@ export class CheckoutSinglePageComponent implements OnInit {
         this.filterCountries();
       });
   }
+
+  addFormControlSubscriptions() {
+          // subscribtion to delete old data if shipping address changes
+          let shippingAddressSubscription = this.form.get('shippingAddress').valueChanges.subscribe(value => {
+            this.retrievedShippingPrice = 0;
+            this.setShippingInOverview(null)
+            this.showStripe = false;
+            this.form.get('shippingMethodId').setValue(undefined)
+            this.form.get('paymentMethod').setValue(undefined)
+            this.showPaymentOptions = false;
+          });
+          this.formSubscriptions.push(shippingAddressSubscription);
+
+          // subscribtion to automatically select the card payment method
+          // if the country is not Bulgaria, as it is the only available payment method
+          let countrySubscription = this.form.get('shippingAddress.countryId').valueChanges.subscribe(newValue => {
+
+            if(newValue.name != "Bulgaria" && newValue.name != "България"){
+              this.form.get('paymentMethod').setValue("card")
+              this.form.get('paymentMethod').disable();
+              this.showPaymentOptions = false;
+              //this.showStripe = true;
+
+            } else {
+                this.form.get('paymentMethod').enable();
+                this.form.get('paymentMethod').setValue(undefined)
+            }
+          });
+          this.formSubscriptions.push(countrySubscription);
+
+          // subscribtion to print shipping method if value changes
+          // and initiate the card element if it is the selected payment method
+          let shippingMethodSubscription = this.form.get("shippingMethodId").valueChanges.subscribe(newValue => {
+
+            this.showPaymentOptions = true;
+            this.setShippingInOverview(this.retrievedShippingPrice + (newValue=="priority"?this.priorityOrderPrice:0))
+
+            if(this.form.get('paymentMethod').value == "card" && this.form.valid){
+              this.showStripe = true;
+              this.getClientSecret();
+            }
+          })
+          this.formSubscriptions.push(shippingMethodSubscription);
+
+          let paymentMethodSubscription = this.form.get('paymentMethod').valueChanges.subscribe(x => {
+
+            if(x == "card") {
+              // create a copy of the form and discard agreed_to_terms and agreed_to_privacy
+
+              // check if the form is valid
+              if(this.form.get("personalDetails").valid && this.form.get("shippingAddress").valid && this.form.get("shippingMethodId").valid){
+
+                this.showStripe = true;
+                this.getClientSecret();
+              }
+            } else {
+              this.showStripe = false;
+
+            }
+          })
+          this.formSubscriptions.push(paymentMethodSubscription);
+  }
+
+  ngAfterViewInit(): void {
+
+  }
+
 
 
 
@@ -199,15 +194,10 @@ export class CheckoutSinglePageComponent implements OnInit {
     data["paymentMethod"] = this.form.get('paymentMethod').value;
     data['cartJSON'] = JSON.stringify(this.CartService.cartItems.getValue());
 
-    console.log(data)
     this.DataService.placeOrder(data).subscribe( (value) => {
         //console.log(value)
         this.Router.navigate(['/'+this.translate.currentLang+"/checkout/thank-you"])
     });
-  }
-
-  ngAfterViewInit(): void {
-
   }
 
   protected setInitialValue() {
@@ -226,6 +216,10 @@ export class CheckoutSinglePageComponent implements OnInit {
       this.card.removeEventListener('change', this.cardHandler);
       this.card.destroy();
     }
+
+    this.formSubscriptions.forEach(subscription => {
+      subscription.unsubscribe();
+    });
   }
 
   protected filterCountries() {
@@ -321,6 +315,25 @@ export class CheckoutSinglePageComponent implements OnInit {
   }
 
 
+  async getClientSecret() {
+    this.DataService.getStripeClientSecret({
+      'countryId':this.form.get('shippingAddress.countryId').value.id,
+      'shippingMethod':this.form.get('shippingMethodId').value,
+      'currencyCode': this.translate.currentLang=="bg"?"BGN":"EUR",
+      "cartJSON": JSON.stringify(this.CartService.cartItems.getValue()),
+      "FirstName": this.form.get('personalDetails.firstName').value,
+      "LastName": this.form.get('personalDetails.lastName').value,
+      "Email": this.form.get('personalDetails.email').value,
+      "PhoneNumber": this.form.get('personalDetails.phoneNumber').value,
+      "couponCode": this.CartService.couponCode,
+      "City": this.form.get('shippingAddress.city').value,
+      "PostalCode": this.form.get('shippingAddress.postalCode').value} ).subscribe(
+      (data) => {
+        this.clientSecret = data["clientSecret"]
+        this.initiateCardElement();
+      });
+  }
+
   async initiateCardElement() {
     // Giving a base style here, but most of the style is in scss file
     const cardStyle = {
@@ -360,10 +373,25 @@ export class CheckoutSinglePageComponent implements OnInit {
   }
 
   createOrder(id: any) {
-    console.log(this.form.value)
+
   }
 
   checkout() {
   }
 
+  calculateShippingPrice() {
+    let params = {
+      'countryId':this.form.get('shippingAddress.countryId').value.id,
+      'currencyCode': this.translate.currentLang=="bg"?"BGN":"EUR",
+      "cartJSON": JSON.stringify(this.CartService.cartItems.getValue()),
+      'postalCode': this.form.get('shippingAddress.postalCode').value,
+      'city': this.form.get('shippingAddress.city').value,
+    }
+
+    this.DataService.getDeliveryPrice(params).subscribe(value => {
+      this.retrievedShippingPrice = parseFloat(value["price"])
+    }, error => {
+      this.toastr.error(error.error, "Error")
+    });
+  }
 }

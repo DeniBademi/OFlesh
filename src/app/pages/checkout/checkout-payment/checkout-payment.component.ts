@@ -22,7 +22,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class CheckoutPaymentComponent implements OnInit {
   @ViewChild('cardInfo') cardInfo: ElementRef | undefined;
-  
+
   checkoutID: string | null | undefined;
   checkout: Checkout | undefined;
 
@@ -34,7 +34,7 @@ export class CheckoutPaymentComponent implements OnInit {
   elements: any;
   stripe: Stripe;
   shippingMethods: any;
-    
+
   showStripe = false;
   showPaymentOptions = true;
   selectedPaymentOption: any;
@@ -47,10 +47,10 @@ export class CheckoutPaymentComponent implements OnInit {
     //console.log(value)
     this.setShipping.next(value);
   }
-  
-  
-  constructor(private Route: ActivatedRoute, 
-    private Router: Router, 
+
+
+  constructor(private Route: ActivatedRoute,
+    private Router: Router,
     private DataService: DataService,
     private CartService: CartService,
     public form: OrderForm,
@@ -61,12 +61,12 @@ export class CheckoutPaymentComponent implements OnInit {
 
 
   ngOnInit() {
-      window.scroll({ 
-        top: 0, 
-        left: 0, 
-        behavior: 'smooth' 
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
       });
-      
+
       this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
 
       //Get shipping methods
@@ -83,7 +83,7 @@ export class CheckoutPaymentComponent implements OnInit {
 
               if(checkout == undefined)
                   this.Router.navigate(["not-found"]);;
-              
+
               this.checkout = checkout
               //console.log(this.checkout)
               let cartItems = JSON.parse(this.checkout["cartJSON"])
@@ -92,12 +92,12 @@ export class CheckoutPaymentComponent implements OnInit {
           });
 
 
-      
+
       let shippingMethodId = this.form.get("shippingMethodId").value;
       let shippingPrice = this.form.get('shippingAddress.countryId').value.price
       //console.log(shippingMethodId)
       //console.log(shippingPrice)
-      this.setShippingInOverview(shippingPrice + (shippingMethodId=="priority"?10:0))
+     // this.setShippingInOverview(shippingPrice + (shippingMethodId=="priority"?10:0))
       if(this.form.get('shippingAddress.countryId').value.name != "Bulgaria" && this.form.get('shippingAddress.countryId').value.name != "България"){
         this.form.get('paymentMethod').setValue("card")
         this.form.get('paymentMethod').disable();
@@ -107,10 +107,10 @@ export class CheckoutPaymentComponent implements OnInit {
           this.form.get('paymentMethod').enable();
           this.form.get('paymentMethod').setValue(undefined)
       }
-      
+
 
       this.form.get('paymentMethod').valueChanges.subscribe(x => {
-        this.showStripe = x == "card";        
+        this.showStripe = x == "card";
           //this.paymentOptions.disable();
       })
 
@@ -134,7 +134,7 @@ export class CheckoutPaymentComponent implements OnInit {
       await this.makeTransaction();
       return;
     }
-    
+
     let shippingInfo = this.form.get('shippingAddress')
     data['checkoutId'] = this.checkout.id;
     data['shippingMethodId'] = this.form.get("shippingMethodId").value
@@ -154,7 +154,7 @@ export class CheckoutPaymentComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    
+
   }
 
   ngOnDestroy() {
@@ -197,13 +197,13 @@ export class CheckoutPaymentComponent implements OnInit {
     const clientSecret = new URLSearchParams(window.location.search).get(
       "payment_intent_client_secret"
     );
-  
+
     if (!clientSecret) {
       return;
     }
-  
+
     const { paymentIntent } = await this.stripe.retrievePaymentIntent(clientSecret);
-  
+
     switch (paymentIntent.status) {
       case "succeeded":
         //console.log("Payment succeeded!");

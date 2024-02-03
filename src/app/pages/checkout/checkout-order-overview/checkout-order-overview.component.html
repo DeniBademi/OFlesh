@@ -27,7 +27,7 @@
       <span *ngIf="!CartService.couponData.isPercentage">-{{CartService.couponData.discount | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR")}}</span>
     </div>
   </div>
-  <div class="d-flex justify-content-between information" *ngIf="this.shippingPrice !=undefined"><span>{{'checkout.overview.shipping' | translate}}</span> <span>{{shippingPrice | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR")}}</span></div>
+  <div class="d-flex justify-content-between information" *ngIf="this.shippingPrice != undefined"><span>{{'checkout.overview.shipping' | translate}}</span> <span>{{shippingPrice | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR")}}</span></div>
   <div class="d-flex justify-content-between information" *ngIf="this.GlobalsService.processing_fee>0">
     <span>{{'checkout.overview.processing_fee' | translate}}</span>
     <span>{{ this.GlobalsService.processing_fee | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR")}}</span>
