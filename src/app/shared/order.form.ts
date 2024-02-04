@@ -15,7 +15,7 @@ const form = {
     ]),
     phoneNumber: new FormControl('',[
       Validators.required,
-      // Validators.pattern(/^\+?\d{1,3}[- ]?\d{3}[- ]?\d{3}[- ]?\d{4}$/)
+      Validators.pattern(/^\+?\d{1,3}[- ]?\d{3}[- ]?\d{3}[- ]?\d{4}$/)
 
     ]),
     discountCode: new FormControl('', []),
