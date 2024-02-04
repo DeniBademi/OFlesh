@@ -19,9 +19,9 @@ export class ConvertPipe implements PipeTransform {
    }
 
    transform(value: any, args?: any): any {
-      let rate = rates[this.currentCurrency]
-
-      return value * rate
-
+      if(args)
+        return value * rates[args]
+      else
+        return value * rates[this.currentCurrency]
    }
 }

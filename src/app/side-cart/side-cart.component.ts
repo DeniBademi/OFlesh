@@ -4,7 +4,7 @@ import { DataService } from '../_services/data.service';
 
 import { GlobalsService } from '../_services/globals.service';
 import { TranslateService } from '@ngx-translate/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -22,7 +22,8 @@ export class SideCartComponent implements OnInit {
     public translateService: TranslateService,
     public GlobalsService: GlobalsService,
     private toastr: ToastrService,
-    public router: Router) { }
+    public router: Router,
+    public route: ActivatedRoute) { }
 
   ngOnInit() {
     this.couponCode = this.CartService.couponCode;

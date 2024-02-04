@@ -107,6 +107,7 @@ export class ProductCatalogComponent implements OnInit {
       behavior: 'smooth'
     });
     this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
+    console.log(this.route.snapshot.paramMap.get("languageCode"))
   }
 
   ngOnDispose() {

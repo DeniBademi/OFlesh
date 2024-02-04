@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     public cartService: CartService,
     public GlobalsService: GlobalsService) {
     translate.setDefaultLang('en');
-    translate.addLangs(['en', 'bg', 'el']);
+    translate.addLangs(['en', 'bg']);
     translate.use('en');
 
   }

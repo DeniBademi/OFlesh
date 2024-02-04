@@ -34,7 +34,7 @@
                     </div>
                  </div>
               </div>
-              <div class="product__price" style="float: left; text-align:left; "><b>{{"cart.total_per_product" | translate}}: {{item.product.price * item.quantity | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</b></div>
+              <div class="product__price" style="float: left; text-align:left; "><b>{{"cart.total_per_product" | translate}}: {{item.product.price * item.quantity | convert:((this.translateService.currentLang == "bg"? "BGN": "EUR")) | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</b></div>
            </div>
         </div>
         <div *ngIf="this.CartService.cartItemsCount.getValue()==0">
@@ -67,7 +67,7 @@
               </tr>
               <tr>
                  <th class="align-left font-normal tertiary">{{'cart.subtotal' | translate}}</th>
-                 <td class="align-right">{{this.CartService.calculateTotal() | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</td>
+                 <td class="align-right">{{this.CartService.calculateTotal() | convert:(this.translateService.currentLang == "bg"? "BGN": "EUR") | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</td>
               </tr>
               <tr *ngIf="CartService.couponData">
                <th class="align-left font-normal tertiary" *ngIf="CartService.couponData.discount>0">{{'checkout.overview.discount' | translate}}</th>
@@ -84,11 +84,11 @@
               </tr> -->
               <tr  *ngIf="this.GlobalsService.processing_fee>0">
                <th class="align-left font-normal tertiary">{{'checkout.overview.processing_fee' | translate}}</th>
-               <td class="align-right">{{ this.GlobalsService.processing_fee | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</td>
+               <td class="align-right">{{ this.GlobalsService.processing_fee | convert: (this.translateService.currentLang == "bg"? "BGN": "EUR") | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</td>
               </tr>
               <tr>
                  <th class="align-left">{{'cart.total' | translate}}</th>
-                 <td class="align-right"><b>{{this.CartService.calculateTotal(true, true) | convert | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</b></td>
+                 <td class="align-right"><b>{{this.CartService.calculateTotal(true, true) | convert:(this.translateService.currentLang == "bg"? "BGN": "EUR") | currency:(this.translateService.currentLang == "bg"? "BGN": "EUR")}}</b></td>
               </tr>
            </tbody>
            <tfoot>
