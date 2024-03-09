@@ -25,7 +25,7 @@ const routes: Routes = [
     children: [
       {path: '**', component: ProductCatalogComponent, data: { title: 'Catalog' }},
     ]},
-   {path: ':languageCode/contact', component: ContactComponent, data: { title: 'Contact' }},
+  //  {path: ':languageCode/contact', component: ContactComponent, data: { title: 'Contact' }},
   //  {path: ':languageCode/cart', component: CartComponent, data: { title: 'Cart' }},
 
   //  {path: ':languageCode/checkout', component: CheckoutSinglePageComponent},
