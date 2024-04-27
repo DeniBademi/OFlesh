@@ -67,7 +67,13 @@
 		"icon_1_text": "Discretion on our side is guaranteed.",
 		"icon_2_text": "The price of the delivery is strictly individual.",
 		"icon_3_text": "You can return the product in their original packaging within 14 days.",
-		"icon_4_text": "The products come with the necessary certificates for safety."
+		"icon_4_text": "The products come with the necessary certificates for safety.",
+		"model_stats.height": "Height",
+		"model_stats.weight": "Weight",
+		"model_stats.bra_size": "Bra size",
+		"model_stats.zodiac": "Zodiac",
+		"model_stats.eye_color": "Eye color",
+		"model_stats.birthday": "Birthday"
 	},
 	"about": {
 		"the_company": "About the company",
