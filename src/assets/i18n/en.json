@@ -69,11 +69,17 @@
 		"icon_3_text": "You can return the product in their original packaging within 14 days.",
 		"icon_4_text": "The products come with the necessary certificates for safety.",
 		"model_stats.height": "Height",
+		"model_stats.height_andjela": "1.83cm",
 		"model_stats.weight": "Weight",
+		"model_stats.weight_andjela": "58kg",
 		"model_stats.bra_size": "Bra size",
+		"model_stats.bra_size_andjela": "A",
 		"model_stats.zodiac": "Zodiac",
+		"model_stats.zodiac_andjela": "Aquarius",
 		"model_stats.eye_color": "Eye color",
-		"model_stats.birthday": "Birthday"
+		"model_stats.eye_color_andjela": "Mixed",
+		"model_stats.birthday": "Birthday",
+		"model_stats.birthday_andjela": "25.01.2000"
 	},
 	"about": {
 		"the_company": "About the company",

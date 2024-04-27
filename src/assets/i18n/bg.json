@@ -71,13 +71,19 @@
 		"icon_1_text": "Дискретността от наша страна е гарантирана.",
 		"icon_2_text": "Цената на достаква е строго индивидуална.",
 		"icon_3_text": "Може да върнете стоките в оригиналната им опаковка в рамките на 14 дни.",
-		"icon_4_text": "Артикулите разполагат с необходимите сертификати за безопасност",
+		"icon_4_text": "Артикулите разполагат с необходимите сертификати за безопасност.",
 		"model_stats.height": "Височина",
+		"model_stats.height_andjela": "1.83cm",
 		"model_stats.weight": "Тегло",
+		"model_stats.weight_andjela": "58кг",
 		"model_stats.bra_size": "Размер на бюста",
+		"model_stats.bra_size_andjela": "А",
 		"model_stats.zodiac": "Зодия",
+		"model_stats.zodiac_andjela": "Водолей",
 		"model_stats.eye_color": "Цвят на очите",
-		"model_stats.birthday": "Рожден ден"
+		"model_stats.eye_color_andjela": "Пъстри",
+		"model_stats.birthday": "Рожден ден",
+		"model_stats.birthday_andjela": "25.01.2000"
 	},
 	"about": {
 		"the_company": "За компанията",
