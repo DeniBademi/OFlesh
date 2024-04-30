@@ -5,7 +5,7 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": false,
+    "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -19,7 +19,6 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "allowJs": true,
     "lib": [
       "ES2022",
       "dom"
