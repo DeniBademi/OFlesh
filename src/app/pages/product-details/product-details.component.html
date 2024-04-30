@@ -1,0 +1,267 @@
+
+
+        <div class="container my-5 py-5" *ngIf="this.product!=undefined" >
+            <div class="row justify-content-between mx-0">
+                <div class="col-sm-7 px-0">
+                    <gallery class="gallery" [items]="photos" thumbPosition="bottom" style="position: relative !important; z-index: 0; background-color:transparent;"></gallery>
+
+
+                    <div class="recommendations-container desktop-only">
+                        <h1>{{'product_details.tips_header' | translate }}</h1>
+                        <p>{{'product_details.tips_1' | translate }}</p>
+                        <p>{{'product_details.tips_2' | translate }}</p>
+                        <p>{{'product_details.tips_3' | translate }}</p>
+                    </div>
+
+                </div>
+                <div class="col-sm-4">
+                    <div class="product1">
+                        <div class="name-price">
+                            <div class="product-title">
+                                <h2 style="font-family: 'Rockwell', sans-serif;">{{product.name}}</h2>
+                            </div>
+                            <div class="product-price">
+                                <h2 class="offer-price">
+                                    <span>
+                                        {{product.price | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}
+                                    </span>
+                                </h2>
+                            </div>
+                        </div>
+                        <!-- <div class="d-flex justify-content-start align-items-center" style="gap: 5px;" *ngIf="product.productType.name == 'Machine'">
+                            <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1687206032/design/verified_qbvytb.png" class="shield-badge">
+                            <div class="warranty-text">{{'catalog.warranty-5' | translate}}</div>
+                        </div>
+                        <div style="height: 5px;"></div>
+                        <div class="d-flex justify-content-start align-items-center" style="gap: 5px;" *ngIf="product.productType.name == 'Machine'">
+                            <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1687206032/design/verified_qbvytb.png" class="shield-badge">
+                            <div class="warranty-text">{{'catalog.money-30' | translate}}</div>
+                        </div> -->
+
+                        <span class="divider"></span>
+
+
+                        <nav class="mx-0">
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                              <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Info</button>
+                              <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Reviews</button>
+                              <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Delivery</button>
+                            </div>
+                          </nav>
+                          <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="product-details" *ngIf="product.description.length>0">
+                                    <div style="font-size:small; font-family: 'Rockwell', sans-serif !important;" [innerHTML]="product.description"></div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+
+                                <div class="my-3 mx-3" *ngIf="!showReviewForm">
+                                    <div style="max-height:300px; overflow: scroll;">
+                                        <div *ngIf="this.productReviews.length < 1">{{'No reviews yet. Be the first!'}}</div>
+                                        <div *ngFor="let review of productReviews" class="review">
+                                            <div class="d-flex justify-content-between" style="margin-bottom: 20px;">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="review-name">{{review.firstName}} {{review.lastName}} -&nbsp;</div>
+                                                    <div class="rating-text" *ngIf="review.rating==1">{{'product_details.rating_1' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="review.rating==2">{{'product_details.rating_2' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="review.rating==3">{{'product_details.rating_3' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="review.rating==4">{{'product_details.rating_4' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="review.rating==5">{{'product_details.rating_5' | translate}}</div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="rating-date">{{review.dateCreated | date:'dd.MM.yyyy'}}</div>
+                                                </div>
+                                            </div>
+                                            <div>{{review.text}}</div>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <button class="btn send-review" (click)="showReviewForm=true"><i class="fa-solid fa-plus"></i>{{'product_details.add_review' | translate}}</button>
+                                </div>
+
+
+                                <!-- Add review form -->
+
+                                    <div class="my-3 mx-3" *ngIf="showReviewForm">
+                                        <div>{{'product_details.add_review' | translate}}</div>
+                                        <form [formGroup]="reviewForm" (ngSubmit)="addReview()">
+                                        <div class="my-3">
+                                            <input type="text" formControlName="orderId" class="form-control review_placeholder" placeholder="{{'product_details.order_id' | translate}}">
+                                            <div *ngIf="reviewForm.controls['orderId'].invalid && (reviewForm.controls['orderId'].dirty || reviewForm.controls['orderId'].touched)">
+                                                <div *ngIf="reviewForm.controls['orderId'].errors!['required']" class="error">
+                                                    {{'messages.required_field' | translate}}
+                                                </div>
+                                            </div>
+                                            <input type="text" formControlName="firstName" class="form-control review_placeholder" placeholder="{{'product_details.order_first_name' | translate}}">
+                                            <div *ngIf="reviewForm.controls['firstName'].invalid && (reviewForm.controls['firstName'].dirty || reviewForm.controls['firstName'].touched)">
+                                                <div *ngIf="reviewForm.controls['firstName'].errors!['required']" class="error">
+                                                    {{'messages.required_field' | translate}}
+                                                </div>
+                                            </div>
+                                            <input type="text" formControlName="lastName" class="form-control review_placeholder" placeholder="{{'product_details.order_last_name' | translate}}">
+                                            <div *ngIf="reviewForm.controls['lastName'].invalid && (reviewForm.controls['lastName'].dirty || reviewForm.controls['lastName'].touched)">
+                                                <div *ngIf="reviewForm.controls['lastName'].errors!['required']" class="error">
+                                                    {{'messages.required_field' | translate}}
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="d-flex justify-content-between">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="rating">
+                                                        <input type="radio" name="rating" id="rating-5" value="5" (click)="setRating(5)">
+                                                        <label for="rating-5">{{'product_details.rating_5' | translate}}</label>
+                                                        <br>
+                                                        <input type="radio" name="rating" id="rating-4" value="4" (click)="setRating(4)">
+                                                        <label for="rating-4">{{'product_details.rating_4' | translate}}</label>
+                                                        <br>
+                                                        <input type="radio" name="rating" id="rating-3" value="3" (click)="setRating(3)">
+                                                        <label for="rating-3">{{'product_details.rating_3' | translate}}</label>
+                                                        <br>
+                                                        <input type="radio" name="rating" id="rating-2" value="2" (click)="setRating(2)">
+                                                        <label for="rating-2">{{'product_details.rating_2' | translate}}</label>
+                                                        <br>
+                                                        <input type="radio" name="rating" id="rating-1" value="1" (click)="setRating(1)">
+                                                        <label for="rating-1">{{'product_details.rating_1' | translate}}</label>
+                                                    </div>
+                                                </div>
+                                                <div *ngIf="reviewForm.controls['rating'].invalid && (reviewForm.controls['rating'].dirty || reviewForm.controls['rating'].touched)">
+                                                    <div *ngIf="reviewForm.controls['rating'].errors!['required']" class="error">
+                                                        {{'messages.required_field' | translate}}
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex align-items-center">
+                                                    <div class="rating-text" *ngIf="reviewForm.get('rating').value==1">{{'product_details.rating_1' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="reviewForm.get('rating').value==2">{{'product_details.rating_2' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="reviewForm.get('rating').value==3">{{'product_details.rating_3' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="reviewForm.get('rating').value==4">{{'product_details.rating_4' | translate}}</div>
+                                                    <div class="rating-text" *ngIf="reviewForm.get('rating').value==5">{{'product_details.rating_5' | translate}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="my-3">
+                                            <textarea class="form-control review_placeholder" formControlName="text" id="review_text" rows="3" placeholder="{{'product_details.review_placeholder' | translate}}"></textarea>
+                                        </div>
+                                        <div class="my-3 d-flex">
+                                            <button class="btn btn-primary send-review" type="submit" [disabled]="!reviewForm.valid"><i class="fa-solid fa-plus"></i>{{'product_details.add_review' | translate}}</button>
+                                            <button class="btn btn-secondary send-review" (click)="showReviewForm=false"><i class="fa-solid fa-x"></i>Cancel</button>
+                                        </div>
+
+                                        </form>
+                            </div>
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                <div class="product-details">
+                                    <div style="font-size:small;">Крис да ми прати текст за тук.</div>
+                                </div>
+                            </div>
+                          </div>
+
+
+                        <span class="divider"></span>
+
+                        <div class="product-btn-group">
+                            <a class="button buy-now" (click)="buyInstant()"><i class='bx bxs-zap' ></i>{{'catalog.buy_now' | translate}}</a>
+                            <a class="button add-to-cart" (click)="CartService.addItem(product, false, true)" role="button"><i class="fa-solid fa-cart-shopping"></i> {{'product_details.add_to_cart' | translate}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-between mx-0">
+            <div class="col-sm-7 px-0">
+                <div class="recommendations-container mobile-only">
+                    <h1>{{'product_details.tips_header' | translate }}</h1>
+                    <p>{{'product_details.tips_1' | translate }}</p>
+                    <p>{{'product_details.tips_2' | translate }}</p>
+                    <p>{{'product_details.tips_3' | translate }}</p>
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="row justify-content-between mx-0 px-0 stats-container">
+            <div class="col-sm-7 px-0">
+                <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1712124966/design/AndjelaLazi_thkact.png" alt="Andjela Tasheva" class="model-image">
+            </div>
+            <div class="col-sm-5 my-auto">
+                <div class="row">
+                    <div class="col stat-container d-flex align-items-start justify-content-center">
+                        <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1712124822/design/height_bphfzi.png" class="stat-icon" alt="">
+                        <div>
+                            <div class="stat-heading">{{'product_details.model_stats.height' | translate}}</div>
+                            <div class="stat-content">{{'product_details.model_stats.height_andjela' | translate}}</div>
+                        </div>
+                    </div>
+                    <div class="col stat-container d-flex align-items-start justify-content-left">
+                        <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1712124818/design/birthday-cake_nnqaz8.png" class="stat-icon" alt="">
+                        <div>
+                            <p class="stat-heading">{{'product_details.model_stats.birthday' | translate}}</p>
+                            <div class="stat-content">{{'product_details.model_stats.birthday_andjela' | translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col stat-container d-flex align-items-start justify-content-center">
+                        <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1712124803/design/aquarius_kh8fzo.png" class="stat-icon" alt="">
+                        <div>
+                            <div class="stat-heading">{{'product_details.model_stats.zodiac' | translate}}</div>
+                            <div class="stat-content">{{'product_details.model_stats.zodiac_andjela' | translate}}</div>
+                        </div>
+                    </div>
+                    <div class="col stat-container d-flex align-items-start justify-content-left">
+                        <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1712124799/design/bra_tnmnkg.png" class="stat-icon"  alt="">
+                        <div>
+                            <p class="stat-heading">{{'product_details.model_stats.bra_size' | translate}}</p>
+                            <div class="stat-content">{{'product_details.model_stats.bra_size_andjela' | translate}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col stat-container d-flex align-items-start justify-content-center">
+                        <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1712124793/design/weight-scale_a2vlxp.png" class="stat-icon" alt="">
+                        <div>
+                            <div class="stat-heading">{{'product_details.model_stats.weight' | translate}}</div>
+                            <div class="stat-content">{{'product_details.model_stats.weight_andjela' | translate}}</div>
+                        </div>
+                    </div>
+                    <div class="col stat-container d-flex align-items-start justify-content-left">
+                        <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1712124778/design/eye-makeup_cqeqvi.png" class="stat-icon"  alt="">
+                        <div>
+                            <p class="stat-heading">{{'product_details.model_stats.eye_color' | translate}}</p>
+                            <div class="stat-content">{{'product_details.model_stats.eye_color_andjela' | translate}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<div class="container my-4">
+    <div class="row align-items-center justify-content-md-center text-center mx-3">
+        <div class="col-sm text-center align-items-center justify-content-center">
+            <i class="fa fa-user-secret big-icon my-2" aria-hidden="true"></i>
+
+            <div class="icon-heading my-2">{{'product_details.icon_1_heading' | translate}}</div>
+            <div class="icon-content">{{'product_details.icon_1_text' | translate}}</div>
+        </div>
+        <div class="col-sm">
+            <i class="fa fa-truck-fast big-icon my-2" aria-hidden="true"></i>
+            <div class="icon-heading my-2">{{'product_details.icon_2_heading' | translate}}</div>
+            <div class="icon-content">{{'product_details.icon_2_text' | translate}}</div>
+        </div>
+        <div class="col-sm">
+            <i class="fa fa-heart-crack big-icon my-2" aria-hidden="true"></i>
+            <div class="icon-heading my-2">{{'product_details.icon_3_heading' | translate}}</div>
+            <div class="icon-content">{{'product_details.icon_3_text' | translate}}</div>
+
+        </div>
+        <div class="col-sm">
+            <i class="fa fa-medal big-icon my-2" aria-hidden="true"></i>
+            <div class="icon-heading my-2">{{'product_details.icon_4_heading' | translate}}</div>
+            <div class="icon-content">{{'product_details.icon_4_text' | translate}}</div>
+        </div>
+    </div>
+</div>

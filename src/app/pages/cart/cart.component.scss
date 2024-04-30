@@ -1,0 +1,155 @@
+@property --accent-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #983869;
+}
+
+.small-img-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.small-img-col {
+  flex-basis: 24%;
+  cursor: pointer;
+}
+
+
+.cart-page {
+  margin: 80px auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  padding: 20px;
+}
+
+.cart-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+img {
+  width: 100%;
+}
+
+
+th {
+  text-align: left;
+  padding: 5px;
+  color: white;
+  background: var(--accent-color);
+  font-family: 'Rockwell', sans-serif;
+  font-weight: normal;
+}
+
+td{
+  padding: 10px 5px;
+}
+
+td input {
+  width: 40px;
+  height: 30px;
+  padding: 5px;
+}
+
+td i{
+  color: var(--accent-color);
+  font-size: 12px;
+}
+
+td img {
+  width: 160px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.total-price {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.total-price table {
+  border-top: 3px solid var(--accent-color);
+  width: 100%;
+  max-width: 350px;
+
+}
+
+td:last-child {
+  text-align: right;
+}
+
+th:last-child {
+  text-align: right;
+}
+
+
+.quantity {
+  padding-right: 0;
+  margin-right: 0;
+}
+
+ .quantity .input-text.qty {
+  width: 35px;
+  height: 39px;
+  padding: 0 5px;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+ }
+
+
+.quantity.buttons_added {
+  text-align: left;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: top; }
+
+ .quantity.buttons_added input {
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  box-shadow: none;
+ }
+
+ .quantity.buttons_added .minus,
+ .quantity.buttons_added .plus {
+  padding: 7px 10px 8px;
+  height: 35px;
+  width: 35px;
+  background-color: #ffffff;
+  border: 1px solid #efefef;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor:pointer;}
+
+ .quantity.buttons_added .minus {
+  border-right: 0; }
+
+ .quantity.buttons_added .plus {
+  border-left: 0; }
+
+ .quantity.buttons_added .minus:hover,
+ .quantity.buttons_added .plus:hover {
+  background: #eeeeee; }
+
+ .quantity input::-webkit-outer-spin-button,
+ .quantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0; }
+
+  .quantity.buttons_added .minus:focus,
+ .quantity.buttons_added .plus:focus {
+  outline: none; }
+
+
+@media screen and (max-width: 800px) {
+  .cart-info p {
+    display: none;
+  }
+
+}

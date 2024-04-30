@@ -1,0 +1,238 @@
+<div class="row">
+  <div class="col-6 inputs-container">
+     <form [formGroup]="form" (ngSubmit)="nextStep()">
+     <div formGroupName="personalDetails">
+         <h1>Contact with you</h1>
+         <div class="row">
+           <div class="col-md-6">
+              <label class="credit-card-label">{{'checkout.first_name' | translate}} *</label>
+              <input required type="text" class="form-control credit-inputs" placeholder="John" formControlName="firstName">
+              <div *ngIf="form.controls['personalDetails'].get('firstName').invalid && (this.form.controls['personalDetails'].get('firstName').dirty || this.form.controls['personalDetails'].get('firstName').touched)">
+                 <div *ngIf="this.form.controls['personalDetails']['firstName'].errors!['required']" class="error">
+                    {{'messages.required_field' | translate}}
+                 </div>
+              </div>
+           </div>
+           <div class="col-md-6">
+              <label class="credit-card-label">{{'checkout.last_name' | translate}} *</label>
+              <input required type="text" class="form-control credit-inputs" placeholder="Smith" formControlName="lastName">
+              <div *ngIf="form.controls['personalDetails'].get('lastName').invalid && (form.controls['personalDetails'].get('lastName').dirty || form.controls['personalDetails'].get('lastName').touched)">
+                 <div *ngIf="form.controls['personalDetails'].get('lastName').errors!['required']" class="error">
+                    {{'messages.required_field' | translate}}
+                 </div>
+              </div>
+           </div>
+        </div>
+        <label class="credit-card-label">{{'checkout.email' | translate}} *</label>
+        <input required type="email" class="form-control credit-inputs" placeholder="john.smith@example.com" formControlName="email">
+        <div *ngIf="form.controls['personalDetails'].get('email').invalid && (form.controls['personalDetails'].get('email').dirty || form.controls['personalDetails'].get('email').touched)">
+           <div *ngIf="form.controls['personalDetails'].get('email').errors!['required']" class="error">
+              {{'messages.required_field' | translate}}
+           </div>
+        </div>
+        <label class="credit-card-label">{{'checkout.phone_number' | translate}} *</label>
+        <div class="phoneContainer">
+           <input required class="form-control credit-inputs" formControlName="phoneNumber" type="tel" placeholder="+359 999 999 999">
+           <div *ngIf="form.controls['personalDetails'].get('phoneNumber').invalid && (form.controls['personalDetails'].get('phoneNumber').dirty || form.controls['personalDetails'].get('phoneNumber').touched)">
+              <div *ngIf="form.controls['personalDetails'].get('phoneNumber').errors['required']" class="error">
+                 {{'messages.required_field' | translate}}
+              </div>
+              <div *ngIf="form.controls['personalDetails'].get('phoneNumber').errors['pattern']" class="error">
+                 {{'messages.invalid_field' | translate}}
+              </div>
+           </div>
+        </div>
+     </div>
+
+
+     <div formGroupName="shippingAddress">
+      <hr class="line">
+      <h1>Shipping Address</h1>
+        <label class="credit-card-label">{{'checkout.shipping_address.line1' | translate}} *</label>
+        <input required type="text" class="form-control credit-inputs" placeholder="" formControlName="addressLine1">
+        <div *ngIf="form.controls['shippingAddress'].get('addressLine1').invalid && (form.controls['shippingAddress'].get('addressLine1').dirty || form.controls['shippingAddress'].get('addressLine1').touched)">
+           <div *ngIf="form.controls['shippingAddress'].get('addressLine1').errors!['required']" class="error">
+              {{'messages.required_field' | translate}}
+           </div>
+        </div>
+        <div>
+           <label class="credit-card-label">{{'checkout.shipping_address.line2' | translate}} ({{'optional' | translate}})</label>
+           <input type="text" class="form-control credit-inputs" placeholder="" formControlName="addressLine2">
+        </div>
+        <label class="credit-card-label">{{'checkout.shipping_address.country' | translate}} *</label>
+        <mat-select [formControlName]="'countryId'" class="form-control credit-inputs" #singleSelect>
+          <mat-option>
+            <ngx-mat-select-search  placeholderLabel="Search" [formControl]="countryFilterCtrl"></ngx-mat-select-search>
+          </mat-option>
+          <mat-option *ngFor="let bank of filteredCountries | async" [value]="bank">
+            {{bank.name}}
+          </mat-option>
+        </mat-select>
+        <div *ngIf="form.controls['shippingAddress'].get('countryId').invalid && (form.controls['shippingAddress'].get('countryId').dirty || form.controls['shippingAddress'].get('countryId').touched)">
+           <div *ngIf="form.controls['shippingAddress'].get('countryId').errors!['required']" class="error">
+              {{'messages.required_field' | translate}}
+           </div>
+        </div>
+
+
+        <div class="row">
+         <div class="col-md-6">
+            <label class="credit-card-label">{{'checkout.shipping_address.city' | translate}} *</label>
+            <input required type="text" class="form-control credit-inputs" placeholder="" formControlName="city">
+            <div *ngIf="form.controls['shippingAddress']['controls']['city'].invalid && (form.controls['shippingAddress']['controls']['city'].dirty || form.controls['shippingAddress']['controls']['city'].touched)">
+               <div *ngIf="form.controls['shippingAddress']['controls']['city'].errors!['required']" class="error">
+                   {{'messages.required_field' | translate}}
+               </div>
+           </div>
+        </div>
+         <div class="col-md-6">
+            <label class="credit-card-label">{{'checkout.shipping_address.state' | translate}} ({{'optional' | translate}})</label>
+            <input  type="text" class="form-control credit-inputs" placeholder="" formControlName="state">
+         </div>
+        </div>
+
+
+          <label class="credit-card-label">{{'checkout.shipping_address.postal_code' | translate}} *</label>
+          <input required type="text" class="form-control credit-inputs" placeholder="" formControlName="postalCode">
+          <div *ngIf="form.controls['shippingAddress']['controls']['postalCode'].invalid && (form.controls['shippingAddress']['controls']['postalCode'].dirty || form.controls['shippingAddress']['controls']['postalCode'].touched)">
+             <div *ngIf="form.controls['shippingAddress']['controls']['postalCode'].errors!['required']" class="error">
+                 {{'messages.required_field' | translate}}
+             </div>
+         </div>
+     </div>
+
+     <div>
+      <hr class="line">
+      <h1>Shipping Method</h1>
+
+      <div class="shipping-options overflow-auto">
+
+        <div *ngIf="!form.get('shippingAddress.countryId').value">Please, complete the previous steps first.</div>
+
+        <div *ngIf="form.get('shippingAddress.countryId').value && form.get('shippingAddress.postalCode').value && form.get('shippingAddress.city').value">
+         <div *ngIf="this.retrievedShippingPrice==0" class="btn btn-primary calc-shipping" (click)="this.calculateShippingPrice()">{{'checkout.calculate_shipping' | translate}}</div>
+        </div>
+
+         <div *ngIf="form.get('shippingAddress.countryId').value.name != 'Bulgaria' && this.retrievedShippingPrice>0">
+            <div class="description">{{'checkout.shipping_method.warning_international' | translate}} </div>
+            <div class="description">{{'checkout.shipping_method.processing_time' | translate}} </div>
+
+
+            <div class="container shipping-option">
+              <div class="row d-flex align-items-center">
+                <input type="radio" id="accent" formControlName="shippingMethodId" value="standard">
+                <img class="icon" [attr.src]="this.Globals.productDesignImagesURLs + 'delivery-truck_fwxrxy.png'">
+                <div class="option-text">
+                  <div class="option-header">{{'checkout.shipping_method.standard_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name } }} {{this.retrievedShippingPrice | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
+                  <div class="description">{{'checkout.shipping_method.standard_delivery_content_int' | translate}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="container shipping-option">
+              <div class="row d-flex align-items-center">
+                <input type="radio" id="accent" formControlName="shippingMethodId" value="priority">
+                <img class="rounded icon col-md-2" [attr.src]="this.Globals.productDesignImagesURLs + 'fast_v4g5qd.png'">
+                <div class="option-text">
+                  <div class="option-header">{{'checkout.shipping_method.priority_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name} }} {{(this.retrievedShippingPrice + this.priorityOrderPrice) | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
+                  <div class = "description">{{'checkout.shipping_method.priority_delivery_content_int' | translate}} </div>
+                </div>
+              </div>
+            </div>
+         </div>
+         <div *ngIf="this.form.get('shippingAddress.countryId').value.name == 'Bulgaria' && this.retrievedShippingPrice>0">
+          <div class="description">{{'checkout.shipping_method.processing_time' | translate}}</div>
+            <div class="row shipping-option d-flex align-items-center">
+               <div class="col-sm-auto">
+                 <input type="radio" id="accent" formControlName="shippingMethodId" value="standard">
+               </div>
+               <!-- <div class="col-md-10 row"> -->
+                 <img class="rounded icon col-md-2" [attr.src]="this.Globals.productDesignImagesURLs + 'delivery-truck_fwxrxy.png'">
+                 <!-- <div class="col-md-10"> -->
+                  <div>{{'checkout.shipping_method.standard_delivery_header_bg' | translate }} {{ this.retrievedShippingPrice | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
+                   <div class ="description">{{'checkout.shipping_method.standard_delivery_content_bg' | translate}}</div>
+
+               <!-- </div> -->
+            </div>
+            <div class="row shipping-option d-flex align-items-center">
+               <div class="col-sm-auto">
+                 <input type="radio" id="accent" formControlName="shippingMethodId" value="priority">
+               </div>
+               <!-- <div class="col-md-10 row"> -->
+                 <img class="rounded icon col-md-2" [attr.src]="this.Globals.productDesignImagesURLs + 'fast_v4g5qd.png'">
+                 <!-- <div class="col-md-10"> -->
+                   <div>{{'checkout.shipping_method.priority_delivery_header_bg' | translate }} {{ this.retrievedShippingPrice + this.priorityOrderPrice | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
+                   <div class = "description">{{'checkout.shipping_method.priority_delivery_content_bg' | translate}}</div>
+                 <!-- </div> -->
+               <!-- </div> -->
+            </div>
+         </div>
+        </div>
+      </div>
+      <hr class="line">
+      <h1>Payment</h1>
+
+
+      <div *ngIf="showPaymentOptions==false">Please, complete the previous steps first.</div>
+      <div *ngIf="showPaymentOptions">
+         <div id="link-authentication-element">
+            <!--Stripe.js injects the Link Authentication Element-->
+          </div>
+         <label class="credit-card-label">{{'checkout.payment.payment_method' | translate}} *</label>
+         <div class="payment-option">
+            <div class="col-sm-auto">
+               <input type="radio" id="accent" formControlName="paymentMethod" value="card">
+            </div>
+            <div class="col-md-5">
+               <div>{{'checkout.payment.card' | translate}}</div>
+            </div>
+         </div>
+         <div class="payment-option" *ngIf="form.get('shippingAddress.countryId').value.name=='Bulgaria'">
+            <div class="col-sm-auto">
+               <input type="radio" id="accent" formControlName="paymentMethod" value="delivery">
+            </div>
+            <div class="col-md-5">
+               <div>{{'checkout.payment.upon_delivery' | translate}}</div>
+            </div>
+         </div>
+
+         <span class="type d-block mt-3 mb-1"></span>
+         <div [hidden]="!showStripe">
+            <div class="checkout">
+               <label for="card-info">Card Info</label>
+               <div id="form-field">
+                  <!-- <div id="card-info" #cardInfo></div>
+                  <mat-error id="card-errors" role="alert" *ngIf="cardError">
+                     <mat-icon style="color: #f44336">cancel</mat-icon>
+                     &nbsp;{{ cardError }}
+                  </mat-error> -->
+                  <div id="payment-element">
+                     <!--Stripe.js injects the Payment Element-->
+                   </div>
+                   <div id="payment-message" class="hidden"></div>
+               </div>
+               <!-- <button id="submit-button" type="submit">
+               Pay ${{total}}
+               </button> -->
+            </div>
+         </div>
+      </div>
+
+        <!-- <div class=""><span>{{'cart.taxes_shipping' | translate}}</span></div> -->
+        <hr class="line">
+        <input type="checkbox" id="privacy_policy" name="privacy_policy" formControlName="agreed_privacy_policy">
+        <label for="privacy_policy" id="privacy_policy_label">{{'cart.agree' | translate}} <a [routerLink]="['/'+this.translate.currentLang+'/privacy-policy']">{{'cart.privacy_policy' | translate}}</a></label><br>
+        <input type="checkbox" id="terms_cons" name="terms_cons" formControlName="agreed_to_terms">
+        <label for="terms_cons" id="terms_cons_label">{{'cart.agree' | translate}} <a [routerLink]="['/'+this.translate.currentLang+'/terms-and-conditions']">{{'cart.terms' | translate}}</a></label><br>
+
+        <button
+        type="submit"
+        class="btn"
+        [disabled]="!this.form.valid"
+        style="width: 100%; background-color:limegreen;color: white;">Checkout</button>
+     </form>
+  </div>
+  <div class="order-summary col-5 desktop-only">
+    <app-checkout-order-overview [setShipping]="setShipping"></app-checkout-order-overview>
+  </div>
+  <div class="col-5 desktop-only" style="background-color: lightgray;  z-index:-2"></div>
+</div>
