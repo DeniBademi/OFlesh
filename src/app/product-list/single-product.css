@@ -127,15 +127,16 @@
     margin-right: 2px;
     opacity: 0.6;
     font-family: 'Rockwell', sans-serif;
+    color: red;
 }
 
  .single-product .part-2 .product-old-price::after {
     position: absolute;
     content: "";
-    top: 50%;
+    top: 40%;
     left: 0;
     width: 100%;
-    height: 1px;
-    background-color: #444444;
+    height: 2px;
+    background-color: red;
     transform: translateY(-50%);
 }

@@ -74,6 +74,8 @@
 }
 
 
+
+
 .row{
     display: flex;
 }
@@ -153,7 +155,7 @@
 
 }
 .product-title h2{
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 2.4rem;
     font-weight: 700;
     letter-spacing: -0.02rem;
@@ -174,9 +176,25 @@
 .old-price {
     color:red;
     font-weight: 400;
-    white-space: pre;
-    font-size:36px;
+    font-size: 2rem;
+    float: right;
 }
+
+.strike-center {
+    position: relative;
+    white-space: nowrap; /* would center line-through in the middle of the wrapped lines */
+}
+
+.strike-center:after {
+    border-top: 3px solid red;
+    position: absolute;
+    content: "";
+    right: 0;
+    top:25%;
+    left: 0;
+}
+
+
 .product-rating .review{
     color: var(--grey);
     font-size: 12px;
@@ -188,11 +206,13 @@
     position: relative;
     margin: 10px 0;
     align-items: center;
+    justify-content: end;
 }
 
 .product-price .offer-price{
-    font-size: 48px;
+    font-size: 2.5rem;
     font-weight: 700;
+    float: right;
 }
 .product-price .sale-price{
     font-size: 22px;
@@ -546,14 +566,9 @@
         margin-top: 50px;
     }
 
-    .product-price .offer-price{
-        font-size: 20px;
-        font-weight: 700;
-    }
 
-    .old-price {
-        font-size: 14px;
-    }
+
+
 
     .product {
         margin: 3vw;
@@ -567,12 +582,13 @@
         display: flex;
         justify-content: space-between;
         width: 90vw;
+        margin-top: 20px;
     }
 
     .product-price, .product-title, .offer-price {
         padding: 0;
         margin: 0;
-        line-height: 1.6em;
+        /* line-height: 1.6em; */
     }
     .buy-now, .add-to-cart {
         width: 80vw !important;
