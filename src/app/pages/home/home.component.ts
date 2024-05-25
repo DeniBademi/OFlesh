@@ -1,9 +1,9 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { GlobalsService } from 'src/app/_services/globals.service';
 import { Product } from '../../_models/Product';
-import { MoveDirection, ClickMode, HoverMode, OutMode, Container, Engine } from "tsparticles-engine";
-import { loadFull } from "tsparticles";
-import { InteractivityDetect } from 'tsparticles-engine/types/Enums/InteractivityDetect';
+// import { MoveDirection, ClickMode, HoverMode, OutMode, Container, Engine } from "tsparticles-engine";
+// import { loadFull } from "tsparticles";
+// import { InteractivityDetect } from 'tsparticles-engine/types/Enums/InteractivityDetect';
 import { OrderForm } from 'src/app/shared/order.form';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -15,7 +15,7 @@ import { ModalService } from 'src/app/_services/modal.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
 

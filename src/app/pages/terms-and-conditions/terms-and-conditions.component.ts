@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-terms-and-conditions',
   templateUrl: './terms-and-conditions.component.html',
-  styleUrls: ['./terms-and-conditions.component.css']
+  styleUrls: ['./terms-and-conditions.component.scss']
 })
 export class TermsAndConditionsComponent implements OnInit {
 

@@ -8,7 +8,7 @@ import { DataService } from 'src/app/_services/data.service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./css/default.css', './css/mediaqueries.css', './contact.component.css']
+  styleUrls: ['./css/default.scss', './css/mediaqueries.scss', './contact.component.scss']
 })
 export class ContactComponent implements OnInit {
 

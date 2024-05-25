@@ -12,7 +12,7 @@ import { ProductType } from 'src/app/_models/ProductType';
 @Component({
   selector: 'app-product-catalog',
   templateUrl: './product-catalog.component.html',
-  styleUrls: ['./product-catalog.component.css']
+  styleUrls: ['./product-catalog.component.scss']
 })
 export class ProductCatalogComponent implements OnInit {
 

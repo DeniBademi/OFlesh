@@ -3,7 +3,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 @Component({
   selector: 'app-wheel-of-fortune',
   templateUrl: './wheel-of-fortune.component.html',
-  styleUrls: ['./wheel-of-fortune.component.css']
+  styleUrls: ['./wheel-of-fortune.component.scss']
 })
 export class WheelOfFortuneComponent implements OnInit {
 

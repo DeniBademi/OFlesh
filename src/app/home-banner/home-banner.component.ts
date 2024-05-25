@@ -4,7 +4,7 @@ import KeenSlider, { KeenSliderInstance } from "keen-slider"
 @Component({
   selector: 'app-home-banner',
   templateUrl: './home-banner.component.html',
-  styleUrls: ['./home-banner.component.css', "../../../node_modules/keen-slider/keen-slider.min.css"]
+  styleUrls: ['./home-banner.component.scss', "../../../node_modules/keen-slider/keen-slider.min.css"]
 })
 export class HomeBannerComponent implements OnInit {
 

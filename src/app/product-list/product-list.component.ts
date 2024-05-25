@@ -17,7 +17,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css', './single-product.css'],
+  styleUrls: ['./product-list.component.scss', './single-product.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class ProductListComponent implements OnInit {

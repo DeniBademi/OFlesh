@@ -8,7 +8,7 @@ import { DataService } from 'src/app/_services/data.service';
 @Component({
   selector: 'app-refferer',
   templateUrl: './refferer.component.html',
-  styleUrls: ['./refferer.component.css']
+  styleUrls: ['./refferer.component.scss']
 })
 export class ReffererComponent implements OnInit {
 

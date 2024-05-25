@@ -11,11 +11,14 @@ import { BroadcastLineComponent } from './broadcast-line/broadcast-line.componen
 import AOS from "aos";
 import { EventHandlerPayload } from '@livechat/widget-angular'
 import { useKlaviyo } from '@frontend-sdk/klaviyo'
+import { NgcCookieConsentService } from 'ngx-cookieconsent';
+
+declare let gtag: Function;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
@@ -30,7 +33,8 @@ export class AppComponent implements OnInit {
     public router: Router,
     public modalService: ModalService,
     public cartService: CartService,
-    public GlobalsService: GlobalsService) {
+    public GlobalsService: GlobalsService,
+    private cookieService: NgcCookieConsentService) {
     translate.setDefaultLang('en');
     translate.addLangs(['en', 'bg']);
     translate.use('en');

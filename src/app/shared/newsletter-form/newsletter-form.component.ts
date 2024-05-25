@@ -6,7 +6,7 @@ import { GlobalsService } from 'src/app/_services/globals.service';
 @Component({
   selector: 'app-newsletter-form',
   templateUrl: './newsletter-form.component.html',
-  styleUrls: ['./newsletter-form.component.css']
+  styleUrls: ['./newsletter-form.component.scss']
 })
 export class NewsletterFormComponent implements OnInit {
 

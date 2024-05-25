@@ -7,7 +7,7 @@ const now = new Date();
 @Component({
   selector: 'app-countdown-timer',
   templateUrl: './countdown-timer.component.html',
-  styleUrls: ['./countdown-timer.component.css']
+  styleUrls: ['./countdown-timer.component.scss']
 })
 export class CountdownTimerComponent implements OnInit {
 

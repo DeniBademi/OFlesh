@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { FooterComponent } from './footer/footer.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './pages/home/home.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { FindUsComponent } from './pages/find-us/find-us.component';
@@ -28,7 +27,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProductFiltersComponent } from './product-filters/product-filters.component';
-import { NgParticlesModule } from "ng-particles";
+// import { NgParticlesModule } from "ng-particles";
 import { HomeBannerComponent } from './home-banner/home-banner.component';
 import { NewsletterFormComponent } from './shared/newsletter-form/newsletter-form.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
@@ -53,7 +52,6 @@ import { ShippingInformationComponent } from './shipping-information/shipping-in
 import { CheckoutPaymentComponent } from './pages/checkout/checkout-payment/checkout-payment.component';
 import { CheckoutOrderOverviewComponent } from './pages/checkout/checkout-order-overview/checkout-order-overview.component';
 import { CheckoutSinglePageComponent } from './pages/checkout/checkout-single-page/checkout-single-page.component';
-import { RxTranslateModule } from "@rxweb/translate"
 import {LocalizeRouterModule} from '@gilsdav/ngx-translate-router';
 import {LocalizeRouterHttpLoader} from '@gilsdav/ngx-translate-router-http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -61,7 +59,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
 import { AboutComponent } from './pages/about/about.component';
 import { LanguageInterceptor } from './language.interceptor';
-import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+// import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { ConvertPipe } from './_pipes/convert.pipe';
 import { FeaturedCardComponent } from './shared/featured-card/featured-card.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
@@ -75,8 +73,39 @@ import { CookiePolicyComponent } from './pages/cookie-policy/cookie-policy.compo
 import { LiveChatWidgetModule } from '@livechat/widget-angular'
 import { SideCartComponent } from './side-cart/side-cart.component';
 import { ReffererComponent } from './pages/refferer/refferer.component';
+import {NgcCookieConsentModule, NgcCookieConsentConfig} from 'ngx-cookieconsent';
 
 
+const cookieConfig:NgcCookieConsentConfig = {
+  cookie: {
+    domain: "localhost"
+  },
+  position: "bottom-right",
+  theme: "edgeless",
+  palette: {
+    popup: {
+      background: "#000000",
+      text: "#ffffff",
+      link: "#ffffff"
+    },
+    button: {
+      background: "#983869",
+      text: "#ffffff",
+      border: "transparent"
+    }
+  },
+  type: "info",
+  content: {
+    message: "This website uses cookies to ensure you get the best experience on our website.",
+    dismiss: "Got it!",
+    deny: "Decline",
+    link: "Learn more",
+    href: "https://cookiesandyou.com",
+    policy: "Cookie Policy",
+    header: "Cookies used on the website!",
+    allow: "Allow cookies"
+  }
+}
 
 
 @NgModule({
@@ -119,7 +148,6 @@ import { ReffererComponent } from './pages/refferer/refferer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatDividerModule,
@@ -132,14 +160,8 @@ import { ReffererComponent } from './pages/refferer/refferer.component';
     MatDialogModule,
     MatSelectModule,
     FormsModule,
-    NgxMatSelectSearchModule,
     HttpClientModule,
-    NgParticlesModule,
     GalleryModule,
-    ToastrModule.forRoot({
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: true,
-    }),
     MdbAccordionModule,
     MdbCarouselModule,
     MdbCheckboxModule,
@@ -155,10 +177,11 @@ import { ReffererComponent } from './pages/refferer/refferer.component';
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
-    NoopAnimationsModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     RouterModule,
     LiveChatWidgetModule,
+    NgcCookieConsentModule.forRoot(cookieConfig),
 
     // RxTranslateModule.forRoot({filePath:'assets/i18n/{{language-code}}.json',isCache:true}),
         TranslateModule.forRoot({
@@ -168,9 +191,11 @@ import { ReffererComponent } from './pages/refferer/refferer.component';
                 deps: [HttpClient]
             }
         }),
+        ToastrModule.forRoot({
+          positionClass: 'toast-bottom-right',
+          preventDuplicates: true,
+        }),
     LocalizeRouterModule
-
-
   ],
   providers: [
     { provide: MatDialogRef, useValue: {} },

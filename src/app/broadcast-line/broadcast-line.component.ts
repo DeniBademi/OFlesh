@@ -5,7 +5,7 @@ import { CountdownTimerComponent } from './countdown-timer/countdown-timer.compo
 @Component({
   selector: 'app-broadcast-line',
   templateUrl: './broadcast-line.component.html',
-  styleUrls: ['./broadcast-line.component.css'],
+  styleUrls: ['./broadcast-line.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class BroadcastLineComponent implements OnInit {

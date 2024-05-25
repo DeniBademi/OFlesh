@@ -16,7 +16,7 @@ import { parse } from '@fortawesome/fontawesome-svg-core';
 @Component({
   selector: 'app-checkout-single-page',
   templateUrl: './checkout-single-page.component.html',
-  styleUrls: ['./checkout-single-page.component.css']
+  styleUrls: ['./checkout-single-page.component.scss']
 })
 export class CheckoutSinglePageComponent implements OnInit, OnDestroy {
 

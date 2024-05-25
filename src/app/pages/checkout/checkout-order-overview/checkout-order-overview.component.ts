@@ -11,7 +11,7 @@ import { OrderForm } from 'src/app/shared/order.form';
 @Component({
   selector: 'app-checkout-order-overview',
   templateUrl: './checkout-order-overview.component.html',
-  styleUrls: ['./checkout-order-overview.component.css']
+  styleUrls: ['./checkout-order-overview.component.scss']
 })
 export class CheckoutOrderOverviewComponent implements OnInit {
 
