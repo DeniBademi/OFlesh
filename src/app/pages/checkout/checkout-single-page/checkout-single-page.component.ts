@@ -89,8 +89,9 @@ export class CheckoutSinglePageComponent implements OnInit, OnDestroy {
       this.addFormControlSubscriptions();
 
       this.DataService.getAll("country").subscribe(value => {
-        this.countries = value.slice();
+        this.countries = value.slice().sort();
         this.filteredCountries.next(this.countries);
+        this.countries.sort((a, b) => a.name.localeCompare(b.name))
         this.setInitialValue();
       })
       this.countryFilterCtrl.valueChanges
