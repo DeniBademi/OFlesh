@@ -56,8 +56,14 @@ export class CheckoutOrderOverviewComponent implements OnInit {
     //   }
     // });
 
+
+
     this.setShipping.subscribe((value) => {
       this.shippingPrice = value;
+      this.recalculate();
+    });
+
+    this.CartService.cartItems.subscribe((value) => {
       this.recalculate();
     });
 

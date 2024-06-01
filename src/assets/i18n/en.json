@@ -155,7 +155,7 @@
 		"last_name": "Last name",
 		"email": "Email",
 		"phone": "Phone",
-		"phone_number": "Phone number",
+		"phone_number": "Phone number (incl. country code)",
 		"information_link":"Information",
 		"personal_details_link":"Personal Details",
 		"shipping_address_link": "Shipping Address",
