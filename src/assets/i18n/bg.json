@@ -146,7 +146,7 @@
 		"first_name": "Име",
 		"last_name": "Фамилия",
 		"email": "Имейл",
-		"phone_number": "Телефон",
+		"phone_number": "Телефон (вкл. код на държава)",
 
 		"information_link":"Информация",
 		"personal_details_link":"Лични данни",
