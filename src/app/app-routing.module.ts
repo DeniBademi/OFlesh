@@ -25,13 +25,13 @@ const routes: Routes = [
     children: [
       {path: '**', component: ProductCatalogComponent, data: { title: 'Catalog' }},
     ]},
-   {path: ':languageCode/contact', component: ContactComponent, data: { title: 'Contact' }},
+  //  {path: ':languageCode/contact', component: ContactComponent, data: { title: 'Contact' }},
    {path: ':languageCode/cart', component: CartComponent, data: { title: 'Cart' }},
 
-   {path: ':languageCode/checkout', component: CheckoutSinglePageComponent},
-  {path: ':languageCode/checkout/:id/payment', component: CheckoutPaymentComponent},
-  {path: ':languageCode/checkout/thank-you', component: CheckoutThankYouComponent},
-  {path: ':languageCode/product/:id', component: ProductDetailsComponent},
+  //  {path: ':languageCode/checkout', component: CheckoutSinglePageComponent},
+  // {path: ':languageCode/checkout/:id/payment', component: CheckoutPaymentComponent},
+  // {path: ':languageCode/checkout/thank-you', component: CheckoutThankYouComponent},
+  // {path: ':languageCode/product/:id', component: ProductDetailsComponent},
   {path: ':languageCode/terms-and-conditions', component: TermsAndConditionsComponent},
   {path: ':languageCode/privacy-policy', component: PrivacyPolicyComponent},
   {path: ':languageCode/cookie-policy', component: CookiePolicyComponent},
