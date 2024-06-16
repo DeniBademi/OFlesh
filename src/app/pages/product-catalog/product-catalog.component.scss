@@ -37,8 +37,13 @@ h2 {
     margin-bottom: 20px;
     font-family: 'Rockwell', sans-serif;
     line-height: 5rem;
+}
 
-
+.category-description {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-family: 'Rockwell', sans-serif;
+    line-height: 1.5rem;
 }
 
 .category-btn {
@@ -128,5 +133,10 @@ h2 {
 
     .productlistel {
         margin-bottom: 50px;
+    }
+
+    .category-description {
+        font-size: 1rem;
+
     }
 }
