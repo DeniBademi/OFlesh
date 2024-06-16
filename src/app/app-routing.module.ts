@@ -25,7 +25,7 @@ const routes: Routes = [
     children: [
       {path: '**', component: ProductCatalogComponent, data: { title: 'Catalog' }},
     ]},
-  //  {path: ':languageCode/contact', component: ContactComponent, data: { title: 'Contact' }},
+   {path: ':languageCode/contact', component: ContactComponent, data: { title: 'Contact' }},
    {path: ':languageCode/cart', component: CartComponent, data: { title: 'Cart' }},
 
   //  {path: ':languageCode/checkout', component: CheckoutSinglePageComponent},
@@ -35,7 +35,6 @@ const routes: Routes = [
   {path: ':languageCode/terms-and-conditions', component: TermsAndConditionsComponent},
   {path: ':languageCode/privacy-policy', component: PrivacyPolicyComponent},
   {path: ':languageCode/cookie-policy', component: CookiePolicyComponent},
-  {path: ':languageCode/distributors', component: FindUsComponent},
   {path: ':languageCode/distributors', component: FindUsComponent},
   {path: ':languageCode/ref/:id', component: ReffererComponent},
   { path: '**', component: NotFoundComponent }
