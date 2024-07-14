@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 import { BroadcastLineComponent } from './broadcast-line/broadcast-line.component';
 import AOS from "aos";
 import { EventHandlerPayload } from '@livechat/widget-angular'
-import { useKlaviyo } from '@frontend-sdk/klaviyo'
+// import { useKlaviyo } from '@frontend-sdk/klaviyo'
 import { NgcCookieConsentService } from 'ngx-cookieconsent';
 
 declare let gtag: Function;

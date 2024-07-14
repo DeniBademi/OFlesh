@@ -8,15 +8,15 @@
                 <span><a class="route-breadcrumb" [routerLink]="['/'+this.translate.currentLang+'/'+route.url]">{{route.name}}</a></span>
                 <span *ngIf="this.breadCrumbs.length>i+1"> > </span>
          </div>
-        </div>
-
+        </div> -->
+<!--
 
         <h1 class="category-title">{{currentCategory.name.replace("_", " ")}}</h1>
-        <h4 class="category-description">{{translate.currentLang == "en" ? currentCategory.description: currentCategory.descriptionBG}}</h4> -->
+        <h4 class="category-description">{{translate.currentLang == "en" ? currentCategory.description: currentCategory.descriptionBG}}</h4>
 
 
-        <!-- Button list -->
-        <!-- <div class="row">
+
+        <div class="row">
             <button *ngFor="let category of categories"
             class="category-btn col"
             role="button"
