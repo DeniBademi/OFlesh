@@ -39,10 +39,9 @@ export class ReffererComponent implements OnInit {
   }
 
 
-  async validateCouponCode(code: string): Promise<boolean> {
-
-    if (code == null || code == '') return false;
-    if (code.length < 5) return false;
+  validateCouponCode(code: string): Promise<boolean> {
+    if (code == null || code == '') return Promise.resolve(false);
+    if (code.length < 5) return Promise.resolve(false);
 
 
     this.DataService.validateCouponCode(this.couponCode).subscribe(
@@ -50,12 +49,14 @@ export class ReffererComponent implements OnInit {
         this.CartService.couponCode = this.couponCode;
         this.CartService.couponData = data.body;
         this.CartService.calculateTotal();
-
+        return Promise.resolve(true);
       },
       (error) => {
        // console.log(error);
+        return Promise.resolve(false);
       }
     );
+    return Promise.resolve(false);
   }
 
 }
