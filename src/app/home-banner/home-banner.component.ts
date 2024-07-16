@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router} from "node_modules/@angular/router";
 import KeenSlider, { KeenSliderInstance } from "keen-slider"
 
 @Component({
@@ -14,9 +15,10 @@ export class HomeBannerComponent implements OnInit {
   dotHelper: Array<Number> = []
   slider: KeenSliderInstance = null
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
+
   }
 
   ngAfterViewInit() {
