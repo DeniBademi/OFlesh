@@ -1,16 +1,13 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router} from "node_modules/@angular/router";
 import KeenSlider, { KeenSliderInstance } from "keen-slider"
 
 @Component({
-  selector: 'app-home-banner',
-  templateUrl: './home-banner.component.html',
-  styleUrls: ['./home-banner.component.scss', "../../../node_modules/keen-slider/keen-slider.min.css"]
+  selector: 'app-home-banner2',
+  templateUrl: './home-banner2.component.html',
+  styleUrls: ['./home-banner2.component.css']
 })
-export class HomeBannerComponent implements OnInit {
-
-  @Input() imageUrls: string[] = []
-  @Input() imageLinks: string[] = []
+export class HomeBanner2Component implements OnInit {
 
   @ViewChild("sliderRef") sliderRef: ElementRef<HTMLElement>
 

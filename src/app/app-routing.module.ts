@@ -28,9 +28,9 @@ const routes: Routes = [
    {path: ':languageCode/contact', component: ContactComponent, data: { title: 'Contact' }},
    {path: ':languageCode/cart', component: CartComponent, data: { title: 'Cart' }},
 
-  //  {path: ':languageCode/checkout', component: CheckoutSinglePageComponent},
-  // {path: ':languageCode/checkout/:id/payment', component: CheckoutPaymentComponent},
-  // {path: ':languageCode/checkout/thank-you', component: CheckoutThankYouComponent},
+   {path: ':languageCode/checkout', component: CheckoutSinglePageComponent},
+  {path: ':languageCode/checkout/:id/payment', component: CheckoutPaymentComponent},
+  {path: ':languageCode/checkout/thank-you', component: CheckoutThankYouComponent},
   {path: ':languageCode/product/:id', component: ProductDetailsComponent},
   {path: ':languageCode/terms-and-conditions', component: TermsAndConditionsComponent},
   {path: ':languageCode/privacy-policy', component: PrivacyPolicyComponent},

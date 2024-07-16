@@ -11,9 +11,16 @@
 </div>
 
 
-<app-home-banner></app-home-banner>
-<!-- <app-home-banner></app-home-banner> -->
+<app-home-banner [imageUrls]="['https://res.cloudinary.com/dvkjlgu83/image/upload/f_auto,q_auto/v1/design-oflesh/MAIN-1-1-1/alttrxolxszytikzkysy',
+                                'https://res.cloudinary.com/dvkjlgu83/image/upload/f_auto,q_auto/v1/design-oflesh/MAIN-1-1-1/zod5rpzf9bc79tnobl1g']"
+                  [imageLinks]="['bg/product/b52271b9-7ee0-49ea-8d2c-ce40c5f16f22', 'bg/product/b52271b9-7ee0-49ea-8d2c-ce40c5f16f22']"></app-home-banner>
 
+<app-home-banner [imageUrls]="['https://res.cloudinary.com/dvkjlgu83/image/upload/v1720979260/design/andjela%20photos/BHG_2886_nczsph.jpg',
+                  'https://res.cloudinary.com/dvkjlgu83/image/upload/v1720979310/design/andjela%20photos/BHG_2935_viic9a.jpg']"
+    [imageLinks]="['bg/product/b52271b9-7ee0-49ea-8d2c-ce40c5f16f11', 'bg/product/b52271b9-7ee0-49ea-8d2c-ce40c5f16f11']"></app-home-banner>
+
+
+<!-- <app-home-banner2></app-home-banner2> -->
 <div class="container my-3 py-2">
   <h2 class="text-center font-weight-bold my-5 content-title">{{'home.content_title' | translate}}</h2>
   <p class="text-center" style="max-width: 900px; margin:auto;">{{'home.content_1' | translate}}</p>

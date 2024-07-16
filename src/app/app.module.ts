@@ -74,6 +74,7 @@ import { LiveChatWidgetModule } from '@livechat/widget-angular'
 import { SideCartComponent } from './side-cart/side-cart.component';
 import { ReffererComponent } from './pages/refferer/refferer.component';
 import {NgcCookieConsentModule, NgcCookieConsentConfig} from 'ngx-cookieconsent';
+import { HomeBanner2Component } from './home-banner2/home-banner2.component';
 
 
 const cookieConfig:NgcCookieConsentConfig = {
@@ -143,7 +144,9 @@ const cookieConfig:NgcCookieConsentConfig = {
       CookiePolicyComponent,
       SideCartComponent,
       CheckoutSinglePageComponent,
-      ReffererComponent
+      ReffererComponent,
+      HomeBanner2Component
+      // HomeBanner2Component
    ],
   imports: [
     BrowserModule,
