@@ -75,6 +75,7 @@ import { SideCartComponent } from './side-cart/side-cart.component';
 import { ReffererComponent } from './pages/refferer/refferer.component';
 import {NgcCookieConsentModule, NgcCookieConsentConfig} from 'ngx-cookieconsent';
 import { HomeBanner2Component } from './home-banner2/home-banner2.component';
+import { CheckoutThankYouComponent } from './pages/checkout/checkout-thank-you/checkout-thank-you.component';
 
 
 const cookieConfig:NgcCookieConsentConfig = {
@@ -145,7 +146,8 @@ const cookieConfig:NgcCookieConsentConfig = {
       SideCartComponent,
       CheckoutSinglePageComponent,
       ReffererComponent,
-      HomeBanner2Component
+      HomeBanner2Component,
+      CheckoutThankYouComponent
       // HomeBanner2Component
    ],
   imports: [
