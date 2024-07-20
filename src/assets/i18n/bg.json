@@ -83,7 +83,17 @@
 		"model_stats.eye_color": "Цвят на очите",
 		"model_stats.eye_color_andjela": "Пъстри",
 		"model_stats.birthday": "Рожден ден",
-		"model_stats.birthday_andjela": "25.01.2000"
+		"model_stats.birthday_andjela": "25.01.2000",
+		"review.add": "Добави ревю",
+		"review.submit": "Изпрати",
+		"review.cancel": "Откажи",
+		"review.id_placeholder": "Номер на поръчката с този артикул",
+		"review.first_name_placeholder": "Първо име",
+		"review.last_name_placeholder": "Фамилия",
+		"review.no_reviews": "Няма ревюта. Бъдете първият, който ще напише!",
+		"info_header": "Информация",
+		"review_header": "Ревюта",
+		"delivery_header": "Доставка"
 	},
 	"about": {
 		"the_company": "За компанията",

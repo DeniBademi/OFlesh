@@ -32,7 +32,7 @@ export class ProductDetailsComponent implements OnInit {
   showReviewForm: boolean = false;
 
   reviewForm = new FormGroup({
-    orderId: new FormControl('20942001-2D73-4B4D-95A7-0C8F000DECE6', [
+    orderId: new FormControl('', [
       Validators.required
     ]),
     productId: new FormControl('', []),
