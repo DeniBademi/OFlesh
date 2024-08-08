@@ -10,7 +10,7 @@ export class GlobalsService {
   baseURL = "https://api.oflesh.com/"
   // clientBaseURL = "http://213.124.166.84:4200/"
 
-  productPhotosMediaURLs = "https://res.cloudinary.com/dvkjlgu83/image/upload/v1701946895/product-photos-oflesh/"
+  productPhotosMediaURLs = "https://firebasestorage.googleapis.com/v0/b/oflesh.appspot.com/o/product%20photos%2F"
   productDesignImagesURLs = "https://res.cloudinary.com/dvkjlgu83/image/upload/v1677171170/design/"
 
   processing_fee = 2;
