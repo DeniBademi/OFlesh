@@ -99,12 +99,13 @@ export class CheckoutSinglePageComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.filterCountries();
       });
+      console.log(this.CartService.couponCode)
   }
 
   addFormControlSubscriptions() {
           // subscribtion to delete old data if shipping address changes
           let shippingAddressSubscription = this.form.get('shippingAddress').valueChanges.subscribe(value => {
-            this.retrievedShippingPrice = 0;
+            this.retrievedShippingPrice = -1;
             this.setShippingInOverview(null)
             this.showStripe = false;
             this.form.get('shippingMethodId').setValue(undefined)
@@ -381,12 +382,14 @@ export class CheckoutSinglePageComponent implements OnInit, OnDestroy {
   }
 
   calculateShippingPrice() {
+    console.log(this.CartService.couponCode);
     let params = {
       'countryId':this.form.get('shippingAddress.countryId').value.id,
       'currencyCode': this.translate.currentLang=="bg"?"BGN":"EUR",
       "cartJSON": JSON.stringify(this.CartService.cartItems.getValue()),
       'postalCode': this.form.get('shippingAddress.postalCode').value,
       'city': this.form.get('shippingAddress.city').value,
+      'couponCode': this.CartService.couponCode,
     }
 
     this.DataService.getDeliveryPrice(params).subscribe(value => {

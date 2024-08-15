@@ -29,7 +29,7 @@
 		"contact":"Contact"
 	},
 	"broadcast": {
-		"text": "Free shipping on all orders over 100 BGN!"
+		"text": "Free shipping on all orders with promocode ANDJELA!"
 	},
 	"catalog": {
 		"product_types_header": "Product Types",
@@ -136,7 +136,6 @@
 		"enter_email": "Email",
 		"enter_message": "Message"
 	},
-
 	"cart": {
 
 		"header": "Your cart",

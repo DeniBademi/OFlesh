@@ -110,10 +110,12 @@
         <div *ngIf="!form.get('shippingAddress.countryId').value">Please, complete the previous steps first.</div>
 
         <div *ngIf="form.get('shippingAddress.countryId').value && form.get('shippingAddress.postalCode').value && form.get('shippingAddress.city').value">
-         <div *ngIf="this.retrievedShippingPrice==0" class="btn btn-primary calc-shipping" (click)="this.calculateShippingPrice()">{{'checkout.calculate_shipping' | translate}}</div>
+         <div *ngIf="this.retrievedShippingPrice<0" class="btn btn-primary calc-shipping" (click)="this.calculateShippingPrice()">{{'checkout.calculate_shipping' | translate}}</div>
         </div>
 
-         <div *ngIf="form.get('shippingAddress.countryId').value.name != 'Bulgaria' && this.retrievedShippingPrice>0">
+        <div></div>
+
+         <div *ngIf="form.get('shippingAddress.countryId').value.name != 'Bulgaria' && this.retrievedShippingPrice>-1">
             <div class="description">{{'checkout.shipping_method.warning_international' | translate}} </div>
             <div class="description">{{'checkout.shipping_method.processing_time' | translate}} </div>
 
@@ -139,14 +141,15 @@
               </div>
             </div>
          </div>
-         <div *ngIf="this.form.get('shippingAddress.countryId').value.name == 'Bulgaria' && this.retrievedShippingPrice>0">
+         <div *ngIf="this.form.get('shippingAddress.countryId').value.name == 'Bulgaria' && this.retrievedShippingPrice>-1 || true">
           <div class="description">{{'checkout.shipping_method.processing_time' | translate}}</div>
             <div class="row shipping-option d-flex align-items-center">
                <div class="col-sm-auto">
                  <input type="radio" id="accent" formControlName="shippingMethodId" value="standard">
                </div>
                <!-- <div class="col-md-10 row"> -->
-                 <img class="rounded icon col-md-2" [attr.src]="this.Globals.productDesignImagesURLs + 'delivery-truck_fwxrxy.png'">
+                 <!-- <img class="rounded icon col-md-2" [attr.src]="this.Globals.productDesignImagesURLs + 'delivery-truck_fwxrxy.png'"> -->
+                 <svg class="rounded icon col-md-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M48 0C21.5 0 0 21.5 0 48L0 368c0 26.5 21.5 48 48 48l16 0c0 53 43 96 96 96s96-43 96-96l128 0c0 53 43 96 96 96s96-43 96-96l32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-64 0-32 0-18.7c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7L416 96l0-48c0-26.5-21.5-48-48-48L48 0zM416 160l50.7 0L544 237.3l0 18.7-128 0 0-96zM112 416a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm368-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
                  <!-- <div class="col-md-10"> -->
                   <div>{{'checkout.shipping_method.standard_delivery_header_bg' | translate }} {{ this.retrievedShippingPrice | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
                    <div class ="description">{{'checkout.shipping_method.standard_delivery_content_bg' | translate}}</div>
@@ -158,7 +161,8 @@
                  <input type="radio" id="accent" formControlName="shippingMethodId" value="priority">
                </div>
                <!-- <div class="col-md-10 row"> -->
-                 <img class="rounded icon col-md-2" [attr.src]="this.Globals.productDesignImagesURLs + 'fast_v4g5qd.png'">
+                 <!-- <img class="rounded icon col-md-2" [attr.src]="this.Globals.productDesignImagesURLs + 'fast_v4g5qd.png'"> -->
+                 <svg class="rounded icon col-md-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M112 0C85.5 0 64 21.5 64 48l0 48L16 96c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 208 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L64 160l-16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l16 0 176 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L64 224l-48 0c-8.8 0-16 7.2-16 16s7.2 16 16 16l48 0 144 0c8.8 0 16 7.2 16 16s-7.2 16-16 16L64 288l0 128c0 53 43 96 96 96s96-43 96-96l128 0c0 53 43 96 96 96s96-43 96-96l32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-64 0-32 0-18.7c0-17-6.7-33.3-18.7-45.3L512 114.7c-12-12-28.3-18.7-45.3-18.7L416 96l0-48c0-26.5-21.5-48-48-48L112 0zM544 237.3l0 18.7-128 0 0-96 50.7 0L544 237.3zM160 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96zm272 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z"/></svg>
                  <!-- <div class="col-md-10"> -->
                    <div>{{'checkout.shipping_method.priority_delivery_header_bg' | translate }} {{ this.retrievedShippingPrice + this.priorityOrderPrice | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
                    <div class = "description">{{'checkout.shipping_method.priority_delivery_content_bg' | translate}}</div>

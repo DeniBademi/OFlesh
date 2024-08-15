@@ -1,5 +1,4 @@
-<!-- <app-broadcast-line></app-broadcast-line> -->
-
+<!-- <app-broadcast-line class="sticky-top"></app-broadcast-line> -->
 <app-nav-bar class="sticky-top"></app-nav-bar>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
@@ -67,7 +66,7 @@
         border-radius: 5px;
         padding:3px;
         font-weight: 600;
-        cursor: pointer;">honeycomb.rollers@gmail.com</a>.
+        cursor: pointer;">honeycomb.rollers &#64; gmail.com</a>
     </div>
 
     <div class="btn-container">
@@ -100,7 +99,7 @@
         <button class="btn btn-light btn-block" (click)="modalService.close();">{{'modals.close' | translate}}</button>
     </div> -->
 </jw-modal>
-
+<!--
 <jw-modal id="modal-wheel-of-fortune">
     <h1 style="background-color: yellow;
     color: black;
@@ -137,7 +136,7 @@
             <button class="btn btn-light btn-block" (click)="modalService.close();">{{'modals.close' | translate}}</button>
         </div>
     </div>
-</jw-modal>
+</jw-modal> -->
 
 
 
@@ -160,8 +159,3 @@
     </div></div>
 </jw-modal>
 
-<livechat-widget
-  license="16709379"
-  visibility="minimized"
-  (onNewEvent)="handleNewEvent($event)"
-></livechat-widget>

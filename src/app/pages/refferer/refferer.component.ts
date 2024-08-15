@@ -43,10 +43,10 @@ export class ReffererComponent implements OnInit {
     if (code == null || code == '') return Promise.resolve(false);
     if (code.length < 5) return Promise.resolve(false);
 
-
-    this.DataService.validateCouponCode(this.couponCode).subscribe(
+    console.log(code);
+    this.DataService.validateCouponCode(code).subscribe(
       (data) => {
-        this.CartService.couponCode = this.couponCode;
+        this.CartService.couponCode = code;
         this.CartService.couponData = data.body;
         this.CartService.calculateTotal();
         return Promise.resolve(true);
