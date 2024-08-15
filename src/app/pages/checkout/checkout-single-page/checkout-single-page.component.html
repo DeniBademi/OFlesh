@@ -141,7 +141,7 @@
               </div>
             </div>
          </div>
-         <div *ngIf="this.form.get('shippingAddress.countryId').value.name == 'Bulgaria' && this.retrievedShippingPrice>-1 || true">
+         <div *ngIf="this.form.get('shippingAddress.countryId').value.name == 'Bulgaria' && this.retrievedShippingPrice>-1">
           <div class="description">{{'checkout.shipping_method.processing_time' | translate}}</div>
             <div class="row shipping-option d-flex align-items-center">
                <div class="col-sm-auto">
