@@ -35,7 +35,7 @@ const routes: Routes = [
   {path: ':languageCode/terms-and-conditions', component: TermsAndConditionsComponent},
   {path: ':languageCode/privacy-policy', component: PrivacyPolicyComponent},
   {path: ':languageCode/cookie-policy', component: CookiePolicyComponent},
-  {path: ':languageCode/distributors', component: FindUsComponent},
+//  {path: ':languageCode/distributors', component: FindUsComponent},
   {path: ':languageCode/ref/:id', component: ReffererComponent},
   { path: '**', component: NotFoundComponent }
 ];
