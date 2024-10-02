@@ -10,7 +10,7 @@ import { CountdownTimerComponent } from './countdown-timer/countdown-timer.compo
 })
 export class BroadcastLineComponent implements OnInit {
 
-  @ViewChild(CountdownTimerComponent) countdown:CountdownTimerComponent;
+  // @ViewChild(CountdownTimerComponent) countdown:CountdownTimerComponent;
   @ViewChild('body') body: ElementRef;
 
   text: string = "Limited-time discount:";
