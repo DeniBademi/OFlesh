@@ -24,12 +24,16 @@ export class ReffererComponent implements OnInit {
     let code = this.route.snapshot.paramMap.get('id');
 
     this.validateCouponCode(code).then((isValid) => {
+      console.log(isValid);
+
       titleService.setTitle("Oflesh - "+ code.toUpperCase())
 
-      if (!isValid)
+      if (!isValid) {
         this.router.navigate(['/'+this.translate.currentLang+"/home"])
-      else {
-        // titleService.setTitle("Oflesh - "+ code.toUpperCase())
+
+      }else {
+
+        titleService.setTitle("Oflesh - "+ code.toUpperCase())
         this.router.navigate(['/'+this.translate.currentLang+"/catalog/"+code])
       }
    });
@@ -46,13 +50,14 @@ export class ReffererComponent implements OnInit {
     console.log(code);
     this.DataService.validateCouponCode(code).subscribe(
       (data) => {
+        console.log(data);
         this.CartService.couponCode = code;
         this.CartService.couponData = data.body;
         this.CartService.calculateTotal();
         return Promise.resolve(true);
       },
       (error) => {
-       // console.log(error);
+       console.log(error);
         return Promise.resolve(false);
       }
     );
