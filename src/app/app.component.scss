@@ -66,10 +66,13 @@ body {
 .ageDisclaimerExit {
     width: 45%;
     min-width: 200px;
+    text-decoration: none;
     background-color: var(--accent-color);
     border-color: var(--accent-color);
+
     border-radius: 10px;
     height: 50px;
+    color: black;
     font-size: 1rem;
     transition: all 0.3s ease;
 
@@ -78,10 +81,13 @@ body {
 .googleRedirect {
     width: 45%;
     min-width: 200px;
+    text-decoration: none;
     background-color: darkgrey;
+
     border-radius: 10px;
     height: 50px;
     font-size: 1rem;
+    color: black;
     margin:10px;
     transition: all 0.3s ease;
 
