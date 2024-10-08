@@ -12,6 +12,7 @@
     margin: 0;
     padding: 2;
     text-align: center;
+
 }
 .hashtag {
     color: white;
@@ -24,5 +25,9 @@
 @media (max-width:700px) {
     .desktop-only {
         display: none;
+    }
+
+    .content {
+        font-size: 0.8rem;
     }
 }
