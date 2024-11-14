@@ -1,11 +1,13 @@
+
+
+
 const sectors = [
-    { color: 'red', label: '5%' },
-    { color: 'orange', label: '25%' },
-    { color: 'black', label: "SPIN \n AGAIN" },
-    { color: 'magenta', label: '30%' },
+    { color: 'magenta', label: '10%' },
     { color: 'purple', label: '20%' },
-    { color: 'blue', label: '5%' },
-    { color: 'green', label: '40%' }
+    { color: 'gold', label: "Gift" },
+    { color: 'magenta', label: '15%' },
+    { color: 'purple', label: '40%' },
+    { color: 'black', label: 'SPIN \n AGAIN' },
   ]
 
   const rand = (m, M) => Math.random() * (M - m) + m
@@ -60,6 +62,9 @@ const sectors = [
     spinEl.textContent = (!angVel && spinnable) ? 'SPIN' : sector.label
     spinEl.style.background = sector.color
   }
+  function setRandomProb(prob) {
+    angVel=prob
+  }
 
   function frame() {
     if (!angVel) return
@@ -93,10 +98,32 @@ const sectors = [
     engine() // Start engine
     spinEl.addEventListener('click', () => {
 
+
+      let randNum = rand(0, 1)
+
+      console.log(angVel)
+
       if (!angVel && spinnable) {
-        //win 0.46
-        //spin again 0.
-        angVel = rand(0,1) > 0.25 ? 0.46 : 0.496
+
+        if(randNum < 0.30){
+            angVel = 0.51 // 10%
+        }
+        else if(randNum < 0.40){
+            angVel = 0.48 // 15%
+        }
+        else if(randNum < 0.45){
+            angVel = 0.50 // 20%
+        }
+        else if(randNum < 0.46){
+            angVel = 0.47 // 40%
+        }
+        else if(randNum < 0.66){
+            angVel = 0.49 // gift
+        }
+        else {
+            angVel = 0.51 // spin again 46
+        }
+
         ang = 0 // Angle in radians
       }
     })

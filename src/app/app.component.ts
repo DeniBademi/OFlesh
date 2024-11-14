@@ -14,6 +14,7 @@ import { EventHandlerPayload } from '@livechat/widget-angular'
 import { NgcCookieConsentService } from 'ngx-cookieconsent';
 
 declare let gtag: Function;
+// import setRandomProb from '../assets/js/wheel.js';
 
 @Component({
   selector: 'app-root',
@@ -41,11 +42,12 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit(): void {
-
+    // setRandomProb(99)
   }
 
   ngAfterViewInit() {
     this.modalService.open('age_verification')
+
     AOS.init();
   }
   handleRouteEvents() {

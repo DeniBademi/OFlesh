@@ -22,10 +22,10 @@
                             </div>
                             <div class="product-price">
                                 <h2 class="offer-price">
-                                    <span class="old-price strike-center">
+                                    <!-- <span class="old-price strike-center">
                                         {{product.price+30 | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}
                                     </span>
-                                    <br>
+                                    <br> -->
                                     <span>
                                         {{product.price | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}
                                     </span>
@@ -186,7 +186,7 @@
             </div>
             <div class="col-sm-4"></div>
         </div>
-        <div class="row justify-content-between mx-0 px-0 stats-container">
+        <div class="row justify-content-between mx-0 px-0 stats-container" *ngIf="product.name.includes('Andjela')">
             <div class="col-sm-7 px-0">
                 <img src="https://firebasestorage.googleapis.com/v0/b/oflesh.appspot.com/o/design%2FAndjelaLazi.png?alt=media&token=0e3227c8-1bd7-449d-b346-fd4fdce4523f" alt="Andjela Tasheva" class="model-image">
             </div>

@@ -5,7 +5,7 @@
         <!-- Breadcrumbs -->
         <div class="container d-flex my-4">
                 <div *ngFor="let route of this.breadCrumbs; index as i">
-                <span><a class="route-breadcrumb" [routerLink]="['/'+this.translate.currentLang+'/'+route.url]">{{route.name}}</a></span>
+                <span><a class="route-breadcrumb" [routerLink]="['/'+this.translate.currentLang+'/'+route.url]">{{route.name.replace("_", " ")}}</a></span>
                 <span *ngIf="this.breadCrumbs.length>i+1"> > </span>
          </div>
         </div>
@@ -20,7 +20,7 @@
             class="category-btn col"
             role="button"
             (click)="onCategoryClick(category)"
-            [class.activeCategory] = "category.checked">{{category.name}}</button>
+            [class.activeCategory] = "category.checked">{{category.name.replace("_", " ")}}</button>
         </div>
         <br>
         <br>

@@ -69,6 +69,36 @@ export class ProductCatalogComponent implements OnInit {
               }
 
             ]
+          },
+          {
+            "id": 6,
+            "name": "BDSM",
+            "description": "",
+            "descriptionBG": "",
+            "checked": false,
+            "count": 0,
+            "behavior": "category",
+            "children": []
+          },
+          {
+            "id": 7,
+            "name": "For_him",
+            "description": "",
+            "descriptionBG": "",
+            "checked": false,
+            "count": 0,
+            "behavior": "category",
+            "children": []
+          },
+          {
+            "id": 8,
+            "name": "For_her",
+            "description": "",
+            "descriptionBG": "",
+            "checked": false,
+            "count": 0,
+            "behavior": "category",
+            "children": []
           }
         ]
   }
@@ -133,6 +163,7 @@ export class ProductCatalogComponent implements OnInit {
     // find the current category from the route
     this.categories = [];
     this.currentCategory = this.bfs(this.categoryTree, this.currentRoute)
+    console.log(this.currentCategory)
     for(let i=0;i<this.currentCategory.children.length;i++) {
       this.categories.push(new MenuOption(this.currentCategory.children[i].id,
         this.currentCategory.children[i].name,

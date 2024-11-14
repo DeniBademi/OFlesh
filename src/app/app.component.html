@@ -159,3 +159,41 @@
     </div></div>
 </jw-modal>
 
+
+<jw-modal id="modal-wheel-of-fortune">
+    <h1 style="background-color: yellow;
+    color: black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 20px;">{{'modals.special_offer' | translate}}</h1>
+
+    <div style="padding: 20px; line-height: 30px; display: flex; align-items: center; justify-content: center;">
+        <app-wheel-of-fortune></app-wheel-of-fortune>
+    </div>
+
+    <div id="result-wheel" (click)="this.startTimer()">
+
+        <div style="padding: 20px; line-height: 30px;">
+            {{'modals.win_message_1' | translate}} <a
+            (click)="redirectToFindUs()"
+            style="text-decoration:none;
+            color: yellow;
+            border-radius: 5px;
+            font-weight: 600;">40%</a>!
+            <a (click)="redirectToCatalog()"
+            style="text-decoration:none;
+            color: black;
+            background-color: yellow;
+            border-radius: 5px;
+            padding:3px;
+            font-weight: 600;
+            cursor: pointer;">
+            {{'modals.shop_now' | translate}}
+            </a>
+            {{'modals.win_message_2' | translate}}
+        </div>
+        <div class="btn-container">
+            <button class="btn btn-light btn-block" (click)="modalService.close();">{{'modals.close' | translate}}</button>
+        </div>
+    </div>
+</jw-modal>
