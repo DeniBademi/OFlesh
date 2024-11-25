@@ -201,7 +201,7 @@ export class DataService {
 
   validateCouponCode(code: string) {
     return this.http.get(this.GlobalsService.baseURL+'coupon/validate',
-    {params: new HttpParams().set("Code", code),
+    {params: new HttpParams().set("Code", code.toLowerCase()),
       observe: "response"})
   }
 

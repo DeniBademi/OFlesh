@@ -21,10 +21,9 @@ export class ReffererComponent implements OnInit {
     private CartService: CartService,
     private DataService: DataService) {
 
-    let code = this.route.snapshot.paramMap.get('id');
+    let code = this.route.snapshot.paramMap.get('id').toUpperCase();
 
     this.validateCouponCode(code).then((isValid) => {
-      console.log(isValid);
 
       titleService.setTitle("Oflesh - "+ code.toUpperCase())
 
@@ -47,7 +46,7 @@ export class ReffererComponent implements OnInit {
     if (code == null || code == '') return Promise.resolve(false);
     if (code.length < 5) return Promise.resolve(false);
 
-    console.log(code);
+    code = code.toUpperCase();
     this.DataService.validateCouponCode(code).subscribe(
       (data) => {
         console.log(data);
