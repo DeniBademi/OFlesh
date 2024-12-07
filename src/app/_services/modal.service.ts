@@ -5,6 +5,7 @@ import { ModalComponent } from '../shared/modal/modal.component';
 @Injectable({ providedIn: 'root' })
 export class ModalService {
     private modals: ModalComponent[] = [];
+    private modalActive: boolean = false;
 
     add(modal: ModalComponent) {
         // ensure component has a unique id attribute
@@ -29,6 +30,7 @@ export class ModalService {
             throw new Error(`modal '${id}' not found`);
         }
 
+        this.modalActive = true;
         modal.open();
     }
 
@@ -36,5 +38,6 @@ export class ModalService {
         // close the modal that is currently open
         const modal = this.modals.find(x => x.isOpen);
         modal?.close();
+        this.modalActive = false;
     }
 }

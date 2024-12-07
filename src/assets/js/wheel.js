@@ -1,5 +1,5 @@
 
-
+let onWheelResult; // Declare a global callback
 
 const sectors = [
     { color: 'magenta', label: '10%' },
@@ -72,6 +72,7 @@ const sectors = [
     if (angVel < 0.002) {
         angVel = 0 // Bring to stop
 
+
         // remove display none from result-wheel
 
         if(spinEl.textContent != "SPIN \n AGAIN"){
@@ -99,9 +100,7 @@ const sectors = [
     spinEl.addEventListener('click', () => {
 
 
-      let randNum = rand(0, 1)
-
-      console.log(angVel)
+      let randNum = rand(0,1); // You can replace this with the actual logic used for randNum
 
       if (!angVel && spinnable) {
 
@@ -121,7 +120,12 @@ const sectors = [
             angVel = 0.49 // gift
         }
         else {
-            angVel = 0.51 // spin again 46
+            angVel = 0.52 // spin again 46
+        }
+
+        // Call the callback with the result when spin ends
+        if (typeof onWheelResult === 'function') {
+          onWheelResult(randNum);
         }
 
         ang = 0 // Angle in radians

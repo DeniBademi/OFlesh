@@ -16,6 +16,7 @@ export class CartService {
   cartItems: BehaviorSubject<{ product: any, quantity: number }[]> = new BehaviorSubject<{ product: any, quantity: number }[]>([]);
   cartItemsCount: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   couponCode: string;
+  couponCodeChange: BehaviorSubject<string> = new BehaviorSubject<string>('');
   couponData: any;
 
 
@@ -132,6 +133,8 @@ ngOnInit() {
 
     return total
    }
+
+
 
 }
 

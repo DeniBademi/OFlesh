@@ -6,7 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ModalService } from './_services/modal.service';
 import { CartService } from './_services/cart.service';
 import { GlobalsService } from './_services/globals.service';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { BroadcastLineComponent } from './broadcast-line/broadcast-line.component';
 import AOS from "aos";
 import { EventHandlerPayload } from '@livechat/widget-angular'
@@ -24,6 +24,8 @@ declare let gtag: Function;
 })
 export class AppComponent implements OnInit {
   title = 'client';
+
+  wheelResult: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
   @ViewChild(BroadcastLineComponent) broadcastLine:BroadcastLineComponent;
 
@@ -46,7 +48,13 @@ export class AppComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+    // this.modalService.open('modal-wheel-of-fortune')
     this.modalService.open('age_verification')
+
+    if (localStorage.getItem('usedWheel') == null) {
+      this.modalService.open('modal-wheel-of-fortune')
+
+    }
 
     AOS.init();
   }
@@ -86,13 +94,35 @@ export class AppComponent implements OnInit {
   }
 
   startTimer() {
-    //console.log("start timer");
-    this.broadcastLine.startTimer();
 
   }
 
   handleNewEvent(event: EventHandlerPayload<'onNewEvent'>) {
     //console.log('LiveChatWidget.onNewEvent', event)
+  }
+
+  onWheelResult(result) {
+    // Save the result or perform any action
+
+    this.wheelResult.next(result);
+    localStorage.setItem('usedWheel', 'true');
+    // console.log(this.wheelResult.value);
+
+    // this.cartService.rewardGuids$.next(this.cartService.rewardGuids[this.reward]);
+  }
+
+  copyCode(){
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = this.wheelResult.value;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
   }
 
 

@@ -259,8 +259,11 @@
 		"find_us_text": "Want to see first? Visit our distributor stores in Sofia, Bulgaria",
 		"here": "here",
 		"special_offer": "Special offer",
-		"win_message_1": "You have won a limited-time discount of",
-		"win_message_2": "before the timer runs out!",
+		"win_message_discount": "You have won a special discount!",
+		"win_message_gift": "You have won a gift! You will receive a free lubricant with your next order!",
+		"win_message_1": "Use the code",
+		"win_message_2": "to claim it!",
+		"clipboard": "Copy to clipboard",
 		"shop_now": "Shop now"
 	}
 

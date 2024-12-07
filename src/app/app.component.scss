@@ -18,6 +18,12 @@ body {
     background-color: #fafafa;
 }
 
+
+* {
+    font-size: 1rem;
+    font-family: 'Rockwell', sans-serif;
+  }
+
 .view-cart-btn, .view-cart-btn:hover, .view-cart-btn:active, .view-cart-btn:visited {
     background-color: var(--accent-color) !important;
     border-color: var(--accent-color) !important;
@@ -102,6 +108,7 @@ body {
     font-weight: 600;
     margin: 10px;
     text-align: center;
+    font-family: 'Rockwell', sans-serif !important;
 }
 
 .ageDisclaimerExit:hover {

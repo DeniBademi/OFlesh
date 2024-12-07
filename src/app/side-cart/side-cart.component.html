@@ -53,7 +53,7 @@
                              <div class="f70">
                                 <div class="input input--small">
                                    <label for="couponcode" class="input__label">{{'cart.code' | translate}}<span class="optional">({{'cart.optional' | translate}})</span></label>
-                                   <input id="couponcode" type="text" class="input__input" data-mask=".{5,}"  [(ngModel)]="couponCode" value="this.CartService.couponCode"/>
+                                   <input id="couponcode" type="text" class="input__input" data-mask=".{5,}"  [(ngModel)]="couponCode" value="this.CartService.couponCodeChange | async" />
                                    <div class="input__error">{{'cart.please_enter_valid_code' | translate}}</div>
                                 </div>
                              </div>

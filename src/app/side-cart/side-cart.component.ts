@@ -31,10 +31,11 @@ export class SideCartComponent implements OnInit {
 
 
   validateCouponCode() {
+
     this.couponCode = this.couponCode.toUpperCase();
     if(this.couponCode == null || this.couponCode == '') return;
     if(this.couponCode.length < 5) return;
-    if(this.CartService.cartItemsCount.value == 0) return;
+    // if(this.CartService.cartItemsCount.value == 0) return;
 
     //(this.couponCode);
     this.DataService.validateCouponCode(this.couponCode).subscribe(
