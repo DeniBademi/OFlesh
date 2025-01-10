@@ -7,7 +7,7 @@ import { Product } from '../_models/Product';
 export class GlobalsService {
 
   // baseURL = "https://localhost:5001/"
-  baseURL = "http://api.oflesh.aspbg.com/"
+  baseURL = "https://api.breezepms.com/"
   // clientBaseURL = "http://213.124.166.84:4200/"
 
   productPhotosMediaURLs = "https://firebasestorage.googleapis.com/v0/b/oflesh.appspot.com/o/product%20photos%2F"
